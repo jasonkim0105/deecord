@@ -8,9 +8,14 @@
     "lib": "lib",
     "test": "test"
   },
+  "engines": {
+    "node": "14.17.5",
+    "npm": "7.21.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --mode=development --watch"
+    "webpack": "webpack --mode=development --watch",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",

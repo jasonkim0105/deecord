@@ -5,7 +5,7 @@ import { Route } from "react-router";
 const App = () => (
   <div>
     <header>
-      <h1>Hi truclinh tieu</h1>
+      <h1>My super awesome app is on it's way</h1>
     </header>
 
   </div>

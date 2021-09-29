@@ -4,7 +4,6 @@ import { logout } from '../../actions/session_actions';
 import Channel from "./channel"
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     currentUser: state.entities.users[state.session.id]
   }

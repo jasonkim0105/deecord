@@ -29,7 +29,6 @@ class SessionForm extends React.Component {
         password: "password",
         email: "demo@gmail.com",
       }
-      console.log(demoUser)
       this.props.processForm(demoUser);
   }
 

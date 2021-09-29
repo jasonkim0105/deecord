@@ -11,7 +11,6 @@ class Channel extends React.Component {
 
   render(){
     let { currentUser, logout } = this.props;
-    console.log(currentUser + 'hi')
     let auth = (currentUser) ?
       <div>
         <p>{currentUser.username}</p>

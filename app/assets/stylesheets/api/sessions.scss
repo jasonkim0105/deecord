@@ -1,3 +1,183 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.session-form-background {
+  // height: 100%;
+  background-image: image-url("deecordlogin.jpeg");
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+//LOGIN
+.login-container {
+  background-color: rgb(50, 52, 56);
+  box-shadow: 0 0 10px rgb(31, 30, 30);
+  border-radius: 5px;
+  color:rgb(148, 147, 147);
+  width: 750px;
+  height: 400px;
+  margin-top: 125px;
+  padding: 10px;
+  position: relative;
+  left: 50%;
+  margin-left: -370px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  box-sizing: border-box;
+}
+
+.welcome {
+  color:rgb(219, 217, 217);
+  font-size: 25px;
+  padding-bottom: 20px;
+  padding-right: 250px;
+  padding-top: -2500px;
+}
+
+.excited {
+  font-size: 15px;
+  // padding-bottom: 20px;
+  padding-right: 200px;
+  // padding-top: -2500px;
+}
+
+.login-form-box {
+  border-radius: 5px;
+  // padding-top: 30px;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  padding-top: 20px;
+  font-size: 15px;
+  font-weight: 150;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.login-form label > input {
+  width: 390px;
+  height: 18px;
+  padding: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border: 1px solid rgb(34, 37, 41);
+  border-radius: 3px;
+  margin-top: 5px;
+  background-color: rgb(58, 60, 65);
+  color: rgb(131, 127, 127);
+}
+
+.session-submit {
+  width: 412px;
+  height: 40px;
+  // padding: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border: 1px solid rgb(34, 37, 41);
+  border-radius: 3px;
+  // margin-top: 5px;
+  background-color: #5865F2;
+  color: rgb(233, 230, 230);
+}
+
+.session-submit:hover {
+  background-color: #4751c0
+}
+
+.need-account {
+  font-size: 15px;
+  // padding-bottom: 20px;
+  padding-right: 250px;
+  padding-top: 20px;
+}
+
+.register {
+  color: rgb(50, 126, 189)
+}
+
+.demo-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  grid-column: 2;
+}
+
+.demo-button {
+  width: 176px;
+  height: 176px;
+  font-size: 24px;
+  background-color: rgb(58, 60, 65);
+  color: rgb(233, 230, 230);
+  // padding-bottom: 20px;
+  border-style: groove;
+  box-shadow: 0 0 10px rgb(31, 30, 30);
+}
+
+.demo-button:hover {
+  background-color: rgb(50, 52, 56)
+}
+
+.demo-info {
+  font-size: 25px;
+  padding-top: 20px;
+  color: rgb(219, 217, 217);
+}
+
+//SIGNUP
+
+.signup-container {
+  background-color: rgb(50, 52, 56);
+  box-shadow: 0 0 10px rgb(31, 30, 30);
+  border-radius: 5px;
+  color:rgb(148, 147, 147);
+  width: 480px;
+  height: 562px;
+  margin-top: 125px;
+  padding: 10px;
+  position: relative;
+  left: 50%;
+  margin-left: -250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  // grid-template-columns: 60% 40%;
+  // box-sizing: border-box;
+}
+
+.create {
+  color:rgb(219, 217, 217);
+  font-size: 25px;
+  padding-bottom: 20px;
+  // padding-right: 250px;
+  padding-top: -2500px;
+}
+
+.email-signup {
+
+}
+
+.signup-form label > input {
+  width: 390px;
+  height: 18px;
+  padding: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border: 1px solid rgb(34, 37, 41);
+  border-radius: 3px;
+  margin-top: 5px;
+  background-color: rgb(58, 60, 65);
+  color: rgb(131, 127, 127);
+}

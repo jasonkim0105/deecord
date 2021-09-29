@@ -7,24 +7,19 @@ const Splash = ({currentUser, logout}) => {
   // const loggedIn = () => <Link to="/channels">Open deecord</Link>;
 
   // return sessionLinks
-  let buttons = null;
-  // if (currentUser) {
-  //   buttons = (
-  //     <div>
-  //       <p>{currentUser.username}</p>
-  //       <button onClick={() => logout()}>Log Out</button>
-  //     </div>
-  //   )
-  // }
 
   return (
-    <div>
-      <h1>Deecord</h1>
-      <Link to="/login">Login</Link>
-      {/* &nbsp;or&nbsp; */}
-      {/* <Link to="/signup">Sign up!</Link> */}
+    <div className="splash">
+      <div className="splash-div-1">
+        <nav>
+          <div className="deecord-title">
+            <h1>Deecord</h1>
+            {/* <img src={window.blueLogoURL} /> */}
+          </div>
+            <Link to="/login">Login</Link>
+        </nav>
+      </div>
     </div>
-    // {buttons}
   )
 }
 export default Splash;

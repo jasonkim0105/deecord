@@ -1,15 +1,10 @@
 import React from 'react';
-
 import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            username: '',
-            password: '',
-            email: '',
-        };
+        this.state = this.props.user;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoSubmit = this.demoSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
@@ -21,17 +16,21 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
+        console.log(user)
+
         this.props.processForm(user);
     }
 
     demoSubmit(e){
+      // console.log(this.props);
       e.preventDefault;
-      this.props.processForm({
+      const demoUser = {
         username: "DemoUser",
         password: "password",
         email: "demo@gmail.com",
-      })
-      .then(() => this.props.history.push('/'));
+      }
+      console.log(demoUser)
+      this.props.processForm(demoUser);
   }
 
     update(field) {
@@ -61,7 +60,7 @@ class SessionForm extends React.Component {
     }
 
     render(){
-      console.log(this.props)
+      // console.log(this.props)
       if (this.props.formType === 'Login') {
         return (
           <div className="session-form-background">

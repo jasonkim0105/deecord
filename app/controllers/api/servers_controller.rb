@@ -18,7 +18,7 @@ class Api::ServersController < ApplicationController
   end
 
   def show
-    @server = Server.find_by(server_params)
+    @server = Server.find(params[:id])
     render 'api/servers/show'
   end
 
@@ -26,12 +26,15 @@ class Api::ServersController < ApplicationController
     @server = Server.find_by(id: params[:id])
     if @server.update(server_params)
       render 'api/servers/show'
+    else
+      render json: @server.errors.full_messages, status: 422
     end
   end
 
   def destroy
     @server = Server.find_by(id: params[:id])
     @server.destroy
+    render 'api/servers/show'
   end
 
   private

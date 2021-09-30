@@ -13,8 +13,7 @@ const Splash = ({currentUser, logout}) => {
       <div className="splash-div-1">
         <nav>
           <div className="deecord-title">
-            <h1>Deecord</h1>
-            {/* <img src={window.blueLogoURL} /> */}
+            <Link to='/'>Deecord</Link>
           </div>
             <Link to="/login">Login</Link>
         </nav>

@@ -1,34 +1,34 @@
-class Api::ServersController < ApplicationController
+# class Api::ServersController < ApplicationController
 
-  before_action :require_logged_in
+#   before_action :require_logged_in
 
-  def create
-    @server = Server.new(server_params)
-    if @server.save
-      render :show
-    else
-      render json: @server.errors.full_messages, status: 422
-    end
-  end
+#   def create
+#     @server = Server.new(server_params)
+#     if @server.save
+#       render :show
+#     else
+#       render json: @server.errors.full_messages, status: 422
+#     end
+#   end
 
-  def index
-    @servers = current_user.
-  end
+#   def index
+#     @servers = current_user.
+#   end
 
-  def show
-  end
+#   def show
+#   end
 
-  def update
+#   def update
 
-  end
+#   end
 
-  def destroy
-  end
+#   def destroy
+#   end
 
-  private
+#   private
 
-  def server_params
-    params.require(:server).permit(:server_name, :host_id)
-  end
+#   def server_params
+#     params.require(:server).permit(:server_name, :host_id)
+#   end
 
-end
+# end

@@ -12,7 +12,7 @@ const App = () => (
     {/* <SplashContainer/> */}
 
     <Switch>
-      <Route exact path="/" component={SplashContainer}/>
+      <AuthRoute exact path="/" component={SplashContainer}/>
       <ProtectedRoute path="/channels" component={ChannelContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />

@@ -34,3 +34,19 @@ export const deleteServer = (serverId) => {
     method: "DELETE"
   })
 }
+
+export const joinServer = (serverUser) => {
+  return $.ajax({
+    url:'api/server_users',
+    method: "POST",
+    data: { serverUser }
+  })
+}
+
+export const leaveServer = (serverUser) => {
+  return $.ajax({
+    url: 'api/server/users',
+    method: "DELETE",
+    data: { serverUser }
+  })
+}

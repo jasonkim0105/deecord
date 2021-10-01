@@ -63,8 +63,20 @@ export const updateServer = server => dispatch => {
   (error) => dispatch(receiveServerErrors(error)))
 }
 
-export const deleteServer = (serverId) => {
+export const deleteServer = (serverId) => dispatch => {
   ServerAPIUtil.deleteServer(serverId)
   .then((server) => dispatch(removeServer(server.id)),
+  (error) => dispatch(receiveServerErrors(error)))
+}
+
+export const joinServer = (serverUser) => dispatch => {
+  ServerAPIUtil.joinServer(serverUser)
+  .then((server) => dispatch(receiveServer(server)),
+  (error) => dispatch(receiveServerErrors(error)))
+}
+
+export const leaveServer = (serverUser) => dispatch => {
+  ServerAPIUtil.leaveServer(serverUser)
+  .then((serverId) => dispatch(receiveServer(serverId)),
   (error) => dispatch(receiveServerErrors(error)))
 }

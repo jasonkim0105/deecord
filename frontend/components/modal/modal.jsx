@@ -1,6 +1,8 @@
 import React from 'react';
 import {Route} from 'react-router';
-import {CreateServerContainer} from '../servers/create_server_container';
+import CreateServerContainer from '../servers/create_server_container';
+import AddServerContainer from '../servers/add_server_container';
+import JoinServerContainer from '../servers/join_server_container';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -10,17 +12,27 @@ class Modal extends React.Component {
   render() {
     let {modal, closeModal} = this.props;
     let component;
+    console.log(this.props)
     switch(modal) {
+      case 'addServer':
+        component = <AddServerContainer />
+        break;
       case 'createServer':
-        component = <CreateServerContainer closeModal={closeModal}/>
+        component = <CreateServerContainer/>
+        break;
+      case 'joinServer':
+        component = <JoinServerContainer />
+        break;
       default:
         return null;
     }
 
     return (
-      <div id="modal">
-        {component}
-      </div>
+      <div className='modal-background' onClick={closeModal}>
+        <div className='modal-child' onClick={e => e.stopPropagation()}>
+          {component}
+        </div>
+    </div>
     )
   }
 }

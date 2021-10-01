@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateServerContainer from '../servers/create_server_container';
-
+import ServerIndexContainer from '../servers/server_index_container';
 class Deecord extends React.Component {
   // constructor(props){
   //   super(props);
@@ -21,7 +21,8 @@ class Deecord extends React.Component {
       <div>hel</div>
     return (
       <div>Channels
-        <CreateServerContainer/>
+        {/* <CreateServerContainer/> */}
+        <ServerIndexContainer/>
         {auth}
 
       </div>

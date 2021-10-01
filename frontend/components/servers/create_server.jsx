@@ -13,14 +13,14 @@ class CreateServer extends React.Component {
   }
 
   update(field){
-    return e => this.setState({ [type]: e.currentTarget.value })
+    return e => this.setState({ [field]: e.currentTarget.value })
   }
 
   render() {
     return (
       <div>
         CREATE A SERVER
-        <form className="create-server" onSubmit={this.handleSubmit}>
+        <form className="create-server-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.name} onChange={this.update('name')} />
           <button className="create-server-button">Create</button>
         </form>

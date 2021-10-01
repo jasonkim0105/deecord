@@ -6,7 +6,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import DeecordContainer from './deecord/deecord_container';
 import ErrorPage from './error/error'
-import ModalContainer from './modal/modal';
+import ModalContainer from './modal/modal_container';
 import CreateServerContainer from './servers/create_server_container'
 
 const App = () => (

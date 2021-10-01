@@ -3,6 +3,8 @@ import * as ServerAPIUtil from '../util/server_api_util';
 export const RECEIVE_SERVER = "RECEIVE_SERVER";
 export const RECEIVE_SERVERS = "RECEIVE_SERVERS";
 export const REMOVE_SERVER = "REMOVE_SERVER";
+export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
+export const CLEAR_SERVER_ERRORS = "CLEAR_SERVER_ERRORS";
 
 const receiveServer = server => {
   return {
@@ -25,27 +27,44 @@ const removeServer = serverId => {
   }
 }
 
+const receiveServerErrors = errors => {
+  return {
+    type: RECEIVE_SERVER_ERRORS,
+    errors
+  }
+}
+
+const clearServerErrors = () => {
+  return {
+    type: CLEAR_SERVER_ERRORS,
+  }
+}
+
 export const fetchServers = () => dispatch => {
   ServerAPIUtil.fetchServers()
-  .then( (servers) => dispatch(receiveServers(servers)))
+  .then( (servers) => dispatch(receiveServers(servers)),
+  (error) => dispatch(receiveServerErrors(error)))
 }
 
 export const fetchServer = (serverId) => dispatch => {
   ServerAPIUtil.fetchServer(serverId)
-  .then((serverId) => dispatch(receiveServer(serverId)))
+  .then((serverId) => dispatch(receiveServer(serverId)),
+  (error) => dispatch(receiveServerErrors(error)))
 }
 
 export const createServer = (server) => dispatch => {
   ServerAPIUtil.createServer(server)
-  .then((server) => dispatch(receiveServer(server)))
+  .then((server) => dispatch(receiveServer(server)),(error) => dispatch(receiveServerErrors(error)))
 }
 
 export const updateServer = server => dispatch => {
   ServerAPIUtil.updateServer(server)
-  .then((server) => dispatch(receiveServer(server)))
+  .then((server) => dispatch(receiveServer(server)),
+  (error) => dispatch(receiveServerErrors(error)))
 }
 
 export const deleteServer = (serverId) => {
   ServerAPIUtil.deleteServer(serverId)
-  .then((server) => dispatch(removeServer(server.id)))
+  .then((server) => dispatch(removeServer(server.id)),
+  (error) => dispatch(receiveServerErrors(error)))
 }

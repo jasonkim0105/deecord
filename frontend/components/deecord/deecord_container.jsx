@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { logout } from '../../actions/session_actions';
-import Channel from "./channel"
+import Deecord from "./deecord"
 
 const mapStateToProps = (state) => {
   return {
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Channel)
+export default connect(mapStateToProps, mapDispatchToProps)(Deecord)

@@ -1,6 +1,7 @@
 import React from 'react';
+import CreateServerContainer from '../servers/create_server_container';
 
-class Channel extends React.Component {
+class Deecord extends React.Component {
   // constructor(props){
   //   super(props);
   //   this.handleLogout = this.handleLogout.bind(this);
@@ -20,6 +21,7 @@ class Channel extends React.Component {
       <div>hel</div>
     return (
       <div>Channels
+        <CreateServerContainer/>
         {auth}
 
       </div>
@@ -27,4 +29,4 @@ class Channel extends React.Component {
   }
 }
 
-export default Channel
+export default Deecord

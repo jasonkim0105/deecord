@@ -15,15 +15,15 @@ const receiveServer = server => {
 
 const receiveServers = servers => {
   return {
-    type: RECEIVE_SERVERs,
+    type: RECEIVE_SERVERS,
     servers
   }
 }
 
-const removeServer = serverId => {
+const removeServer = server => {
   return {
     type: RECEIVE_SERVER,
-    serverId
+    server
   }
 }
 
@@ -48,7 +48,7 @@ export const fetchServers = () => dispatch => {
 
 export const fetchServer = (serverId) => dispatch => {
   ServerAPIUtil.fetchServer(serverId)
-  .then((serverId) => dispatch(receiveServer(serverId)),
+  .then((server) => dispatch(receiveServer(server)),
   (error) => dispatch(receiveServerErrors(error)))
 }
 
@@ -69,14 +69,14 @@ export const deleteServer = (serverId) => dispatch => {
   (error) => dispatch(receiveServerErrors(error)))
 }
 
-export const joinServer = (serverUser) => dispatch => {
-  ServerAPIUtil.joinServer(serverUser)
+export const joinServer = (inviteCode) => dispatch => {
+  ServerAPIUtil.joinServer(inviteCode)
   .then((server) => dispatch(receiveServer(server)),
   (error) => dispatch(receiveServerErrors(error)))
 }
 
-export const leaveServer = (serverUser) => dispatch => {
-  ServerAPIUtil.leaveServer(serverUser)
-  .then((serverId) => dispatch(receiveServer(serverId)),
+export const leaveServer = (serverId) => dispatch => {
+  ServerAPIUtil.leaveServer(serverId)
+  .then((server) => dispatch(receiveServer(server)),
   (error) => dispatch(receiveServerErrors(error)))
 }

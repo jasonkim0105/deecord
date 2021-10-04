@@ -8,9 +8,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  openModal: dispatch(openModal('addServer')),
   closeModal: () => dispatch(closeModal()),
-  joinServer: (serverId) => dispatch(joinServer(serverId))
+  joinServer: (serverId) => dispatch(joinServer(serverId)),
+  openModal: () => dispatch(openModal('joinServer'))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(JoinServer);

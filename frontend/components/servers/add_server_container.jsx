@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  openModal: modal => dispatch(openModal(modal))
+  openModal: serverSetting => dispatch(openModal(serverSetting))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddServer);

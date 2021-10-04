@@ -4,7 +4,6 @@ import ErrorsReducer from './errors_reducer';
 
 const uiReducer = combineReducers({
   modal: ModalReducer,
-  errors: ErrorsReducer,
 });
 
 export default uiReducer;

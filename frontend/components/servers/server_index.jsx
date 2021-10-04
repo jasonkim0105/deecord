@@ -7,10 +7,11 @@ class ServerIndex extends React.Component {
   }
 
   render() {
+    const { openModal, fetchServers } = this.props
     const {servers} = this.props;
     return (
       <div className="add-server">
-        <button onClick={this.props.openModal}>+</button>
+        <button onClick={openModal}>+</button>
 
       </div>
     )

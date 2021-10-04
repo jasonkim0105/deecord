@@ -26,18 +26,18 @@ class ServerIndex extends React.Component {
     return (
 
 
-      <div className="add-server">
-        <div className="server-home-button">
+      <ul className="add-server">
+        <li className="server-home-button">
           <Link to="/channels/@me">
             HOME
           </Link>
-        </div>
+        </li>
         <div className="server-list-on-index">
           {ServerLists}
+        <button className="add-server-button-server-list" onClick={openModal}>+</button>
         </div>
-        <button onClick={openModal}>+</button>
 
-      </div>
+      </ul>
     )
   }
 }

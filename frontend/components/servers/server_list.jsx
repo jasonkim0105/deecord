@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const ServerList = ( {server }) => {
   let serverName;
@@ -14,11 +14,12 @@ const ServerList = ( {server }) => {
 
   return(
     <li className='servers-list-short-name'>
-      <Link
+      <NavLink
         to={`/servers/${server.id}`}
         className='servers-nav-link'>
         {server.name[0]}
-      </Link>
+      </NavLink>
+
       <div className='servers-list-names'>{serverName}</div>
     </li>
   );

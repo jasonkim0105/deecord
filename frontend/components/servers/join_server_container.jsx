@@ -5,11 +5,12 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
   errors: state.errors.server,
+  inviteCode: '',
 })
 
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
-  joinServer: (serverId) => dispatch(joinServer(serverId)),
+  joinServer: (inviteCode) => dispatch(joinServer(inviteCode)),
   openModal: () => dispatch(openModal('joinServer'))
 })
 

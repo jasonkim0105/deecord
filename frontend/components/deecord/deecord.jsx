@@ -20,9 +20,10 @@ class Deecord extends React.Component {
       :
       <div>hel</div>
     return (
-      <div>Channels
-        {/* <CreateServerContainer/> */}
-        <ServerIndexContainer/>
+      <div className="deecord-container">
+        <div className="servers-index">
+          <ServerIndexContainer/>
+        </div>
         {auth}
 
       </div>

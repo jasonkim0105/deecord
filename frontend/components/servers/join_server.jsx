@@ -3,12 +3,12 @@ import React from 'react';
 class JoinServer extends React.Component {
   constructor(props){
     super(props);
-    this.state = {name: ''};
+    this.state = {inviteCode: this.props.inviteCode};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.joinServer(this.state);
+    this.props.joinServer(this.state.inviteCode);
   }
 
   update(field){
@@ -20,7 +20,7 @@ class JoinServer extends React.Component {
       <div>
         JOIN A SERVER
         <form className="join-server-form" onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.name} onChange={this.update('name')}/>
+          <input type="text" value={this.state.inviteCode} onChange={this.update('inviteCode')}/>
           <button className="join-server-button">Join</button>
         </form>
       </div>

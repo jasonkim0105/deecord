@@ -1,3 +1,49 @@
 // Place all the styles related to the api/servers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.servers-index {
+  background: #202225;
+}
+
+.add-server-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 450px;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.add-server-button-container {
+  display: flex;
+}
+
+.create-server-container {
+  box-sizing: border-box;
+  width: 220px;
+  height: 290px;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  margin-top: 30px;
+}
+
+.create-server-title {
+  color: #7289DA;
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 28px;
+  margin-bottom: 17px;
+  align-items: center;
+  display: flex;
+}
+
+.join-server-container {
+  box-sizing: border-box;
+  width: 220px;
+  height: 100px;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}

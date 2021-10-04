@@ -45,7 +45,7 @@ class Api::ServersController < ApplicationController
 
     if @server && !current_user.servers.include?(@server)
       current_user.servers << @server
-      render 'api/servers/show'
+      render :show
     end
   end
 
@@ -63,7 +63,7 @@ class Api::ServersController < ApplicationController
   private
 
   def server_params
-    params.require(:server).permit(:name, :owner_id)
+    params.require(:server).permit(:name, :owner_id, :invite_code)
   end
 
 end

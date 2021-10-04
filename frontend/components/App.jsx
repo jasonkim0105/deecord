@@ -15,7 +15,7 @@ const App = () => (
 
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
-      <ProtectedRoute path="/channels/@me" component={DeecordContainer} />
+      <ProtectedRoute path="/channels/:serverId" component={DeecordContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <Route component={ErrorPage}/>

@@ -15,7 +15,7 @@ const ServerList = ( {server }) => {
   return(
     <li className='servers-list-short-name'>
       <NavLink
-        to={`/servers/${server.id}`}
+        to={`/channels/${server.id}`}
         className='servers-nav-link'>
         {server.name[0]}
       </NavLink>

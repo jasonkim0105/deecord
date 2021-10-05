@@ -20,20 +20,15 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :owned_servers,
-    primary_key: :id,
-    foreign_key: :owner_id,
-    class_name: :Server
+  # has_many :owned_servers,
+  #   primary_key: :id,
+  #   foreign_key: :owner_id,
+  #   class_name: :Server
 
-  has_many :user_servers,
-    primary_key: :id,
-    foreign_key: :user_id,
-    class_name: :UserServer
-
-  has_many :servers,
-    through: :user_servers,
-    source: :server
-
+  # has_many :servers_joined,
+  #   primary_key: :id,
+  #   foreign_key: :server.id,
+  #   class_name: :Server
 
   def self.find_by_credential(username,password)
     user = User.find_by(username:username)

@@ -30,7 +30,7 @@ class Deecord extends React.Component {
         <div className="servers-index">
           <ServerIndexContainer/>
         </div>
-        <div className="servers-setting">
+        <div className="servers-settings-channels-list">
           {/* <ServerSettingsContainer/> */}
           <ServerMenu/>
         </div>

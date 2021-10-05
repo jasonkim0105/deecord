@@ -7,26 +7,25 @@ const ServerMenu = ({ serverId }) => {
 
   if (serverId === '@me') {
     return(
-      <div className='menu-container'>
+      <div className='server-settings-menu'>
         <div className='dms-container'>
           dms
         </div>
       </div>
     );
   } else return(
-    <div className='menu-container'>
-
+    <div className='server-settings-menu'>
       <ServerSettings/>
     </div>
   );
 };
 
 
-const msp = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => ({
   serverId: ownProps.match.params.serverId
 });
 
-const mdp = () => {
+const mapDispatchToProps = () => {
 };
 
-export default withRouter(connect(msp, null)(ServerMenu));
+export default withRouter(connect(mapStateToProps, null)(ServerMenu));

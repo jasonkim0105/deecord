@@ -1,0 +1,25 @@
+.servers-settings-channels-list {
+  display: flex;
+  // height: 100%;
+  flex-direction: column;
+  width: 250px;
+}
+
+.server-settings-menu {
+  height: 100px;
+  justify-content: space-between;
+}
+
+.server-setting-title {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.server-setting-dropdown-true {
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

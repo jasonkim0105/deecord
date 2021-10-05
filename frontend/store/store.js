@@ -6,7 +6,11 @@ import RootReducer from "../reducers/root_reducer";
 const middlewares = [thunk];
 
 if (process.env.NODE_ENV !== "production") {
+<<<<<<< HEAD
   middlewares.push(logger);
+=======
+ middlewares.push(logger);
+>>>>>>> server
 }
 
 const configureStore = (preloadedState = {}) =>

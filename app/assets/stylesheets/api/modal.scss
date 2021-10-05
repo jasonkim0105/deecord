@@ -1,0 +1,47 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(34, 34, 34, 0.5);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.create-server-container {
+  box-sizing: border-box;
+  width: 220px;
+  height: 290px;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  margin-top: 30px;
+}
+
+.create-server-title {
+  color: #7289DA;
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 28px;
+  margin-bottom: 17px;
+  align-items: center;
+  display: flex;
+}
+
+.join-server-container {
+  box-sizing: border-box;
+  width: 220px;
+  height: 100px;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}

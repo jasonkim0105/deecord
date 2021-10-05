@@ -1,3 +1,87 @@
 // Place all the styles related to the api/servers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.servers-index {
+  background: #202225;
+}
+
+.add-server-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 450px;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.add-server-button-container {
+  display: flex;
+}
+
+.server-home-button {
+  border-radius: 50px;
+  position: relative;
+  background: #36393F;
+  color: #DCDDDE;
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.servers-list-short-name {
+  border-radius: 50px;
+  position: relative;
+  background: #36393F;
+  color: #DCDDDE;
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.servers-list-short-name a {
+  text-decoration: none;
+}
+
+.add-server-button-server-list {
+  border-radius: 50px;
+  position: relative;
+  background: #36393F;
+  color: #DCDDDE;
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-style: none;
+}
+
+.servers-nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: #DCDDDE;
+}
+
+.servers-list-names:hover {
+  display: block;
+  position: relative;
+  width: 90px;
+  left: 60px;
+  bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background: black;
+  color: white;
+  font-size: 15px;
+  z-index: 1;
+}
+
+// .servers-list-names

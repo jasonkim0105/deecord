@@ -4,12 +4,15 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import SplashContainer from './splash/splash_container'
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-import ChannelContainer from './channel/channel_container';
+import DeecordContainer from './deecord/deecord_container';
 import ErrorPage from './error/error'
+import ModalContainer from './modal/modal_container';
+import CreateServerContainer from './servers/create_server_container'
+import DeecordMe from './deecord/deecord_me'
 
 const App = () => (
   <div>
-    {/* <SplashContainer/> */}
+    <ModalContainer/>
 
     <Switch>
       <AuthRoute exact path="/" component={SplashContainer}/>

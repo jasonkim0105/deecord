@@ -18,38 +18,24 @@ class ServerSettings extends React.Component {
   render() {
     const { deleteServer, leaveServer } = this.props;
     const { currentUser, currentServer } = this.state;
+
+    let setting;
+    console.log(this.props)
+    console.log(currentServer)
+    console.log(currentUser)
     if (!currentServer) {
       return null;
     }
-    let setting;
-    // console.log(this.props )
-    // console.log(currentServer)
-
-    if (serverId === '@me') {
-
-        setting =
-        <div className="meme">
-          me
+    if (currentUser.id === currentServer.owner_id) {
+      setting =
+        <div className="delete-server">
+          <button onClick={deleteServer()}>delete</button>
         </div>
-
     } else {
-
-          if (currentUser.id === currentServer.owner_id) {
-            setting =
-              <div className="delete-server">
-                <button onClick={deleteServer()}>delete</button>
-              </div>
-          } else {
-            setting =
-              <div className="leave-server">
-                  <button onClick={leaveServer()}>leave</button>
-              </div>
-          }
-
-
-    };
-
-
+      <div className="leave-server">
+          <button onClick={leaveServer()}>leave</button>
+        </div>
+    }
     return (
       <div className='server-settings'>
 

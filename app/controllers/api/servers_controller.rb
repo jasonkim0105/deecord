@@ -34,10 +34,24 @@ class Api::ServersController < ApplicationController
   end
 
   def destroy
-    @server = current_user.owned_servers.find_by(id: params[:id])
+    # @server = current_user.owned_servers.find_by(id: params[:id])
 
-    @server.destroy
-    render 'api/servers/show'
+    # if @server
+    #   @server.destroy
+    #   render :show
+    # else
+    #   render json: ['Unable to delete server'], status: 400
+    # end
+    @server = Server.find_by(id: params[:id])
+    if @server
+      @users_ids = @server.users.pluck(:id)
+      @server_id = @server.id
+      @server.destroy
+      render :show
+    else
+      render json: ['unable to delete server'], status: 404
+    end
+
   end
 
   def join
@@ -53,10 +67,10 @@ class Api::ServersController < ApplicationController
     @server = current_user.servers.find_by(id: params[:id])
 
     if @server
-      @server.members.delete(current_user)
-      render 'api/servers/show'
+      @server.users.delete(current_user)
+      render :show
     else
-      render json: @server.errors.full_messages, status: 400
+      render json: ['Unable to leave server'], status: 400
     end
   end
 

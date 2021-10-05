@@ -12,7 +12,7 @@ class Modal extends React.Component {
   render() {
     let {modal, closeModal} = this.props;
     let component;
-    console.log(this.props)
+    // console.log(this.props)
     switch(modal) {
       case 'addServer':
         component = <AddServerContainer />

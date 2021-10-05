@@ -19,6 +19,7 @@ class ServerSettings extends React.Component {
 
   render() {
     const { server } = this.props;
+    // console.log(server)
     let serverName;
 
     if (server) {
@@ -31,6 +32,8 @@ class ServerSettings extends React.Component {
       return null;
     }
 
+    const serverInviteCode = server.invite_code
+
     const menuDropdown = this.state.droppedDown ? <ServerSettingsDropdown /> : '';
 
     return (
@@ -41,6 +44,9 @@ class ServerSettings extends React.Component {
         {menuDropdown}
         <div className='server-setting-title'>
           {serverName}
+        </div>
+        <div className='invite-code-settings'>
+          Invite Code: {serverInviteCode}
         </div>
       </div>
     );

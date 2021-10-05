@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const ServerList = ( {server }) => {
+const ServerList = ( { server }) => {
   let serverName;
 
   if (server) {
@@ -10,6 +10,8 @@ const ServerList = ( {server }) => {
     } else {
       serverName = server.name;
     }
+  } else {
+    return null;
   }
 
   return(

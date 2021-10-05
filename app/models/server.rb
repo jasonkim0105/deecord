@@ -29,6 +29,12 @@ class Server < ApplicationRecord
     through: :user_servers,
     source: :user
 
+  has_many :channels,
+    primary_key: :id,
+    foreign_key: :server_id,
+    source: :Channel,
+    dependent: :destroy
+
   def self.generate_invite_code
     SecureRandom.urlsafe_base64(5)
   end

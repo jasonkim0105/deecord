@@ -39,3 +39,8 @@ export const signup = (user) => dispatch => (
   .then((currentUser) => dispatch(receiveCurrentUser(currentUser)),
   error => dispatch(receiveErrors(error)))
 )
+
+export const updateUser = user => dispatch => (
+  SessionAPIUtil.updateUser(user)
+  .then(user => dispatch(receiveCurrentUser(user)))
+)

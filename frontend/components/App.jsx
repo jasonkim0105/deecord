@@ -15,8 +15,15 @@ const App = () => (
     <ModalContainer/>
 
     <Switch>
-      <AuthRoute exact path="/" component={SplashContainer}/>
-      <ProtectedRoute path="/channels" component={ChannelContainer} />
+      <Route exact path="/" component={SplashContainer}/>
+      {/* <ProtectedRoute path="/channels/:serverId" component={props => {
+        if (props.match.params.serverId=== "@me") {
+          return <DeecordMe/>
+        } else {
+          return <DeecordContainer/>
+        }
+      }} /> */}
+      <ProtectedRoute path="/channels/:serverId" component={DeecordContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <Route component={ErrorPage}/>

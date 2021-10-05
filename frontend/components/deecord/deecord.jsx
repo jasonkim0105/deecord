@@ -2,6 +2,7 @@ import React from 'react';
 import CreateServerContainer from '../servers/create_server_container';
 import ServerIndexContainer from '../servers/server_index_container';
 import ServerSettingsContainer from '../servers/settings/server_settings_container'
+import ServerMenu from '../servers/settings/server_menu';
 class Deecord extends React.Component {
   // constructor(props){
   //   super(props);
@@ -10,6 +11,10 @@ class Deecord extends React.Component {
   // handleLogout() {
   //   this.props.logout();
   // }
+
+  componentDidMount(){
+    this.props.fetchServers();
+  }
 
   render(){
     let { currentUser, logout } = this.props;
@@ -26,7 +31,8 @@ class Deecord extends React.Component {
           <ServerIndexContainer/>
         </div>
         <div className="servers-setting">
-          <ServerSettingsContainer/>
+          {/* <ServerSettingsContainer/> */}
+          <ServerMenu/>
         </div>
         {auth}
 

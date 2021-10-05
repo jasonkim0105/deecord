@@ -1,31 +1,7 @@
-# class Api::ServersController < ApplicationController
+class Api::ServersController < ApplicationController
 
-#   before_action :require_logged_in
+  before_action :require_logged_in
 
-<<<<<<< HEAD
-#   def create
-#     @server = Server.new(server_params)
-#     if @server.save
-#       render :show
-#     else
-#       render json: @server.errors.full_messages, status: 422
-#     end
-#   end
-
-#   def index
-#     @servers = current_user.
-#   end
-
-#   def show
-#   end
-
-#   def update
-
-#   end
-
-#   def destroy
-#   end
-=======
   def create
     @server = Server.new(server_params)
     @server.owner_id = current_user.id
@@ -58,14 +34,6 @@
   end
 
   def destroy
-    # @server = current_user.owned_servers.find_by(id: params[:id])
-
-    # if @server
-    #   @server.destroy
-    #   render :show
-    # else
-    #   render json: ['Unable to delete server'], status: 400
-    # end
     @server = Server.find_by(id: params[:id])
     if @server
       @users_ids = @server.users.pluck(:id)
@@ -97,18 +65,11 @@
       render json: ['Unable to leave server'], status: 400
     end
   end
->>>>>>> server
 
-#   private
+  private
 
-<<<<<<< HEAD
-#   def server_params
-#     params.require(:server).permit(:server_name, :host_id)
-#   end
-=======
   def server_params
     params.require(:server).permit(:name, :owner_id, :invite_code)
   end
->>>>>>> server
 
-# end
+end

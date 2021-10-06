@@ -3,6 +3,7 @@ import {Route} from 'react-router';
 import CreateServerContainer from '../servers/create_server_container';
 import AddServerContainer from '../servers/add_server_container';
 import JoinServerContainer from '../servers/join_server_container';
+import InviteServerContainer from '../servers/settings/invite_server_container';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -22,6 +23,9 @@ class Modal extends React.Component {
         break;
       case 'joinServer':
         component = <JoinServerContainer />
+        break;
+      case 'inviteServer':
+        component = <InviteServerContainer />
         break;
       default:
         return null;

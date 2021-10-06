@@ -34,7 +34,7 @@ class ServerSettings extends React.Component {
 
     const serverInviteCode = server.invite_code
 
-    const menuDropdown = this.state.droppedDown ? <ServerSettingsDropdown /> : '';
+    const menuDropdown = this.state.droppedDown ? <ServerSettingsDropdown currentUser={server}/> : '';
 
     return (
       <div
@@ -45,9 +45,9 @@ class ServerSettings extends React.Component {
         <div className='server-setting-title'>
           {serverName}
         </div>
-        <div className='invite-code-settings'>
+        {/* <div className='invite-code-settings'>
           Invite Code: {serverInviteCode}
-        </div>
+        </div> */}
       </div>
     );
   }

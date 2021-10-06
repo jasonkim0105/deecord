@@ -18,7 +18,7 @@ class CreateServer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="create-server-form-container">
         CREATE A SERVER
         <form className="create-server-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.name} onChange={this.update('name')} />

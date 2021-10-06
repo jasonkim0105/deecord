@@ -28,10 +28,13 @@ class ServerIndex extends React.Component {
 
       <ul className="add-server">
         <li className="server-home-button">
+        <div className='server-name-hide'>Home</div>
           <Link to="/channels/@me">
-            HOME
+            {/* <img src="deecordlogo.jpeg" className="discord-home-logo"/> */}
+            <div className="discord-home-logo"></div>
           </Link>
         </li>
+
         <div className="server-list-on-index">
           {ServerLists}
         <button className="add-server-button-server-list" onClick={openModal}>+</button>

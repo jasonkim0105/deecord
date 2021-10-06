@@ -52,6 +52,8 @@ class Api::ServersController < ApplicationController
     if @server && !current_user.servers.include?(@server)
       current_user.servers << @server
       render :show
+    else
+      render json: ['Unable to join server. Wrong invite code']
     end
   end
 

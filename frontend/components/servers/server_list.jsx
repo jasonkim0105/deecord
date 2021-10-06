@@ -22,7 +22,7 @@ const ServerList = ( { server }) => {
         {server.name[0]}
       </NavLink>
 
-      <div className='servers-list-names'>{serverName}</div>
+      {/* <div className='servers-list-names'>{serverName}</div> */}
     </li>
   );
 };

@@ -12,9 +12,12 @@
 
 .modal-child {
   position: absolute;
+  display: flex;
   top: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%)
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .create-server-container {
@@ -29,12 +32,14 @@
 
 .create-server-title {
   color: #7289DA;
-  font-size: 17px;
+  font-size: 30px;
   font-weight: 500;
   margin-top: 28px;
   margin-bottom: 17px;
+  left: 50%;
   align-items: center;
-  display: flex;
+  justify-content: center;
+  display: block;
 }
 
 .join-server-container {
@@ -44,4 +49,33 @@
   border: 1px solid #E5E5E5;
   border-radius: 3px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.invite-container {
+  box-sizing: border-box;
+  width: 300px;
+  height: 150px;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  background: white
+}
+
+.create-server-form-container {
+  box-sizing: border-box;
+  width: 300px;
+  height: 150px;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  background: white
+}
+.join-server-form-container {
+  box-sizing: border-box;
+  width: 300px;
+  height: 150px;
+  border: 1px solid #E5E5E5;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  background: white
 }

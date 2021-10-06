@@ -3,11 +3,14 @@
   // height: 100%;
   flex-direction: column;
   width: 250px;
+  background: #2f3136;
+  position: relative;
 }
 
 .server-settings-menu {
   height: 100px;
   justify-content: space-between;
+  background: #25272b;
 }
 
 .server-setting-title {
@@ -15,6 +18,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 }
 
 .server-setting-dropdown-true {

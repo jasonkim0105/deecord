@@ -17,7 +17,9 @@ class Deecord extends React.Component {
   }
 
   render(){
-    let { currentUser, logout } = this.props;
+    let { currentUser, logout, currentServer } = this.props;
+    // console.log(this.props)
+    // console.log(currentServer)
     let auth = (currentUser) ?
       <div>
         <p>{currentUser.username}</p>
@@ -32,7 +34,7 @@ class Deecord extends React.Component {
         </div>
         <div className="servers-settings-channels-list">
           {/* <ServerSettingsContainer/> */}
-          <ServerMenu/>
+          <ServerMenu currentServer={currentServer}/>
         </div>
         {auth}
 

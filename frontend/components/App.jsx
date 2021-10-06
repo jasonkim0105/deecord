@@ -12,17 +12,12 @@ import DeecordMe from './deecord/deecord_me'
 
 const App = () => (
   <div>
-    <ModalContainer/>
+    <Switch>
+      <Route path='/channels/:serverId' component={ModalContainer} />
+    </Switch>
 
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
-      {/* <ProtectedRoute path="/channels/:serverId" component={props => {
-        if (props.match.params.serverId=== "@me") {
-          return <DeecordMe/>
-        } else {
-          return <DeecordContainer/>
-        }
-      }} /> */}
       <ProtectedRoute path="/channels/:serverId" component={DeecordContainer} />
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />

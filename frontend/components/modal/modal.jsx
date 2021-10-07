@@ -19,10 +19,10 @@ class Modal extends React.Component {
         component = <AddServerContainer />
         break;
       case 'createServer':
-        component = <CreateServerContainer/>
+        component = <Route path="/channels" component = {CreateServerContainer} />
         break;
       case 'joinServer':
-        component = <JoinServerContainer />
+        component = <Route path="/channels" component = {JoinServerContainer} />
         break;
       case 'inviteServer':
         component = <InviteServerContainer />

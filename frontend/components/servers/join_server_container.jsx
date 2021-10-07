@@ -4,7 +4,7 @@ import { joinServer, clearServerErrors } from '../../actions/server_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
-  errors: state.errors.server,
+  errors: state.errors.servers,
   inviteCode: '',
 })
 

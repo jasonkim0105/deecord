@@ -12,9 +12,10 @@ import DeecordMe from './deecord/deecord_me'
 
 const App = () => (
   <div>
-    <Switch>
+    {/* <Switch>
       <Route path='/channels/:serverId' component={ModalContainer} />
-    </Switch>
+    </Switch> */}
+    <ModalContainer/>
 
     <Switch>
       <Route exact path="/" component={SplashContainer}/>

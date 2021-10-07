@@ -10,7 +10,9 @@ class JoinServer extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.joinServer(this.state.inviteCode)
-    .then(()=> this.props.closeModal())
+    .then(({server})=> {this.props.closeModal(),
+    this.props.history.push(`/channels/${server.id}`)
+    })
   }
   componentDidMount(){
     this.props.clearServerErrors();
@@ -44,6 +46,7 @@ class JoinServer extends React.Component {
     return (
       <div className="join-server-form-container">
         JOIN A SERVER
+        <div className='error-message'>{this.renderErrors()}</div>
         <form className="join-server-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.inviteCode} onChange={this.update('inviteCode')}/>
           <button className="join-server-button">Join</button>

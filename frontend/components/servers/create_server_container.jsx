@@ -1,6 +1,6 @@
 import CreateServer from './create_server';
 import { connect } from 'react-redux';
-import {createServer} from '../../actions/server_actions';
+import {createServer, clearServerErrors} from '../../actions/server_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(openModal('addServer')),
   closeModal: () => dispatch(closeModal()),
-  createServer: server => dispatch(createServer(server))
+  createServer: server => dispatch(createServer(server)),
+  clearServerErrors: () => dispatch(clearServerErrors)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateServer);

@@ -10,8 +10,6 @@ const ServerList = ( { server }) => {
     } else {
       serverName = server.name;
     }
-  } else {
-    return null;
   }
 
   return(

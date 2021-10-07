@@ -9,7 +9,8 @@ class JoinServer extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.joinServer(this.state.inviteCode);
+    this.props.joinServer(this.state.inviteCode)
+    .then(()=> this.props.closeModal())
   }
   componentDidMount(){
     this.props.clearServerErrors();

@@ -11,7 +11,7 @@ const ServerErrorsReducer = (state = [], action) => {
     case RECEIVE_SERVER:
       return [];
     case RECEIVE_SERVER_ERRORS:
-      return action.errors;
+      return action.errors.responseJSON;
     case CLEAR_SERVER_ERRORS:
       return [];
     default:

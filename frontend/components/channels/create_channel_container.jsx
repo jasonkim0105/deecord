@@ -5,7 +5,6 @@ import { createChannel, clearChannelErrors } from '../../actions/channel_actions
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
-  formType: 'create',
   channel: {
     name: '',
     server_id: ownProps.match.params.serverId

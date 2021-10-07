@@ -33,8 +33,8 @@ export const clearChannelErrors = () => {
   }
 }
 
-export const fetchChannels = () => dispatch => {
-  ChannelAPIUtil.fetchChannels()
+export const fetchChannels = (serverId) => dispatch => {
+  ChannelAPIUtil.fetchChannels(serverId)
   .then( (channels) => dispatch(receiveChannels(channels)),
   (error) => dispatch(receiveChannelErrors(error)))
 }

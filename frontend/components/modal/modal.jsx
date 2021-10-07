@@ -30,6 +30,7 @@ class Modal extends React.Component {
         break;
       case 'createChannel':
         component = <CreateChannelContainer />
+        break;
       default:
         return null;
     }

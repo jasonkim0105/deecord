@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class ChannelList extends React.Component {
 
@@ -18,7 +18,18 @@ class ChannelList extends React.Component {
   //   return null;
   // }
   render(){
+    const { channel, openModal } = this.props;
+    // console.log(this.props)
+    return (
+    <li className="channel-list-individual">
+      <NavLink
+        to={`api/channels/${channel.server_id}/channels/${channel.id}`}
+        className='channels-nav-link'>
+        {channel.name}
+      </NavLink>
 
+    </li>
+    )
   }
 
 

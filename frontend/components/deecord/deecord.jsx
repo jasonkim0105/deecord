@@ -3,6 +3,7 @@ import CreateServerContainer from '../servers/create_server_container';
 import ServerIndexContainer from '../servers/server_index_container';
 import ServerSettingsContainer from '../servers/settings/server_settings_container'
 import ServerMenu from '../servers/settings/server_menu';
+import ChannelsContainer from '../channels/channels_container';
 class Deecord extends React.Component {
   // constructor(props){
   //   super(props);
@@ -33,11 +34,14 @@ class Deecord extends React.Component {
           <ServerIndexContainer/>
         </div>
         <div className="servers-settings-channels-list">
-          {/* <ServerSettingsContainer/> */}
           <ServerMenu currentServer={currentServer}/>
+          <div className="channels-container">
+            <ChannelsContainer/>
+          </div>
+          <div className="auth-setting">
+            {auth}
+          </div>
         </div>
-        {auth}
-
       </div>
     )
   }

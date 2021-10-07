@@ -10,10 +10,11 @@
 #  updated_at :datetime         not null
 #
 class Channel < ApplicationRecord
-  validates: :name, :owner_id, :server_id, presence: true
+  validates :name, :owner_id, :server_id, presence: true
 
-  belongs_to: :server,
+  belongs_to :server,
     primary_key: :id,
     foreign_key: :server_id,
     class_name: :Server
+
 end

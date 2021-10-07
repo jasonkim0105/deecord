@@ -4,6 +4,7 @@ import CreateServerContainer from '../servers/create_server_container';
 import AddServerContainer from '../servers/add_server_container';
 import JoinServerContainer from '../servers/join_server_container';
 import InviteServerContainer from '../servers/settings/invite_server_container';
+import CreateChannelContainer from '../channels/create_channel_container';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class Modal extends React.Component {
       case 'inviteServer':
         component = <InviteServerContainer />
         break;
+      case 'createChannel':
+        component = <CreateChannelContainer />
       default:
         return null;
     }

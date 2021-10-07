@@ -14,6 +14,7 @@ const App = () => (
   <div>
     <Switch>
       <Route path='/channels/:serverId' component={ModalContainer} />
+      <Route path='/channels/:serverId/channels/:channelId' component={ModalContainer} />
     </Switch>
 
     <Switch>

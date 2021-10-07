@@ -1,7 +1,6 @@
 class Api::ChannelsController < ApplicationController
   def create
-    current_server = current_user.servers.find_by(id: params[:server_id])
-    @channel = curr_server.channels.new(channel_params)
+    @channel = Channel.new(channel_params)
 
     if @channel.save
       render :show
@@ -12,15 +11,39 @@ class Api::ChannelsController < ApplicationController
   end
 
   def show
+    @channel = Channel.find_by(id: params[:id])
+
+    if @channel
+      render :show
+    else
+      render json: ['Channel does not exist'], status: 404
+    end
   end
 
   def index
+    server = Server.find_by(id: params[:server_id])
+        @channels = server.channels
+        render :index
   end
 
   def update
+    @channel = Channel.find_by(id: params[:id])
+        if @channel.update(channel_params)
+            render :show
+        else
+            render json: @channel.errors.full_messages, status: 422
+        end
+
   end
 
   def destroy
+    @channel = Channel.find_by(id: params[:id])
+        if @channel
+            @channel.destroy
+            render :show
+        else
+            render json: ["This channel does not exist"], status: 404
+        end
   end
 
   private

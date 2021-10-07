@@ -19,7 +19,7 @@ class ChannelList extends React.Component {
   // }
   render(){
     const { channel, openModal } = this.props;
-    // console.log(this.props)
+    console.log(this.props)
     return (
     <li className="channel-list-individual">
       <NavLink

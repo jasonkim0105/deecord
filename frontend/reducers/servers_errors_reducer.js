@@ -4,14 +4,14 @@ import {
   CLEAR_SERVER_ERRORS
 } from '../actions/server_actions';
 
-const ServerErrorsReducer = (state = [], action) => {
+const ServersErrorsReducer = (state = [], action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_SERVER:
       return [];
     case RECEIVE_SERVER_ERRORS:
-      return action.errors.responseJSON;
+      return action.errors;
     case CLEAR_SERVER_ERRORS:
       return [];
     default:
@@ -19,4 +19,4 @@ const ServerErrorsReducer = (state = [], action) => {
   }
 };
 
-export default ServerErrorsReducer;
+export default ServersErrorsReducer;

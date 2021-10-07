@@ -25,7 +25,7 @@ class Modal extends React.Component {
         component = <Route path="/channels" component = {JoinServerContainer} />
         break;
       case 'inviteServer':
-        component = <InviteServerContainer />
+        component = <Route path="/channels/:serverId" component = {InviteServerContainer} />
         break;
       default:
         return null;

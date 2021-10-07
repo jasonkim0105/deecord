@@ -41,6 +41,21 @@ import { NavLink } from 'react-router-dom';
    constructor(props) {
      super(props);
    }
+   render() {
+     console.log(this.props)
+    //  const {server} = this.props;
+     return (
+      <li className='servers-list-short-name'>
+             <NavLink
+              to={`/channels/${this.props.server.id}`}
+              className='servers-nav-link'>
+              {this.props.server.name[0]}
+            </NavLink>
+
+            {/* <div className='servers-list-names'>{serverName}</div> */}
+          </li>
+     )
+   }
  }
 
  import {connect} from 'react-redux';

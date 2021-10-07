@@ -26,6 +26,9 @@ class InviteServer extends React.Component {
         <div className="invite-code-display">
           Invite Code: {serverInviteCode}
         </div>
+        <div className="close-invite" onClick={() => this.props.closeModal()}>
+          Close
+        </div>
 
       </div>
       // <div>test</div>

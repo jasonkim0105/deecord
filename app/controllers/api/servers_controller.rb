@@ -52,8 +52,10 @@ class Api::ServersController < ApplicationController
     if @server && !current_user.servers.include?(@server)
       current_user.servers << @server
       render :show
+    elsif @server
+      render json: ['Already a member of that server.'], status: 400
     else
-      render json: ['Unable to join server. Wrong invite code']
+      render json: ['This invite is invalid or has expired.'], status: 404
     end
   end
 

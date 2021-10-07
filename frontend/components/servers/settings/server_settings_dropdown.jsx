@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { leaveServer, deleteServer, fetchServers } from '../../../actions/server_actions';
 import { updateUser } from '../../../actions/session_actions';
-import { openModal } from '../../../actions/modal_actions.js';
+import { openModal, closeModal } from '../../../actions/modal_actions.js';
 import DeecordContainer from '../../deecord/deecord_container';
 
 class ServerSettingsDropdown extends React.Component {
@@ -22,9 +22,13 @@ class ServerSettingsDropdown extends React.Component {
     removeType(this.state.currentServer.id);
     this.props.updateUser(this.props.currentUser);
     this.props.fetchServers();
-    this.props.history.push("@me");
-    window.location.reload();
+    this.props.history.push("/channels/@me");
+    // window.location.reload();
     // <DeecordContainer/>
+    // removeType(this.state.currentServer.id)
+    // .then( () => {
+    //   history.push('@me')
+    // })
 
   }
 
@@ -32,6 +36,7 @@ class ServerSettingsDropdown extends React.Component {
     const { currentUser, currentServer } = this.state;
     const { deleteServer, leaveServer, openModal } = this.props;
     console.log(currentServer)
+    console.log(this.props)
 
     const dropdownOptions = currentUser.id === currentServer.owner_id ?
       <>
@@ -76,7 +81,8 @@ const mapDispatchToProps = dispatch => ({
   deleteServer: serverId => dispatch(deleteServer(serverId)),
   openModal: modal => dispatch(openModal(modal)),
   updateUser: user => dispatch(updateUser(user)),
-  fetchServers: () => dispatch(fetchServers())
+  fetchServers: () => dispatch(fetchServers()),
+  closeModal: modal => dispatch(closeModal())
 });
 
 export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(ServerSettingsDropdown));

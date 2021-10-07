@@ -8,7 +8,8 @@ class AddServer extends React.Component {
   render(){
     return (
       <div className="add-server-container">
-        <div add-server-button-container>
+        {/* <div className="add-server-button-container"> */}
+        <div>
           <div className="create-server-container">
             <p className="create-server-title">Create a server</p>
             <div onClick={() => this.props.openModal('createServer')}>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CreateChannel extends React.Component {
+class EditChannel extends React.Component {
   constructor(props){
     super(props)
     this.state={
@@ -10,7 +10,7 @@ class CreateChannel extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createChannel(this.state.channel)
+    this.props.updateChannel(this.state.channel)
       .then( ( {channel} ) => {this.props.closeModal()
     })
   }
@@ -48,7 +48,7 @@ class CreateChannel extends React.Component {
         CREATE A CHANNEL
         <form className="create-channel-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.channel.name} onChange={this.update()}/>
-          <button className="create-channel-button">Create Channel</button>
+          <button className="create-channel-button">Edit Channel</button>
 
           <div className="close-invite" onClick={() => this.props.closeModal()}>
           Close
@@ -60,4 +60,4 @@ class CreateChannel extends React.Component {
     )
   }
 }
-export default CreateChannel;
+export default EditChannel;

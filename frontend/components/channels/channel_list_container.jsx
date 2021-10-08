@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ChannelList from "./channel_list";
 import { fetchChannels } from '../../actions/channel_actions';
 import { withRouter } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions'
 
 const mapStateToProps = (state, ownProps) => ({
 })

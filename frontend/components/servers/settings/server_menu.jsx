@@ -6,15 +6,16 @@ import { withRouter } from 'react-router-dom';
 const ServerMenu = ({ serverId, currentServer }) => {
 
   // console.log(currentServer)
-  if (serverId === '@me') {
-    return(
-      <div className='server-settings-menu'>
-        <div className='dms-container'>
-          dms
-        </div>
-      </div>
-    );
-  } else return(
+  // if (serverId === '@me') {
+  //   return(
+  //     <div className='server-settings-menu'>
+  //       <div className='dms-container'>
+  //         dms
+  //       </div>
+  //     </div>
+  //   );
+  // } else
+  return(
     <div className='server-settings-menu'>
       <ServerSettings currentServer={currentServer}/>
     </div>

@@ -7,8 +7,26 @@
   position: relative;
 }
 
+.dm-container {
+  display: flex;
+  // height: 100%;
+  flex-direction: column;
+  width: 250px;
+  background: #2f3136;
+  position: relative;
+}
+.dm-header {
+  height: 50px;
+  justify-content: space-between;
+  background: #25272b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .server-settings-menu {
-  height: 100px;
+  height: 50px;
   justify-content: space-between;
   background: #25272b;
 }
@@ -27,4 +45,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+// channels portion
+
+.channels-container {
+  height: 100%
+}
+
+.channel-footer {
+  height: 52px;
+  background: #28292e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }

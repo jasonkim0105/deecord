@@ -19,7 +19,9 @@ class ServerSettingsDropdown extends React.Component {
   removeServer(removeType) {
     const { history } = this.props;
 
-    removeType(this.state.currentServer.id);
+    removeType(this.state.currentServer.id)
+      // .then(history.push("/channels/@me"),
+      // this.props.fetchServers())
     this.props.updateUser(this.props.currentUser);
     this.props.fetchServers();
     this.props.history.push("/channels/@me");

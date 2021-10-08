@@ -143,7 +143,7 @@
   border-radius: 5px;
   color:rgb(148, 147, 147);
   width: 480px;
-  height: 562px;
+  height: 490px;
   margin-top: 125px;
   padding: 10px;
   position: relative;
@@ -156,6 +156,16 @@
   // grid-template-columns: 60% 40%;
   // box-sizing: border-box;
 }
+
+.signup-container > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  vertical-align: middle;
+  margin-top: 75px;
+}
+
 
 .create {
   color:rgb(219, 217, 217);
@@ -180,4 +190,10 @@
   margin-top: 5px;
   background-color: rgb(58, 60, 65);
   color: rgb(131, 127, 127);
+}
+.session-form-button {
+  width: 412px;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

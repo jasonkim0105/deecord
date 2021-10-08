@@ -55,12 +55,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .splash-div-1 > nav > :first-child {
   margin-left: 50px;
   font-size: 25px;
+  text-decoration: none;
+  color: black;
+  // width: 150px;
+  // height: 50px;
+  border-radius: 40px;
+  color: inherit;
 }
+.deecord-title {
+  text-decoration: none;
+}
+
+// .deecord-button {
+//   margin-left: 50px;
+//   font-size: 25px;
+//   text-decoration: none;
+//   // color: black;
+// }
+
 
 // .splash-div-1 > nav img {
 //   width: 12%;
@@ -81,3 +99,41 @@
   padding: 7px 16px;
   border-radius: 40px;
 }
+
+.deecord-explanation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+
+  margin: auto;
+  transform: translateY(100px);
+  text-align: center;
+}
+
+.deecord-explanation > h1 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.splash-buttons {
+  margin-top: 20px;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
+.splash-buttons > a {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 4px;
+  background: white;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  font-weight: 300;
+}
+

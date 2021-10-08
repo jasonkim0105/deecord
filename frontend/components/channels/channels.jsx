@@ -12,6 +12,7 @@ class Channels extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels(this.state.currentServerId);
+    this.props.fetchServerUsers(this.state.currentServerId);
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -20,13 +21,15 @@ class Channels extends React.Component {
 
     if (prevServerId !== currServerId) {
       this.props.fetchChannels(currServerId);
-      // this.props.fetchServerMembers(currServerId);
+      this.props.fetchServerUsers(currServerId);
     }
   }
 
+
   render(){
     console.log(this.props)
-    const { currentServerId, channels, openModal } = this.props;
+    const { currentServerId, channels, openModal, currentUser, currentServer } = this.props;
+    // console.log(currentServer.owner_id)
     // console.log(this.props)
     const ChannelsList = channels.map((channel, idx) => {
       if (currentServerId === channel.server_id){
@@ -46,7 +49,9 @@ class Channels extends React.Component {
             TEXT CHANNEL
           </div>
           <div onClick={() => openModal('createChannel')}>+</div>
+
         </div>
+
         <div className='channel-list'>
           {ChannelsList}
         </div>

@@ -42,8 +42,8 @@ import { NavLink } from 'react-router-dom';
      super(props);
    }
    render() {
-     console.log(this.props)
-    //  const {server} = this.props;
+    //  console.log(this.props)
+     const {server} = this.props;
      return (
       <li className='servers-list-short-name'>
              <NavLink

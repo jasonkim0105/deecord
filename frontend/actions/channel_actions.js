@@ -16,7 +16,7 @@ const receiveChannel = channel => ({
 })
 
 const removeChannel = channel => ({
-  type: REMOVE_CHANNELS,
+  type: REMOVE_CHANNEL,
   channel
 })
 
@@ -33,35 +33,35 @@ export const clearChannelErrors = () => {
   }
 }
 
-export const fetchChannels = (serverId) => dispatch => {
+export const fetchChannels = (serverId) => dispatch => (
   ChannelAPIUtil.fetchChannels(serverId)
   .then( (channels) => dispatch(receiveChannels(channels)),
   (error) => dispatch(receiveChannelErrors(error)))
-}
+)
 
-export const fetchChannel = (channel) => dispatch => {
+export const fetchChannel = (channel) => dispatch => (
   ChannelAPIUtil.fetchChannel(channel)
   .then((channel) => dispatch(receiveChannel(channel)),
   (error) => dispatch(receiveChannelErrors(error)))
-}
+)
 
-export const createChannel = (channel) => dispatch => {
+export const createChannel = (channel) => dispatch => (
   ChannelAPIUtil.createChannel(channel)
   .then((channel) => dispatch(receiveChannel(channel)),
   (error) => dispatch(receiveChannelErrors(error)))
-}
+)
 
-export const updateChannel = channel => dispatch => {
+export const updateChannel = channel => dispatch => (
   ChannelAPIUtil.updateChannel(channel)
   .then((channel) => dispatch(receiveChannel(channel)),
   (error) => dispatch(receiveChannelErrors(error)))
-}
+)
 
-export const deleteChannel = (channel) => dispatch => {
+export const deleteChannel = (channel) => dispatch => (
   ChannelAPIUtil.deleteChannel(channel)
   .then((channel) => dispatch(removeChannel(channel)),
   (error) => dispatch(receiveChannelErrors(error)))
-}
+)
 
 // export const leaveChannel = (channel) => dispatch => {
 //   ChannelAPIUtil.leaveChannel(channel)

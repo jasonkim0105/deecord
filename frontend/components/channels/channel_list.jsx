@@ -1,11 +1,23 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import ChannelsDropdown from './channel_dropdown';
 
 class ChannelList extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      dropdownOpen: false
+    };
+
+    this.toggleDropdown = this.toggleDropdown.bind(this);
   }
+
+  toggleDropdown(e) {
+    e.stopPropagation();
+    this.setState(prevState => ({ dropdownOpen: !prevState.dropdownOpen }));
+  }
+
   // let serverName;
 
   // if (server) {
@@ -20,12 +32,26 @@ class ChannelList extends React.Component {
   render(){
     const { channel, openModal } = this.props;
     console.log(this.props)
+
+    const channelDropdown = this.state.dropdownOpen ? <ChannelsDropdown/> : '';
+
     return (
     <li className="channel-list-individual">
       <NavLink
-        to={`api/channels/${channel.server_id}/channels/${channel.id}`}
+        to={`/channels/${channel.server_id}/channels/${channel.id}`}
         className='channels-nav-link'>
+         <div className="channel-list-individual-name">
         {channel.name}
+        </div>
+
+        <div className='channels-nav-settings'>
+          <div
+            className="channels-dropdown-button"
+            onClick={(e) => this.toggleDropdown(e)}>
+            {channelDropdown}SETTINGS
+            </div>
+        </div>
+
       </NavLink>
 
     </li>

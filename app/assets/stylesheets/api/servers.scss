@@ -16,9 +16,19 @@
   border-radius: 5px;
 }
 
-.add-server-button-container {
-  display: flex;
+.create-or-join-container {
+  display: column;
 }
+
+// .create-server-title {
+//   align-items: center;
+//   justify-content: center;
+//   display: flex;
+// }
+
+// .add-server-button-container {
+//   display: flex;
+// }
 
 .server-home-button {
   border-radius: 15px;

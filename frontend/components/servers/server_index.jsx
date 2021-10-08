@@ -30,7 +30,7 @@ class ServerIndex extends React.Component {
         <li className="server-home-button">
         <div className='server-name-hide'>Home</div>
           <Link to="/channels/@me">
-            {/* <img src="deecordlogo.jpeg" className="discord-home-logo"/> */}
+            {/* <img src={window.deecordUrl} className="discord-home-logo"/> */}
             <div className="discord-home-logo"></div>
           </Link>
         </li>

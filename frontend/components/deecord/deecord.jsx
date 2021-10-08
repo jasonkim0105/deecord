@@ -4,18 +4,9 @@ import ServerIndexContainer from '../servers/server_index_container';
 import ServerSettingsContainer from '../servers/settings/server_settings_container'
 import ServerMenu from '../servers/settings/server_menu';
 import ChannelsContainer from '../channels/channels_container';
-class Deecord extends React.Component {
-  // constructor(props){
-  //   super(props);
-  //   this.handleLogout = this.handleLogout.bind(this);
-  // }
-  // handleLogout() {
-  //   this.props.logout();
-  // }
+// import { AiOutlineLogout } from 'react-icons/ai';
 
-  // componentDidMount(){
-  //   this.props.fetchServers();
-  // }
+class Deecord extends React.Component {
 
   render(){
     let { currentUser, logout, currentServer, serverId } = this.props;
@@ -35,7 +26,8 @@ class Deecord extends React.Component {
         </div>
 
         <button className='logout-button' onClick={logout}>
-          Log Out
+          Logout
+          {/* <AiOutlineLogout/> */}
         </button>
       </div>
       :

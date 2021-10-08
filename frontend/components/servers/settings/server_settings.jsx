@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ServerSettingsDropdown from './server_settings_dropdown'
+// import downarrow from '../../../../app/assets/images/downarrow.png';
 
 class ServerSettings extends React.Component {
   constructor(props) {
@@ -45,9 +46,10 @@ class ServerSettings extends React.Component {
         <div className='server-setting-title'>
           {serverName}
         </div>
-        {/* <div className='invite-code-settings'>
-          Invite Code: {serverInviteCode}
-        </div> */}
+
+        <div className='server-setting-icon'>
+
+        </div>
       </div>
     );
   }

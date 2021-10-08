@@ -1,3 +1,74 @@
 // Place all the styles related to the api/channels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.channel-component {
+  align-items: left;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-channel {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 7px 6px;
+
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.create-channel-text {
+  margin-top: 15px;
+  margin-left: 10px;
+  font-size: 13px;
+  color: rgb(156, 155, 155);
+}
+
+.channel-button {
+  font-size: 15px;
+  color: rgb(156, 155, 155);
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.channel-list > li {
+ list-style: none;
+}
+
+.channel-list {
+  text-decoration: none;
+}
+
+.channel-list-individual {
+  display: flex;
+}
+
+.channels-nav-link{
+  width: 86%;
+  margin: 1px auto;
+  border-radius: 4px;
+  padding: 7px 12px;
+  color: #8E9297;
+  text-decoration: none;
+  justify-content: space-between;
+
+  &:hover {
+    background: rgb(57, 60, 67);
+
+    .channels-nav-buttons {
+      display: flex;
+    }
+  }
+}
+
+.channels-dropdown-button{
+  font-size: 10px;
+}

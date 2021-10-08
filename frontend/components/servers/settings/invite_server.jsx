@@ -21,8 +21,13 @@ class InviteServer extends React.Component {
     return (
       <div className="invite-container">
         <div className="invite-message">
-        INVITE A FRIEND TO THE SERVER
+        INVITE A FRIEND
         </div>
+
+        <div className="invite-message-with-invite-code">
+          Get your friends in here!
+        </div>
+
         <div className="invite-code-display">
           Invite Code: {serverInviteCode}
         </div>

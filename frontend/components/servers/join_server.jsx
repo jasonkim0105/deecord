@@ -45,12 +45,19 @@ class JoinServer extends React.Component {
     console.log(this.props)
     return (
       <div className="join-server-form-container">
+
+        <div className="join-server-header">
         JOIN A SERVER
+        </div>
+        <div className='join-server-invite-code'>
+          Enter an invite code to join an existing server
+        </div>
+
         <div className='error-message'>{this.renderErrors()}</div>
+
         <form className="join-server-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.inviteCode} onChange={this.update('inviteCode')}/>
-          <button className="join-server-button">Join</button>
-          {/* <div className='error-message'>{this.renderErrors()}</div> */}
+          <button className="join-server-button-modal">Join</button>
         </form>
       </div>
     )

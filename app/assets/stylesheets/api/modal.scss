@@ -1,3 +1,16 @@
+// @font-face {
+//   font-family: 'Whitney';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: font-url('whitney-2-cufonfonts-webfont/whitneymedium.woff') format('woff');
+// }
+// @font-face {
+//   font-family: 'Whitney';
+//   font-style: normal;
+//   font-weight: bold;
+//   src: url(https://onedrive.live.com/download?resid=F87CD694B48033C9!114&authkey=!ADeQuq8LqQCrD3I&ithint=file%2cwoff) format('woff');
+// }
+
 .modal-background {
   position: fixed;
   top: 0;
@@ -21,25 +34,113 @@
 }
 
 .create-server-container {
-  box-sizing: border-box;
+  // box-sizing: border-box;
   width: 220px;
   height: 290px;
   border: 1px solid #E5E5E5;
   border-radius: 3px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  margin-top: 30px;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 .create-server-title {
-  color: #7289DA;
-  font-size: 30px;
-  font-weight: 500;
-  margin-top: 28px;
-  margin-bottom: 17px;
-  left: 50%;
   align-items: center;
   justify-content: center;
-  display: block;
+  display: flex;
+  color: #000000;
+  font-size: 25px;
+  font-weight: 800;
+  margin-top: 28px;
+  margin-bottom: 17px;
+  // font-family:
+}
+
+.create-server-text {
+  color: rgb(61, 60, 60);
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  // align-items: center;
+  // justify-content: center;
+  // display: flex;
+}
+.create-server-bottom-text {
+  color: rgb(61, 60, 60);
+  font-size: 15px;
+  text-align: center;
+  margin-top: 50px;
+  // align-items: center;
+  // justify-content: center;
+  // display: flex;
+}
+
+.create-server-button {
+  background: white;
+  border-width: thin;
+  border-radius: 5px;
+  border-color: rgb(221, 220, 220);
+  line-height: 50px;
+  border-style: solid;
+  // justify-content: center;
+  display: inline;
+  text-align: center;
+  margin-left: 9px;
+  // align-items: center;
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
+  color: rgb(61, 60, 60);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.create-server-button:hover {
+  background: #f5f5f5;
+}
+.create-server-form-container {
+  box-sizing: border-box;
+  width: 300px;
+  height: 150px;
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  background: white
+}
+
+.create-server-form-header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.create-server-form {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-server-form > input {
+  width: 258px;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.create-server-button-modal {
+  background: #5865F2;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+
+.create-server-button-modal:hover {
+  background: #525ee4;
 }
 
 .join-server-container {
@@ -51,31 +152,123 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
 
-.invite-container {
-  box-sizing: border-box;
-  width: 300px;
-  height: 150px;
-  border: 1px solid #E5E5E5;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  background: white
+
+.join-server-text {
+    text-align: center;
+    color: rgb(61, 60, 60);
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+.join-server-button {
+  background: rgb(107, 107, 107);
+  border-width: thin;
+  border-radius: 5px;
+  border-style: none;
+  justify-content: center;
+  display: flex;
+  line-height: 50px;
+  align-items: center;
+  height: 35px;
+  width: 200px;
+  margin-left: 9px;
+  cursor: pointer;
+  color: rgb(252, 248, 248);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.join-server-button:hover {
+  background: rgb(73, 73, 73);
 }
 
-.create-server-form-container {
-  box-sizing: border-box;
-  width: 300px;
-  height: 150px;
-  border: 1px solid #E5E5E5;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  background: white
-}
 .join-server-form-container {
   box-sizing: border-box;
   width: 300px;
   height: 150px;
   border: 1px solid #E5E5E5;
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
   background: white
+}
+
+.join-server-header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.join-server-invite-code {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.join-server-form {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.join-server-form > input {
+  width: 258px;
+  height: 20px;
+  margin-bottom: 9px;
+}
+
+.join-server-button-modal {
+  background: #5865F2;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+
+.create-server-button-modal:hover {
+  background: #525ee4;
+}
+
+.invite-container {
+  box-sizing: border-box;
+  width: 300px;
+  height: 150px;
+  // border: 1px solid #E5E5E5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  background: rgb(70, 69, 69)
+}
+
+.invite-message {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.invite-message-with-invite-code {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 3px;
+  color: rgb(160, 158, 158)
+}
+
+.invite-code-display {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  margin-top: 5px;
+}
+.close-invite {
+  text-align: right;
+  font-size: 15px;
+  color: red;
+  padding: 2px 6px 2px 6px;
+  margin-top: 25px;
+  margin-right: 10px;
 }

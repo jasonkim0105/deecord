@@ -76,11 +76,15 @@ class CreateServer extends React.Component {
     // }
     return (
       <div className="create-server-form-container">
-        CREATE A SERVER
+        <div className="create-server-form-header">
+        Customize your server
+        </div>
+
         <div className='error-message'>{this.renderErrors()}</div>
+
         <form className="create-server-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.name} onChange={this.update('name')} />
-          <button className="create-server-button">Create</button>
+          <button className="create-server-button-modal">Create</button>
         </form>
       </div>
     )

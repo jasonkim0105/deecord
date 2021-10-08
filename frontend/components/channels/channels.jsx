@@ -46,9 +46,9 @@ class Channels extends React.Component {
       <div className="channel-component">
         <div className="create-channel">
           <div className="create-channel-text">
-            TEXT CHANNEL
+            TEXT CHANNELS
           </div>
-          <div onClick={() => openModal('createChannel')}>+</div>
+          <div onClick={() => openModal('createChannel')} className="channel-button">+</div>
 
         </div>
 

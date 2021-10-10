@@ -51,9 +51,7 @@ class ChannelList extends React.Component {
             {channelDropdown}SETTINGS
             </div>
         </div>
-
       </NavLink>
-
     </li>
     )
   }

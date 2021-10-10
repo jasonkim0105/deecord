@@ -17,7 +17,6 @@ class Modal extends React.Component {
   render() {
     let {modal, closeModal} = this.props;
     let component;
-    // console.log(this.props)
     switch(modal) {
       case 'addServer':
         component = <AddServerContainer />
@@ -34,11 +33,7 @@ class Modal extends React.Component {
       case 'createChannel':
         component = <Route path="/channels/:serverId" component = {CreateChannelContainer} />
         break;
-      // case 'channelSettings';
-      //   component = <Route path="/channels/:serverId/channels/:channelId" component = {ChannelSettingsContainer}/>
-      //   break;
       case 'editChannel':
-        // component = <EditChannelContainer channel={channel}/>
         component = <Route path="/channels/:serverId/channels/:channelId" component = {EditChannelContainer}/>
         break;
       case 'deleteChannel':

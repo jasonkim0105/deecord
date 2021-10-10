@@ -1,0 +1,139 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// @font-face {
+//   font-family: 'Florencesans SC';
+//   src: font-url('florencesans-sc/Florsn17.ttf') format('truetype');
+// }
+// @font-face {
+//   font-family: 'Florencesans SC Bold';
+//   src: font-url('florencesans-sc/Florsn35.ttf') format('truetype');
+// }
+
+// @font-face {
+//   font-family: 'Whitney';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: font-url('whitney-2-cufonfonts-webfont/whitneymedium.woff') format('woff');
+// }
+
+// @font-face {
+//   font-family: 'Whitney Light';
+//   font-style: normal;
+//   font-weight: 200;
+//   src: font-url('whitney-2-cufonfonts-webfont/whitneylight.woff') format('woff');
+// }
+
+// @font-face {
+//   font-family: 'Whitney Bold';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: font-url('whitney-2-cufonfonts-webfont/whitneybold.woff') format('woff');
+// }
+
+.splash {
+  height: 2000px;
+}
+.splash-div-1 {
+  width: 100%;
+  height: 630px;
+  background-image: linear-gradient(to bottom, #303fdd, #3f5bb6, #4d6de2);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.splash-div-1 a:hover {
+  color: rgb(115, 138, 219);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.splash-div-1 > nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.splash-div-1 > nav > :first-child {
+  margin-left: 50px;
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+  // width: 150px;
+  // height: 50px;
+  border-radius: 40px;
+  color: inherit;
+}
+.deecord-title {
+  text-decoration: none;
+}
+
+// .deecord-button {
+//   margin-left: 50px;
+//   font-size: 25px;
+//   text-decoration: none;
+//   // color: black;
+// }
+
+
+// .splash-div-1 > nav img {
+//   width: 12%;
+//   height: 12%;
+//   margin-top: 5px;
+// }
+
+.splash-div-1 > nav > a {
+  // font-style: normal;
+  font-family: "Whitney Bold","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-right: 50px;
+  text-decoration: none;
+  background-color: white;
+  color: rgb(36,36,44);
+  padding: 7px 16px;
+  border-radius: 40px;
+}
+
+.deecord-explanation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+
+  margin: auto;
+  transform: translateY(100px);
+  text-align: center;
+}
+
+.deecord-explanation > h1 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.splash-buttons {
+  margin-top: 20px;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
+.splash-buttons > a {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 4px;
+  background: white;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  font-weight: 300;
+}
+

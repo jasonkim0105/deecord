@@ -10,8 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchChannels: channels => dispatch(fetchChannels(channels)),
-  openModal: modal => dispatch(openModal(modal)),
-  // fetchServerMembers: serverId => dispatch(fetchServerMembers(serverId))
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelList))

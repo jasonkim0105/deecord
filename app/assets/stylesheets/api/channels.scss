@@ -17,7 +17,7 @@
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  cursor: pointer;
+  // cursor: pointer;
 
   div {
     display: flex;
@@ -33,10 +33,15 @@
 }
 
 .channel-button {
-  font-size: 15px;
+  font-size: 20px;
   color: rgb(156, 155, 155);
   margin-top: 15px;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.channel-button:hover {
+  color: rgb(129, 129, 129);
 }
 
 .channel-list > li {
@@ -75,3 +80,4 @@
 .channel-dropdown {
 
 }
+

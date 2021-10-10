@@ -272,3 +272,51 @@
   margin-top: 25px;
   margin-right: 10px;
 }
+
+.create-channel-form-container {
+  box-sizing: border-box;
+  width: 300px;
+  height: 150px;
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  background: white
+}
+
+.create-channel-header {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.create-channel-form {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.join-server-form > input {
+  width: 258px;
+  height: 40px;
+  margin-bottom: 9px;
+  margin-top: 9px;
+}
+
+.create-channel-button {
+  background: #5865F2;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+.create-channel-button:hover {
+  background: #525ee4;
+}

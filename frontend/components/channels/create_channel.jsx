@@ -45,7 +45,11 @@ class CreateChannel extends React.Component {
     // console.log(this.state);
     return(
       <div className="create-channel-form-container">
+
+        <div className='create-channel-header'>
         CREATE A CHANNEL
+        </div>
+
         <form className="create-channel-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.channel.name} onChange={this.update()}/>
           <button className="create-channel-button">Create Channel</button>

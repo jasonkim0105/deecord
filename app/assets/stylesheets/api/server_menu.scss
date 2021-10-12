@@ -32,6 +32,10 @@
   cursor: pointer;
 }
 
+.server-settings-menu:hover {
+  background: rgb(41, 41, 41);
+}
+
 .server-setting-top {
   display: flex;
   justify-content: space-between;
@@ -48,11 +52,21 @@
 }
 
 .server-setting-icon {
-  background-image: image-url("downarrow.png");
+  // background-image: image-url("downarrow.png");
   width: 10px;
   height: 10px;
-  margin-top: 23px;
+  margin-top: 20px;
   margin-right: 15px;
+  color: white;
+  // border: none;
+}
+
+.fal.fa-angle-down {
+  color: white;
+}
+
+.fal.fa-angle-down::before {
+  color: white;
 }
 
 .server-setting-dropdown {
@@ -92,12 +106,6 @@
 .server-setting-delete-dropdown:hover {
   background: rgb(49, 49, 49);
 }
-// .server-setting-dropdown-true {
-//   margin-top: 1px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
 
 // channels portion
 

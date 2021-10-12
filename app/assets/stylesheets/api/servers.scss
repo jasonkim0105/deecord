@@ -20,53 +20,43 @@
   display: column;
 }
 
-// .create-server-title {
-//   align-items: center;
-//   justify-content: center;
-//   display: flex;
-// }
-
-// .add-server-button-container {
-//   display: flex;
-// }
 
 .server-home-button {
   border-radius: 15px;
   position: relative;
   background-color: #36393F;
-  color: #DCDDDE;
   height: 50px;
   width: 50px;
   margin: 10px;
   cursor: pointer;
   font-size: 20px;
   text-decoration: none;
-  // background: image-url("deecordlogo.jpeg");
+  border-radius: 50px;
+}
+
+.server-home-button:hover {
+  background-color: #4d54a1;
+  border-radius: 15px;
+}
+
+.discord-home-logo {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  color: #DCDDDE;
+  text-align: center;
+}
+
+.discord-home-logo > i {
+  margin-top: 15px;
+  margin-left: 9px;
 }
 
 .server-name-hide {
   display: none;
   position: absolute;
 }
-.discord-home-logo {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  // background: image-url("deecordlogo.jpeg");
-  border-radius: 15px;
-  color: #4d54a1;
-  text-align: center;
-}
-
-.discord-home-logo > i {
-  margin-top: 15px;
-  margin-left: 13px;
-  // width: 30px;
-  // height: 30px;
-}
-// .fab-fa-discord{
-//   color: #4751c0;
-// }
 
 .servers-list-short-name {
   border-radius: 50px;
@@ -80,6 +70,7 @@
 }
 .servers-list-short-name:hover {
   border-radius: 15px;
+  background-color: #4d54a1;
 }
 
 .servers-list-short-name a {
@@ -97,6 +88,10 @@
   cursor: pointer;
   font-size: 20px;
   border-style: none;
+}
+
+.add-server-button-server-list:hover {
+  border-radius: 15px;
 }
 
 

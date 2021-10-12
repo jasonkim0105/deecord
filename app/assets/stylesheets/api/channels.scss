@@ -17,7 +17,7 @@
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  // cursor: pointer;
+  cursor: pointer;
 
   div {
     display: flex;
@@ -25,23 +25,31 @@
   }
 }
 
+// .create-channel:hover {
+//   color: rgb(156, 155, 155);
+// }
+
 .create-channel-text {
   margin-top: 15px;
   margin-left: 10px;
   font-size: 13px;
+  color: rgb(129, 129, 129)
+}
+
+.create-channel-text:hover {
   color: rgb(156, 155, 155);
 }
 
 .channel-button {
   font-size: 20px;
-  color: rgb(156, 155, 155);
+  color: rgb(129, 129, 129);
   margin-top: 15px;
-  margin-right: 10px;
+  margin-right: 5px;
   cursor: pointer;
 }
 
 .channel-button:hover {
-  color: rgb(129, 129, 129);
+  color: rgb(156, 155, 155);
 }
 
 .channel-list > li {

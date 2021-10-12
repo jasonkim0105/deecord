@@ -44,11 +44,11 @@ class Channels extends React.Component {
 
     return (
       <div className="channel-component">
-        <div className="create-channel">
+        <div className="create-channel" onClick={() => openModal('createChannel')}>
           <div className="create-channel-text">
             TEXT CHANNELS
           </div>
-          <div onClick={() => openModal('createChannel')} className="channel-button">+</div>
+          <div  className="channel-button">+</div>
 
         </div>
 

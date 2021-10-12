@@ -20,7 +20,6 @@ class ServerSettings extends React.Component {
 
   render() {
     const { server } = this.props;
-    // console.log(server)
     let serverName;
 
     if (server) {
@@ -48,7 +47,7 @@ class ServerSettings extends React.Component {
         </div>
 
         <div className='server-setting-icon'>
-
+          <i className="fas fa-chevron-down"></i>
         </div>
       </div>
     );

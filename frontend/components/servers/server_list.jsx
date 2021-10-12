@@ -51,8 +51,6 @@ import { NavLink } from 'react-router-dom';
               className='servers-nav-link'>
               {this.props.server.name[0]}
             </NavLink>
-
-            {/* <div className='servers-list-names'>{serverName}</div> */}
           </li>
      )
    }

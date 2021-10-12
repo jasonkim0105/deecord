@@ -88,6 +88,7 @@
   // margin-top: 5px;
   background-color: #5865F2;
   color: rgb(233, 230, 230);
+  cursor: pointer;
 }
 
 .session-submit:hover {
@@ -120,9 +121,10 @@
   font-size: 24px;
   background-color: #5865F2;
   color: rgb(233, 230, 230);
-  // padding-bottom: 20px;
-  border-style: groove;
+  border-radius: 3px;
+  border-style: none;
   box-shadow: 0 0 10px rgb(31, 30, 30);
+  cursor: pointer;
 }
 
 .demo-button:hover {
@@ -196,4 +198,14 @@
   height: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #5865F2;
+  color: rgb(233, 230, 230);
+  border-radius: 3px;
+  border-style: none;
+  box-shadow: 0 0 10px rgb(31, 30, 30);
+}
+
+.session-form-button:hover {
+  background-color: #4751c0
 }

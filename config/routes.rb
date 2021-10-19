@@ -20,5 +20,7 @@ Rails.application.routes.draw do
       end
       resources :user_servers, only: [:create, :destroy]
 
+      resources :messages, only: [:create, :index, :delete]
+
     end
 end

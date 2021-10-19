@@ -34,6 +34,11 @@ has_many :servers,
   through: :user_servers,
   source: :server
 
+has_many :messages,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: :Message
+
   def self.find_by_credential(username,password)
     user = User.find_by(username:username)
 

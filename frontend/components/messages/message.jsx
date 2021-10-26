@@ -3,7 +3,6 @@ import React from 'react';
 class Message extends React.Component {
   constructor(props){
     super(props);
-    console.log(props)
   }
 
   componentDidMount() {
@@ -11,6 +10,7 @@ class Message extends React.Component {
   }
 
   render(){
+    console.log(this.props)
     return (
       <div>
         individual message

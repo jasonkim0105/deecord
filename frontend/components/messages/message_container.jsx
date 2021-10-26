@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux";
-import Messages from "./messages"
+import Message from "./message"
 import { fetchChannels } from '../../actions/channel_actions';
 import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
@@ -20,4 +20,4 @@ const mapDispatchToProps = dispatch => ({
   fetchMessages: (channelId) => dispatch(fetchChannelMessages(channelId)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Messages))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Message))

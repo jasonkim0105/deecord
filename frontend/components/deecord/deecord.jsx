@@ -4,6 +4,8 @@ import ServerIndexContainer from '../servers/server_index_container';
 import ServerSettingsContainer from '../servers/settings/server_settings_container'
 import ServerMenu from '../servers/settings/server_menu';
 import ChannelsContainer from '../channels/channels_container';
+import MessagesContainer from '../messages/messages_container';
+import { Route } from 'react-router-dom';
 // import { AiOutlineLogout } from 'react-icons/ai';
 
 class Deecord extends React.Component {
@@ -42,11 +44,15 @@ class Deecord extends React.Component {
                 <div className='dm-header'>
                 Direct Messages
                 </div>
-                <div        className="channels-container">
+                <div className="channels-container">
                 </div>
                 <div className="auth-setting">
                   {auth}
                 </div>
+              </div>
+
+              <div className='message-container'>
+                MESSAGES HERE
               </div>
 
             </div>
@@ -66,6 +72,21 @@ class Deecord extends React.Component {
                   <div className="auth-setting">
                     {auth}
                   </div>
+
+                </div>
+
+                {/* <div className='message-container'>
+                   <MessagesContainer/>
+                </div> */}
+                <div className='servers-content-container'>
+                {/* Rendering components for when in a chat channel */}
+                <Route
+                  path='/channels/:serverId/channels/:channelId'
+                  render={() =>
+                    <>
+                      <MessagesContainer />
+                    </>
+                  }/>
                 </div>
 
               </div>

@@ -55,6 +55,7 @@ class Channels extends React.Component {
         <div className='channel-list'>
           {ChannelsList}
         </div>
+
       </div>
     )
   }

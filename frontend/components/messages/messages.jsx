@@ -18,11 +18,31 @@ class Messages extends React.Component {
 
   render(){
     console.log(this.props)
+    const {currChannel} = this.props;
+    let channelName;
+    if (currChannel) channelName = currChannel.name;
+    // console.log(channelName)
     return (
-      <div className="message-component">
-        hi
-        <Message />
-        <MessageForm />
+      <div className="side-component">
+        <div className='channel-title-container'>
+          <div className='channel-name-chatbox'>
+            {channelName}
+          </div>
+        </div>
+
+        <div className="bottom-container">
+          <div className="bottom-message-container">
+            <Message />
+            <MessageForm
+              currChannel={this.props.currChannel}
+            />
+          </div>
+
+          <div className="user-list">
+            user list goes here
+          </div>
+
+        </div>
 
       </div>
     )

@@ -8,13 +8,15 @@ import { fetchServerUsers } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   newChannelId: ownProps.match.params.channelId,
-  currChannel: state.entities.channels[ownProps.match.params.channelId]
+  currChannel: state.entities.channels[ownProps.match.params.channelId],
+  // channelName:
 })
 
 const mapDispatchToProps = dispatch => ({
   fetchChannels: channels => dispatch(fetchChannels(channels)),
   openModal: modal => dispatch(openModal(modal)),
-  fetchServerUsers: serverId => dispatch(fetchServerUsers(serverId))
+  fetchServerUsers: serverId => dispatch(fetchServerUsers(serverId)),
+  fetchMessages: (serverId, channelId) => dispatch(fetchMessages(serverId, channelId)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Messages))

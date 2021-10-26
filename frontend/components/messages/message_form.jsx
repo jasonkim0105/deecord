@@ -15,10 +15,17 @@ class MessageForm extends React.Component {
     e.preventDefault();
 
     // App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
+    const message = Object.assign({}, this.state);
+    // this.props.createMessage(message))
     this.setState({ body: "" });
   }
 
   render() {
+    console.log(this.props)
+    const {currChannel} = this.props;
+    let channelName;
+    if (currChannel) channelName = currChannel.name;
+
     return (
       <div className='message-form-container'>
         <div className='message-form-inner-container'>
@@ -30,7 +37,7 @@ class MessageForm extends React.Component {
               type="text"
               value={this.state.body}
               onChange={this.update("body")}
-              placeholder="Enter message..."
+              placeholder={`Message #${channelName}`}
             />
           </form>
         </div>

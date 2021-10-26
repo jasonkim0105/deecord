@@ -12,7 +12,7 @@ class Deecord extends React.Component {
 
   render(){
     let { currentUser, logout, currentServer, serverId } = this.props;
-    // console.log(this.props)
+    console.log(this.props)
     // console.log(currentServer)
     let auth = (currentUser) ?
       <div className='channel-footer'>

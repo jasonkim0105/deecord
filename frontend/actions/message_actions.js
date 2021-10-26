@@ -35,7 +35,7 @@ export const clearMessages = () => {
 
 const deleteMessage = messageId => {
   return {
-    type: DELETE_MESSAGE
+    type: DELETE_MESSAGE,
     messageId
   }
 }
@@ -50,6 +50,6 @@ export const fetchChannelMessages = channelId => dispatch => (
   .then( messages => dispatch(receiveMessages(messages)))
 )
 
-export const deleteMessage = message => dispatch => (
+export const deleteIndividualMessage = message => dispatch => (
   MessageAPIUtil.deleteMessage(message).then(() => dispatch(deleteMessage(message.id)))
 )

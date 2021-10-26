@@ -9,5 +9,9 @@ const MessagesReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.message.id]: action.message })
     case CLEAR_MESSAGES:
       return {}
+    default:
+      return state;
   }
 }
+
+export default MessagesReducer;

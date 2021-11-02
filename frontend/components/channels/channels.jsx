@@ -27,7 +27,7 @@ class Channels extends React.Component {
 
 
   render(){
-    console.log(this.props)
+    // console.log(this.props)
     const { currentServerId, channels, openModal, currentUser, currentServer } = this.props;
     const ChannelsList = channels.map((channel, idx) => {
       if (currentServerId === channel.server_id){

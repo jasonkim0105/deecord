@@ -14,16 +14,16 @@ class Message extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchMessages(this.props.channelId)
+    this.props.fetchMessages(this.props.serverId, this.props.channelId)
   }
 
-  // componentDidUpdate(prevProps) {
-    //   const { fetchMessages, serverId, channelId } = this.props;
+  componentDidUpdate(prevProps) {
+      const { fetchMessages, serverId, channelId } = this.props;
 
-    //   fetchMessages(channelId);
+      fetchMessages(serverId, channelId);
 
     // this.chatScroller(prevProps);
-    // }
+    }
 
     // chatScroller(prevProps) {
       //   const currChannelId = this.props.match.params.channelId;
@@ -39,10 +39,21 @@ class Message extends React.Component {
   // }
 
   render() {
+    const { messages, channelId } = this.props;
+
+    const messageList = messages.map((message, idx) => {
+      if (channelId === message.channel_id) {
+        return (
+          <MessageListItem key={idx} message={message} />
+        );
+      }
+    });
+
     console.log(this.props);
     return (
       <div>
         individual message
+        {messageList}
       </div>
     )
   }
@@ -55,10 +66,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchChannels: channels => dispatch(fetchChannels(channels)),
-  openModal: modal => dispatch(openModal(modal)),
-  fetchServerUsers: serverId => dispatch(fetchServerUsers(serverId)),
-  fetchMessages: (channelId) => dispatch(fetchChannelMessages(channelId)),
+  fetchMessages: (serverId, channelId) => dispatch(fetchMessages(serverId, channelId)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Message));

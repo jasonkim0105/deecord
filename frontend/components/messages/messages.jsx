@@ -52,7 +52,6 @@ class Messages extends React.Component {
     const {currChannel} = this.props;
     let channelName;
     if (currChannel) channelName = currChannel.name;
-    // console.log(channelName)
     return (
       <div className="side-component">
         <div className='channel-title-container'>

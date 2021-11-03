@@ -40,16 +40,21 @@ const deleteMessage = messageId => {
   }
 }
 
-export const createMessage = message => dispatch => (
-  MessageAPIUtil.createMessage(message)
-  .then( message => dispatch(receiveMessage(message)))
-)
+// export const createMessage = message => dispatch => (
+//   MessageAPIUtil.createMessage(message)
+//   .then( message => dispatch(receiveMessage(message)))
+// )
 
-export const fetchChannelMessages = channelId => dispatch => (
-  MessageAPIUtil.fetchChannelMessages(channelId)
+// export const fetchChannelMessages = channelId => dispatch => (
+//   MessageAPIUtil.fetchChannelMessages(channelId)
+//   .then( messages => dispatch(receiveMessages(messages)))
+// )
+
+// export const deleteIndividualMessage = message => dispatch => (
+//   MessageAPIUtil.deleteMessage(message).then(() => dispatch(deleteMessage(message.id)))
+// )
+
+export const fetchMessages = (serverId, channelId) => dispatch => (
+  MessageAPIUtil.fetchChannelMessages(serverId, channelId)
   .then( messages => dispatch(receiveMessages(messages)))
-)
-
-export const deleteIndividualMessage = message => dispatch => (
-  MessageAPIUtil.deleteMessage(message).then(() => dispatch(deleteMessage(message.id)))
 )

@@ -8,8 +8,7 @@ import { fetchServerUsers } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   newChannelId: ownProps.match.params.channelId,
-  currChannel: state.entities.channels[ownProps.match.params.channelId],
-  // channelName:
+  currChannel: state.entities.channels[ownProps.match.params.channelId]
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -8,7 +8,10 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :show, :update, :index]
       resource :session, only: [:create, :destroy]
       resources :servers, only: [:create, :index, :show, :update, :destroy] do
-        resources :channels, only: [:create, :destroy, :update, :show, :index]
+        resources :channels, only: [:create, :destroy, :update, :show, :index] do
+          resources :messages, only: [:create, :index, :delete]
+        end
+
 
         collection do
           post 'join'
@@ -20,7 +23,6 @@ Rails.application.routes.draw do
       end
       resources :user_servers, only: [:create, :destroy]
 
-      resources :messages, only: [:create, :index, :delete]
 
     end
 end

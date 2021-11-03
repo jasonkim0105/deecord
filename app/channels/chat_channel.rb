@@ -8,14 +8,14 @@ class ChatChannel < ApplicationCable::Channel
   #   # Any cleanup needed when channel is unsubscribed
   # end
   def subscribed
-    @chat_channel = Channel.find(params[:id])
+    @chat_channel = Channel.find_by(id: params[:id])
 
     stream_for @chat_channel
   end
 
   def speak(data)
     message = @chat_channel.messages.new(body: data['message']);
-    message.author_id = current_user.id
+    message.user_id = current_user.id
 
     if message.save!
       socket = { message: message.body }

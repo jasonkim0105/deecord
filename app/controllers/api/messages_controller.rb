@@ -1,35 +1,47 @@
 class Api::MessagesController < ApplicationController
 
   # def index
-  #   @messages = Message.where(channel_id: params[:channel_id])
   # end
 
   def index
-    @messages = Message.all.where('channel_id = ?', params[:channel_id]).includes(:user)
+      @messages = Message.where(channel_id: params[:channel_id])
+    # @messages = Message.where('channel_id = ?', params[:channel_id]).includes(:user)
     # @channel_id = params[:channelId]
     render 'api/messages/index'
   end
 
   def show
-    @post = Post.find_by_id(params[:id])
+    @message = Message.find_by_id(params[:id])
 
-    if @post
+    if @message
       render :show
     else
-      render json: "No post found,", status: 404
+      render json: "No message found.", status: 404
     end
 
   end
 
-  def create
-    @message = Message.new(message_params)
-    @message.user_id = current_user.id
-    if @message.save
-        render 'api/messages/show'
-    else
-      render json: @message.errors.full_messages, status: 402
-    end
-  end
+  # def create
+  #   params[:message][:user_id] = current_user.id
+  #   @message = Message.new(message_params)
+
+  #   if @message.save
+  #     render :show
+  #   else
+  #     render json: @message.errors.full_messages, status: 404
+  #   end
+  # end
+
+
+  # def create
+  #   @message = Message.new(message_params)
+  #   @message.user_id = current_user.id
+  #   if @message.save
+  #       render 'api/messages/show'
+  #   else
+  #     render json: @message.errors.full_messages, status: 402
+  #   end
+  # end
 
 
   private

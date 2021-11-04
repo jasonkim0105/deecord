@@ -1,60 +1,46 @@
-import * as MessageAPIUtil from '../util/message_api_util';
+import * as messageAPIUtil from "../util/message_api_util";
 
-export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
-export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
-export const RECEIVE_MESSAGE_ERRORS = "RECEIVE_MESSAGE_ERRORS";
-export const CLEAR_MESSAGES = "CLEAR_MESSAGES";
-export const DELETE_MESSAGE = "DELETE_MESSAGE";
+export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE'
+export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES'
+export const CREATE_MESSAGE = 'CREATE_MESSAGE'
+export const DELETE_MESSAGE = 'DELETE_MESSAGE'
 
-const receiveMessage = message => {
-  return {
-    type: RECEIVE_MESSAGE,
-    message
-  }
-}
+export const receiveMessage = message => ({
+   type: RECEIVE_MESSAGE,
+   message
+})
 
-const receiveMessages = messages => {
-  return {
-    type: RECEIVE_MESSAGES,
-    messages
-  }
-}
+const receiveMessages = messages => ({
+   type: RECEIVE_MESSAGES,
+   messages
+})
 
-const receiveErrors = errors => {
-  return {
-    type: RECEIVE_MESSAGE_ERRORS,
-    errors
-  }
-}
+const createMessage = message => ({
+   type: CREATE_MESSAGE,
+   message
+})
 
-export const clearMessages = () => {
-  return {
-    type: CLEAR_MESSAGES
-  }
-}
+const deleteMessage = message => ({
+   type: DELETE_MESSAGE,
+   message
+})
 
-const deleteMessage = messageId => {
-  return {
-    type: DELETE_MESSAGE,
-    messageId
-  }
-}
+export const getMessageShow = id => dispatch => (
+   messageAPIUtil.messageShow(id)
+      .then( message => dispatch(receiveMessage(message)))
+)
 
-// export const createMessage = message => dispatch => (
-//   MessageAPIUtil.createMessage(message)
-//   .then( message => dispatch(receiveMessage(message)))
-// )
+export const getMessagesIndex = channelId => dispatch => (
+   messageAPIUtil.messagesIndex(channelId)
+      .then( messages => dispatch(receiveMessages(messages)))
+)
 
-// export const fetchChannelMessages = channelId => dispatch => (
-//   MessageAPIUtil.fetchChannelMessages(channelId)
-//   .then( messages => dispatch(receiveMessages(messages)))
-// )
+export const getMessageCreate = formmessage => dispatch => (
+   messageAPIUtil.messageCreate(formmessage)
+      .then( message => dispatch(createMessage(message)))
+)
 
-// export const deleteIndividualMessage = message => dispatch => (
-//   MessageAPIUtil.deleteMessage(message).then(() => dispatch(deleteMessage(message.id)))
-// )
-
-export const fetchMessages = (serverId, channelId) => dispatch => (
-  MessageAPIUtil.fetchChannelMessages(serverId, channelId)
-  .then( messages => dispatch(receiveMessages(messages)))
+export const getMessageDestroy = id => dispatch => (
+   messageAPIUtil.messageDestroy(id)
+      .then( message => dispatch(deleteMessage(message)))
 )

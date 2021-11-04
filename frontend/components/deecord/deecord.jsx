@@ -82,11 +82,7 @@ class Deecord extends React.Component {
                 {/* Rendering components for when in a chat channel */}
                 <Route
                   path='/channels/:serverId/channels/:channelId'
-                  render={() =>
-                    <>
-                      <MessagesContainer />
-                    </>
-                  }/>
+                  component={MessagesContainer}/>
                 </div>
 
               </div>

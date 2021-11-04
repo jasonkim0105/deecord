@@ -1,79 +1,113 @@
-import React from 'react';
-import MessagesContainer from './messages_container';
-import MessageForm from './message_form';
-import Message from './message';
+import React from 'react'
+import { withRouter } from 'react-router';
+
 
 class Messages extends React.Component {
-
-  constructor(props){
-    super(props);
-
-    this.subscription = null;
-    this.currentChannelId = null;
-  }
-
-  componentDidMount() {
-    this.currentChannelId = this.props.newChannelId;
-
-    this.createNewSubscription(this.currentChannelId);
-  }
-
-  createNewSubscription(channelId) {
-    this.subscription = App.cable.subscriptions.create(
-      { channel: "ChatChannel", id: channelId },
-      {
-        speak: function (data) {
-          return this.perform("speak", data);
-        }
+   constructor(props) {
+      super(props)
+      // this.serverId = parseInt(this.props.match.params.id.substring(0, 10));
+      console.log("currentChannel", this.props)
+      this.state = {
+         channel_id: this.props.match.params.channelId,
+         user_id: this.props.currentUser.id,
+         body: '',
       }
-    );
-  }
+      this.subscription = null;
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleInput = this.handleInput.bind(this);
+   }
 
-  componentDidUpdate() {
-    if (this.subscription &&
-        this.currentChannelId !== this.props.newChannelId) {
-      this.currentChannelId = this.props.newChannelId;
+   componentDidMount() {
+      this.subscription = App.cable.subscriptions.create(
+         { channel: "ChatChannel" },
+         {
+            received: data => {
+               this.props.receiveMessage(data);
+            },
+            speak: function (data) {
+               return this.perform("speak", data);
+            }
+         }
+      );
+      this.props.getMessagesIndex(this.props.match.params.channelId)
+   }
 
-      this.subscription.unsubscribe();
-      this.createNewSubscription(this.currentChannelId);
-    }
-  }
+   componentDidUpdate(prevProps) {
+      var element = document.getElementById("offset");
+      element.scrollTop = element.scrollHeight;
+      if (this.state.user_id !== this.props.currentUser.id) this.setState({user_id: this.props.currentUser.id});
 
-  componentWillUnmount() {
-    this.subscription.unsubscribe();
-  }
+      if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
+        this.props.getMessagesIndex(this.props.match.params.channelId)
+      }
+   }
 
+   handleSubmit(e) {
+      e.preventDefault();
+      // this.serverId = parseInt(this.props.match.params.id.substring(0, 10));
+      App.cable.subscriptions.subscriptions[1].speak(this.state);
+      this.setState({
+         body: '',
+      })
+   }
 
+   handleInput(input) {
+      return (e) => {
+         this.setState({
+            [input]: e.currentTarget.value
+         })
+      }
+   }
 
-  render(){
-    console.log(this.props)
-    const {currChannel} = this.props;
-    let channelName;
-    if (currChannel) channelName = currChannel.name;
-    return (
-      <div className="side-component">
-        <div className='channel-title-container'>
-          <div className='channel-name-chatbox'>
-            {channelName}
-          </div>
-        </div>
+   componentWillUnmount(){
+     this.subscription.unsubscribe();
+   }
 
-        <div className="bottom-container">
-          <div className="bottom-message-container">
-            <Message />
-            <MessageForm
-              currChannel={this.props.currChannel}
-            />
-          </div>
+   render() {
+      let messages;
+      if (this.props.messages.byId) {
+         messages = this.props.messages.byId;
+      } else {
+         messages = this.props.messages;
+      }
+      this.channel_id = this.props.messages.currentChannelId;
+      console.log(this.props)
 
-          <div className="user-list">
-            user list goes here
-          </div>
+      return (
+         <div id='messages-component'>
+            <div id='offset'>
+               <ul className='messages-container'>{
+                  Object.keys(messages).map(id =>
 
-        </div>
+                     <li className='message' key={id}>
+                        <div className='message-avatar'><i className="fab fa-discord"></i></div>
 
-      </div>
-    )
-  }
+                        <div className='message-content'>
+                          {/* <p className='message-user'>{messages[id].user} <span className='message-time'>{messages[id].created_at}</span> */}
+                          {/* </p> */}
+                          <p className='message-body'>{messages[id].body}</p>
+
+                        </div>
+
+                     </li>
+
+                  )
+
+               }</ul>
+            </div>
+
+            <form onSubmit={this.handleSubmit}>
+               <input
+                  id='message-input'
+                  type='text'
+                  value={this.state.body}
+                  autoComplete="off"
+                  onChange={this.handleInput('body')}
+               />
+            </form>
+         </div>
+      )
+   }
 }
-export default Messages
+
+export default withRouter(Messages);

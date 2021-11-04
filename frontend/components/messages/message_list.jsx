@@ -36,7 +36,7 @@ class MessageList extends React.Component {
 }
 
 const msp = (state, ownProps) => ({
-  // user: state.entities.users[ownProps.message.author_id]
+  user: state.entities.users[ownProps.message.user_id]
 });
 
 export default connect(msp, null)(MessageList);

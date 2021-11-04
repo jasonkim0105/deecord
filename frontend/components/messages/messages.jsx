@@ -30,8 +30,6 @@ class Messages extends React.Component {
   }
 
   componentDidUpdate() {
-    // If an existing subscription exists and the user changes channels within the same server,
-    // the current subscription will be unsubscribed and a new subscription of the new channel is made
     if (this.subscription &&
         this.currentChannelId !== this.props.newChannelId) {
       this.currentChannelId = this.props.newChannelId;

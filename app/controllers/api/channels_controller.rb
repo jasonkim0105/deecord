@@ -37,7 +37,11 @@ class Api::ChannelsController < ApplicationController
   end
 
   def destroy
+    puts "___"
+    puts params
+    puts @channel
     @channel = Channel.find_by(id: params[:id])
+    debugger
         if @channel
             @channel.destroy
             render :show

@@ -13,14 +13,14 @@ class Message extends React.Component {
 
   }
 
-  // componentDidMount() {
-  //   this.props.fetchMessages(this.props.channelId)
-  // }
+  componentDidMount() {
+    this.props.getMessagesIndex(this.props.channelId)
+  }
 
   componentDidUpdate(prevProps) {
-      const { fetchMessages, serverId, channelId } = this.props;
+      const { getMessagesIndex, serverId, channelId } = this.props;
 
-      // fetchMessages(serverId, channelId);
+      // getMessagesIndex(channelId);
 
     }
 

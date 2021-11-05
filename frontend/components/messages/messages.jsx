@@ -28,17 +28,17 @@ class Messages extends React.Component {
 
   createNewSubscription(channelId) {
     this.subscription = App.cable.subscriptions.create(
-      { channel: "ChatChannel" },
+      { channel: "ChatChannel", id: channelId },
       {
-         received: data => {
-            this.props.receiveMessage(data);
-         },
+        //  received: data => {
+        //     this.props.receiveMessage(data);
+        //  },
          speak: function (data) {
             return this.perform("speak", data);
          }
       }
    );
-   this.props.getMessagesIndex(this.props.match.params.channelId)
+  //  this.props.getMessagesIndex(this.props.match.params.channelId)
   }
 
    componentDidUpdate(prevProps) {
@@ -72,9 +72,9 @@ class Messages extends React.Component {
 
 
    render() {
+    console.log(this.props.newChannelId)
 
-
-  const {currChannel} = this.props;
+    const {currChannel} = this.props;
     let channelName;
     if (currChannel) channelName = currChannel.name;
     return (

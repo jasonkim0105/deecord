@@ -3,22 +3,31 @@ import React from "react";
 class MessageForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: "" };
-  }
+    this.state = {
+      channel_id: this.props.match.params.channelId,
+      user_id: this.props.currentUser.id,
+      body: '',
+   }
 
-  update(field) {
-    return e =>
-      this.setState({ [field]: e.currentTarget.value });
+   this.handleSubmit = this.handleSubmit.bind(this);
+   this.handleInput = this.handleInput.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    App.cable.subscriptions.subscriptions[1].speak(this.state);
+    this.setState({
+       body: '',
+    })
+ }
 
-    // App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
-    const message = Object.assign({}, this.state);
-    // this.props.createMessage(message))
-    this.setState({ body: "" });
-  }
+ handleInput(input) {
+    return (e) => {
+       this.setState({
+          [input]: e.currentTarget.value
+       })
+    }
+ }
 
   render() {
     // console.log(this.props)
@@ -29,17 +38,15 @@ class MessageForm extends React.Component {
     return (
       <div className='message-form-container'>
         <div className='message-form-inner-container'>
-          <form
-            onSubmit={this.handleSubmit.bind(this)}
-            className='message-form'>
-            <input
-              className='message-form-input'
-              type="text"
-              value={this.state.body}
-              onChange={this.update("body")}
-              placeholder={`Message #${channelName}`}
-            />
-          </form>
+        <form onSubmit={this.handleSubmit}>
+                <input
+                   id='message-input'
+                   type='text'
+                   value={this.state.body}
+                   autoComplete="off"
+                   onChange={this.handleInput('body')}
+                />
+             </form>
         </div>
       </div>
     );

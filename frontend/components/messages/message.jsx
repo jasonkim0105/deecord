@@ -30,7 +30,7 @@ class Message extends React.Component {
     const messageList = messages.map((message, idx) => {
       if (channelId === message.channel_id) {
         return (
-          <MessageListItem key={idx} message={message} />
+          <MessageList key={idx} message={message} />
         );
       }
     });

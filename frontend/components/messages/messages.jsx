@@ -23,7 +23,7 @@ class Messages extends React.Component {
    componentDidMount() {
     this.currentChannelId = this.props.newChannelId;
 
-    this.createNewSubscription(this.currentChannelId);
+    this.createNewSubscription(this.props.newChannelId);
   }
 
   createNewSubscription(channelId) {
@@ -38,7 +38,7 @@ class Messages extends React.Component {
          }
       }
    );
-  //  this.props.getMessagesIndex(this.props.match.params.channelId)
+   this.props.getMessagesIndex(this.props.match.params.channelId)
   }
 
    componentDidUpdate(prevProps) {
@@ -49,6 +49,10 @@ class Messages extends React.Component {
         this.subscription.unsubscribe();
         this.createNewSubscription(this.currentChannelId);
      }
+
+     if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
+      this.props.getMessagesIndex(this.props.match.params.channelId)
+    }
    }
    componentWillUnmount(){
      this.subscription.unsubscribe();
@@ -96,6 +100,7 @@ class Messages extends React.Component {
                   value={this.state.body}
                   autoComplete="off"
                   onChange={this.handleInput('body')}
+                  placeholder={`Message #${channelName}`}
                />
             </form>
           </div>
@@ -112,3 +117,4 @@ class Messages extends React.Component {
 }
 
 export default withRouter(Messages);
+

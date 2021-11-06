@@ -1,28 +1,21 @@
-export const messagesIndex = (channelId) => (
-  $.ajax({
-     url: `/api/servers/:serverId/channels/${channelId}/messages`,
-     method: 'GET'
+export const fetchMessages = () => {
+  return $.ajax({
+    method: "GET",
+    url: "api/messages",
   })
-)
+};
 
-export const messageShow = (id) => (
+export const createMessage = message => (
   $.ajax({
-     url: `/api/messages/${id}`,
-     method: 'GET'
+    url: 'api/messages',
+    method: 'POST',
+    data: { message }
   })
-)
+);
 
-export const messageCreate = (formMessage) => (
+export const deleteMessage = id => (
   $.ajax({
-     url: `/api/messages`,
-     method: 'message',
-     data: {message: formMessage}
+    url: `api/messages/${id}`,
+    method: 'DELETE'
   })
-)
-
-export const messageDestroy = (id) => (
-  $.ajax({
-     url: `/api/messages/${id}`,
-     method: 'DELETE'
-  })
-)
+);

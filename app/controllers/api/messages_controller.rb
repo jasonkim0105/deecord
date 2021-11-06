@@ -1,54 +1,30 @@
 class Api::MessagesController < ApplicationController
-
-  # def index
-  # end
-
   def index
-      @messages = Message.where(channel_id: params[:channel_id])
-    # @messages = Message.where('channel_id = ?', params[:channel_id]).includes(:user)
-    # @channel_id = params[:channelId]
-    render 'api/messages/index'
+
+    @messages = Message.all
   end
 
-  def show
-    @message = Message.find_by_id(params[:id])
+  def create
+      @message = Message.new(message_params)
 
-    if @message
-      render :show
+    if @message.save
+      render "/api/messages/show"
     else
-      render json: "No message found.", status: 404
+      render json: @message.errors.full_messages, status: 404
     end
-
   end
 
-  # def create
-  #   params[:message][:user_id] = current_user.id
-  #   @message = Message.new(message_params)
+  def destroy
+    @message = Message.find(params[:id])
+    if @message.destroy
+      render "api/messages/show"
+    else
+      render json: @message.errors.full_messages, status: 422
+    end
+  end
 
-  #   if @message.save
-  #     render :show
-  #   else
-  #     render json: @message.errors.full_messages, status: 404
-  #   end
-  # end
-
-
-  # def create
-  #   @message = Message.new(message_params)
-  #   @message.user_id = current_user.id
-  #   if @message.save
-  #       render 'api/messages/show'
-  #   else
-  #     render json: @message.errors.full_messages, status: 402
-  #   end
-  # end
-
-
-  private
   def message_params
-    params.require(:message).permit(:body, :user_id, :channel_id)
+     params.require(:message).permit(:body, :user_id, :channel_id)
   end
-
-
 
 end

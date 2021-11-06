@@ -11,13 +11,12 @@ class Api::ChannelsController < ApplicationController
   end
 
   def show
-    @channel = Channel.find_by(id: params[:id])
+    @channel = Channel.includes(:messages, :server).find(params[:id])
+    @messages = @channel.messages.limit(30).order(created_at: :desc)
+    @server = @channel.server
+    @users = User.all
 
-    if @channel
-      render :show
-    else
-      render json: ['Channel does not exist'], status: 404
-    end
+    render :show
   end
 
   def index

@@ -8,9 +8,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :show, :update, :index]
       resource :session, only: [:create, :destroy]
       resources :servers, only: [:create, :index, :show, :update, :destroy] do
-        resources :channels, only: [:create, :destroy, :update, :show, :index] do
-          resources :messages, only: [:index]
-        end
+        resources :channels, only: [:create, :destroy, :update, :show, :index]
 
 
         collection do
@@ -22,7 +20,7 @@ Rails.application.routes.draw do
         end
       end
       resources :user_servers, only: [:create, :destroy]
-      resources :messages, only: [:create, :show, :destroy]
+      resources :messages, only: [:index, :create, :destroy]
 
 
     end

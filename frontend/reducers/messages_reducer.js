@@ -1,28 +1,21 @@
-import { RECEIVE_MESSAGE, RECEIVE_MESSAGES, CREATE_MESSAGE, DELETE_MESSAGE }
-   from '../actions/message_actions'
+import { RECEIVE_ALL_MESSAGES, RECEIVE_MESSAGE, REMOVE_MESSAGE } from "../actions/message_actions";
+import { merge } from "lodash";
 
-const messagesReducer = (state = {}, action) => {
-   Object.freeze(state);
-   const newState = Object.assign({}, state);
-
-   switch (action.type) {
-      case RECEIVE_MESSAGE:
-         newState[action.message.id] = action.message
-         return newState;
-
-      case RECEIVE_MESSAGES:
-         return action.messages
-      case CREATE_MESSAGE:
-         newState[action.message.id] = action.message;
-         return newState;
-
-      case DELETE_MESSAGE:
-         delete newState[action.message.id];
-         return newState
-
-      default:
-         return state;
-   }
-}
-
-export default messagesReducer;
+export default (state = {}, action) => {
+  Object.freeze(state);
+  let newState;
+  switch (action.type) {
+    case RECEIVE_ALL_MESSAGES:
+      return merge({}, state, action.messages);
+    case RECEIVE_MESSAGE:
+      newState = merge({}, state);
+      delete newState[action.message.id];
+      return merge({}, newState, { [action.message.id]: action.message });
+    case REMOVE_MESSAGE:
+      newState = merge({}, state);
+      delete newState[action.messageId];
+      return newState;
+    default:
+      return state;
+  }
+};

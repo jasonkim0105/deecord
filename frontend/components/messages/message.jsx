@@ -1,60 +1,54 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { receiveMessage, getMessagesIndex, getMessageCreate, getMessageDestroy } from '../../actions/message_actions'
-import MessageList from './message_list';
-import { openModal } from '../../actions/modal_actions';
-import { fetchServerUsers } from '../../actions/session_actions';
-import { fetchChannelMessages } from '../../actions/message_actions';
+import React from "react";
 
 class Message extends React.Component {
-  constructor(props){
-    super(props);
-
-  }
-
-  componentDidMount() {
-    this.props.getMessagesIndex(this.props.channelId)
-  }
-
-  componentDidUpdate(prevProps) {
-      const { getMessagesIndex, serverId, channelId } = this.props;
-
-      // getMessagesIndex(channelId);
-
-    }
+  componentDidMount() {}
 
   render() {
-    const { messages, channelId } = this.props;
+    const users = this.props.users
+      ? Object.values(this.props.users).length
+      : null;
 
-    const messageList = messages.map((message, idx) => {
-      if (channelId === message.channel_id) {
-        return (
-          <MessageList key={idx} message={message} />
-        );
-      }
+    const userName =
+      users && this.props.users[this.props.message.user_id]
+        ? this.props.users[this.props.message.user_id].username
+        : "User Left";
+
+    const date = new Date(this.props.message.created_at);
+    const localTime = date.toLocaleTimeString("en-US", {
+      timeZone: "America/New_York"
     });
 
-    console.log(this.props);
+    const localDate = date.toLocaleDateString("en-US", {
+      timeZone: "America/New_York",
+      weekday: "short",
+      month: "short",
+      day: "2-digit"
+    });
+
     return (
-      <div>
-        {messageList}
+      <div className="message-block-wrapper">
+        <hr className="message-divider" />
+        <div className="message-block-margin">
+          <div className="message-creator-container">
+            <div aria-hidden="true" className="message-creator-avatar">
+              <div className="message-creator-avatar-image" />
+            </div>
+            <h2 className="message-created-information">
+              <span className="message-username">{userName}</span>
+              <time className="message-timestamp">
+                {localDate} {localTime}
+              </time>
+            </h2>
+          </div>
+          <div className="message-icon-margin-wrapper">
+            <div className="message-container">
+              <div className="message-text">{this.props.message.body}</div>
+            </div>
+          </div>
+        </div>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  serverId: parseInt(ownProps.match.params.serverId),
-  channelId: parseInt(ownProps.match.params.channelId),
-  messages: Object.values(state.entities.messages)
-})
-
-const mapDispatchToProps = dispatch => ({
-  getMessagesIndex: channelId => dispatch(getMessagesIndex(channelId)),
-  getMessageCreate: formmessage => dispatch(getMessageCreate(formmessage)),
-  getMessageDestroy: id => dispatch(getMessageDestroy(id)),
-  receiveMessage: message => dispatch(receiveMessage(message)),
-});
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Message));
+export default Message;

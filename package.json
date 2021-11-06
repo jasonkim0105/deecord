@@ -37,6 +37,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
     "babel-loader": "^8.2.2",
+    "lodash": "^4.17.21",
+    "loldash": "^9002.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",

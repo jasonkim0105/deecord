@@ -1,19 +1,32 @@
-import MessageForm from './message_form';
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { fetchChannelMessages, createMessage } from '../../actions/message_actions';
-import { connect } from 'react-redux';
+import MessageForm from './message_form'
+import {connect} from 'react-redux'
+import { fetchMessages, deleteMessage, createMessage, receiveMessage } from '../../actions/message_actions';
+import { fetchChannel, fetchChannels } from "../../actions/channel_actions";
+// import { receiveUser } from "../../../actions/user_actions";
 
-const mapStateToProps = (state, ownProps) => ({
-  currentUser: state.entities.users[state.session.id],
-  currentServer: state.entities.servers[ownProps.match.params.serverId],
-  // currentChannel:
+const mapStateToProps = (state, ownProps) => {
+
+  return ({
+   messages: Object.values(state.entities.messages),
+   currentUser: state.entities.users[state.session.id],
+   currentChannelId: parseInt(ownProps.match.params.channelId),
+   currChannel: state.entities.channels[ownProps.match.params.channelId],
+   channels: Object.values(state.entities.channels),
+   users: Object.values(state.entities.users),
 })
+}
 
 const mapDispatchToProps = (dispatch) => ({
-  createMessage: message => dispatch(createMessage(message)),
-  fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId)),
-
+   fetchChannel: id => dispatch(fetchChannel(id)),
+   fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
+   fetchUsers: () => dispatch(fetchUsers()),
+   receiveMessage: (message) => dispatch(receiveMessage(message)),
+   fetchMessages: () => dispatch(fetchMessages()),
+   deleteMessage: (id) => dispatch(deleteMessage(id)),
+   createMessage: (message) => dispatch(createMessage(message))
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MessageForm))
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
+
+
+

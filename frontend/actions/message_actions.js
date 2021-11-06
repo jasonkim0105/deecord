@@ -1,45 +1,23 @@
 import * as MessageAPIUtil from "../util/message_api_util";
 
-export const RECEIVE_ALL_MESSAGES = "RECEIVE_ALL_MESSAGES";
-export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
-export const REMOVE_MESSAGE = "REMOVE_MESSAGE";
+export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
+export const CLEAR_MESSAGES = "CLEAR_MESSAGES";
 
-const receiveMessages = (messages) => {
-  return {
-    type: RECEIVE_ALL_MESSAGES,
-    messages
-  }
+export const fetchMessages = channelID => dispatch => {
+    return(
+        MessageAPIUtil.fetchMessages(channelID).then(payload => dispatch(receiveMessages(payload)))
+    );
 };
 
-export const receiveMessage = (message) => {
-  return {
-    type: RECEIVE_MESSAGE,
-    message
-  }
+const receiveMessages = payload => {
+    return({
+        type: RECEIVE_MESSAGES,
+        payload
+    });
 };
 
-const removeMessage = (message) => {
-  return {
-    type: REMOVE_MESSAGE,
-    messageId: message.id
-  }
+export const clearMessages = () => {
+    return ({
+        type: CLEAR_MESSAGES
+    });
 };
-
-export const fetchMessages = () => dispatch => {
-  return MessageAPIUtil.fetchMessages()
-    .then(messages => {
-
-      dispatch(receiveMessages(messages))});
-}
-
-export const createMessage = (message) => dispatch => {
-  return MessageAPIUtil.createMessage(message)
-    .then(message => dispatch(receiveMessage(message)));
-}
-
-export const deleteMessage = (id) => dispatch => {
-  return MessageAPIUtil.deleteMessage(id)
-    .then(message => dispatch(removeMessage(message)));
-}
-
-

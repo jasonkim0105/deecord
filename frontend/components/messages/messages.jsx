@@ -37,6 +37,10 @@ class Messages extends React.Component {
       this.subscription.unsubscribe();
       this.createNewSubscription(this.currentChannelId);
     }
+   const { fetchMessages, serverId, newChannelId } = this.props;
+
+   fetchMessages(serverId, newChannelId);
+
   }
 
   componentWillUnmount() {
@@ -63,6 +67,9 @@ class Messages extends React.Component {
             <Message />
             <MessageForm
               currChannel={this.props.currChannel}
+              newChannelId={this.props.newChannelId}
+              currUser={this.props.currentUser}
+            //   channelId={this.props.newChannel}
             //   props={this.props}
             />
           </div>

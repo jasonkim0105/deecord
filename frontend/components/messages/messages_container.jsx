@@ -5,10 +5,15 @@ import { fetchChannels } from '../../actions/channel_actions';
 import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import { fetchServerUsers } from '../../actions/session_actions';
+import { fetchMessages } from '../../actions/message_actions';
+
 
 const mapStateToProps = (state, ownProps) => ({
-  newChannelId: ownProps.match.params.channelId,
-  currChannel: state.entities.channels[ownProps.match.params.channelId]
+  newChannelId: parseInt(ownProps.match.params.channelId),
+  channelIdString: ownProps.match.params.channelId,
+  currChannel: state.entities.channels[ownProps.match.params.channelId],
+  currentUser: state.session.id,
+  serverId: parseInt(ownProps.match.params.serverId),
 })
 
 const mapDispatchToProps = dispatch => ({

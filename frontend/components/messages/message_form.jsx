@@ -15,8 +15,6 @@ class MessageForm extends React.Component {
     e.preventDefault();
 
     App.cable.subscriptions.subscriptions[1].speak({ message: this.state.body });
-    // const message = Object.assign({}, this.state);
-    // this.props.createMessage(message))
     this.setState({ body: "" });
   }
 

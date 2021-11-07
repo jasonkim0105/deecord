@@ -63,6 +63,7 @@ class Messages extends React.Component {
             <Message />
             <MessageForm
               currChannel={this.props.currChannel}
+            //   props={this.props}
             />
           </div>
 

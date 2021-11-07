@@ -21,7 +21,7 @@ class ChatChannel < ApplicationCable::Channel
     #   socket = { message: message.body }
     #   ChatChannel.broadcast_to(@chat_channel, socket)
     # end
-    message = Message.create(user_id: data["user_id"], channel_id: data["channel_id"], body: data["body"])
+    @message = Message.new(data['message'])
     @chat_channel = Channel.find_by(id: message.channel_id);
     ChatChannel.broadcast_to(@chat_channel, message)
   end
@@ -29,3 +29,20 @@ class ChatChannel < ApplicationCable::Channel
   def unsubscribed
   end
 end
+# class ChatChannel < ApplicationCable::Channel
+
+#     def subscribed
+
+#       @channel = Channel.find_by(id: params[:id])
+
+#       stream_for @channel
+#     end
+
+#     def receive(data)
+#       @message = Message.new(data['message'])
+#       @message.save
+#       ChatChannel.broadcast_to(@channel, message: data['message'])
+#     end
+
+#   end
+

@@ -14,14 +14,14 @@ class MessageForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    // App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
-    const message = Object.assign({}, this.state);
+    App.cable.subscriptions.subscriptions[1].speak({ message: this.state.body });
+    // const message = Object.assign({}, this.state);
     // this.props.createMessage(message))
     this.setState({ body: "" });
   }
 
   render() {
-    // console.log(this.props)
+    console.log(this.props)
     const {currChannel} = this.props;
     let channelName;
     if (currChannel) channelName = currChannel.name;

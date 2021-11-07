@@ -20,7 +20,7 @@ class Message extends React.Component {
   componentDidUpdate(prevProps) {
       const { fetchMessages, serverId, channelId } = this.props;
 
-      fetchMessages(serverId, channelId);
+      // fetchMessages(serverId, channelId);
 
     }
 

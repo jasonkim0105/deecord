@@ -5,7 +5,7 @@ import { fetchChannels } from '../../actions/channel_actions';
 import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import { fetchServerUsers } from '../../actions/session_actions';
-import { fetchMessages } from '../../actions/message_actions';
+import { fetchMessages, receiveMessage } from '../../actions/message_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -21,6 +21,7 @@ const mapDispatchToProps = dispatch => ({
   openModal: modal => dispatch(openModal(modal)),
   fetchServerUsers: serverId => dispatch(fetchServerUsers(serverId)),
   fetchMessages: (serverId, channelId) => dispatch(fetchMessages(serverId, channelId)),
+  receiveMessage: message => dispatch(receiveMessage(message))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Messages))

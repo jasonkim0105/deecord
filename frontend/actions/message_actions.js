@@ -6,7 +6,7 @@ export const RECEIVE_MESSAGE_ERRORS = "RECEIVE_MESSAGE_ERRORS";
 export const CLEAR_MESSAGES = "CLEAR_MESSAGES";
 export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
-const receiveMessage = message => {
+export const receiveMessage = message => {
   return {
     type: RECEIVE_MESSAGE,
     message

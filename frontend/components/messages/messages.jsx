@@ -22,12 +22,16 @@ class Messages extends React.Component {
     this.subscription = App.cable.subscriptions.create(
       { channel: "ChatChannel", id: channelId },
       {
+         received: data => {
+            this.props.receiveMessage(data);
+         },
         speak: function (data) {
           return this.perform("speak", data);
         }
       }
     );
   }
+
 
   componentDidUpdate(prevProps) {
 
@@ -44,6 +48,7 @@ class Messages extends React.Component {
       fetchMessages(serverId, newChannelId);
 
    }
+
 
   }
 

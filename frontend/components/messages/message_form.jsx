@@ -8,6 +8,7 @@ class MessageForm extends React.Component {
         user_id: this.props.currUser,
         body: '',
      }
+    //  console.log(this.props.newChannelId)
   }
 
   update(field) {
@@ -24,7 +25,8 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
+    console.log(this.props)
+    console.log(this.state)
     const {currChannel} = this.props;
     let channelName;
     if (currChannel) channelName = currChannel.name;

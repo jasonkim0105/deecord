@@ -14,7 +14,7 @@ class Messages extends React.Component {
 
   componentDidMount() {
     this.currentChannelId = this.props.newChannelId;
-
+   console.log(this.currentChannelId)
     this.createNewSubscription(this.currentChannelId);
   }
 

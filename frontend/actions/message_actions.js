@@ -40,10 +40,10 @@ const deleteMessage = messageId => {
   }
 }
 
-// export const createMessage = message => dispatch => (
-//   MessageAPIUtil.createMessage(message)
-//   .then( message => dispatch(receiveMessage(message)))
-// )
+export const createMessage = message => dispatch => (
+  MessageAPIUtil.createMessage(message)
+  .then( message => dispatch(receiveMessage(message)))
+)
 
 // export const fetchChannelMessages = channelId => dispatch => (
 //   MessageAPIUtil.fetchChannelMessages(channelId)

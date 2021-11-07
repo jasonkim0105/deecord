@@ -15,13 +15,13 @@ export const fetchChannelMessages = (serverId, channelId) => {
 //   })
 // }
 
-// export const createMessage = message => {
-//   return $.ajax({
-//     url: "api/messages",
-//     method: "POST",
-//     data: { message }
-//   })
-// }
+export const createMessage = message => {
+  return $.ajax({
+    url: "api/messages",
+    method: "POST",
+    data: { message }
+  })
+}
 
 // export const deleteMessage = message => {
 //   return $.ajax({

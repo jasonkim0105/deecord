@@ -5,8 +5,8 @@ const MessagesReducer = (state = {}, action) => {
   // switch(action.type) {
   //   case RECEIVE_MESSAGES:
   //     return Object.assign({}, action.messages)
-  //   case RECEIVE_MESSAGE:
-  //     return Object.assign({}, state, { [action.message.id]: action.message })
+    // case RECEIVE_MESSAGE:
+    //   return Object.assign({}, state, { [action.message.id]: action.message })
   //   case CLEAR_MESSAGES:
   //     return {}
   //   default:
@@ -17,6 +17,8 @@ const MessagesReducer = (state = {}, action) => {
       return Object.assign({}, state, action.messages);
     // case LOGOUT_CURRENT_USER:
     //   return {};
+    case RECEIVE_MESSAGE:
+      return Object.assign({}, state, { [action.message.id]: action.message })
     default:
       return state;
   }

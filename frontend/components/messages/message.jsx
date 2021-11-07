@@ -34,7 +34,7 @@ class Messages extends React.Component {
    componentDidUpdate() {
       var element = document.getElementById("offset");
       element.scrollTop = element.scrollHeight;
-      if (this.state.author_id !== this.props.currentUser.id) this.setState({author_id: this.props.currentUser.id});
+      if (this.state.user_id !== this.props.currentUser.id) this.setState({user_id: this.props.currentUser.id});
    }
 
    handleSubmit(e) {

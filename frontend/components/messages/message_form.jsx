@@ -24,7 +24,7 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     const {currChannel} = this.props;
     let channelName;
     if (currChannel) channelName = currChannel.name;

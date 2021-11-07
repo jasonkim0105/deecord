@@ -35,7 +35,7 @@ class Message extends React.Component {
       }
     });
 
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         individual message

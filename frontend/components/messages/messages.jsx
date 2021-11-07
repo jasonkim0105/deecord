@@ -29,9 +29,10 @@ class Messages extends React.Component {
     );
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+
     if (this.subscription &&
-        this.currentChannelId !== this.props.newChannelId) {
+        this.currentChannelId !== prevProps.match.params.channelId) {
       this.currentChannelId = this.props.newChannelId;
 
       this.subscription.unsubscribe();
@@ -39,7 +40,10 @@ class Messages extends React.Component {
     }
    const { fetchMessages, serverId, newChannelId } = this.props;
 
-   fetchMessages(serverId, newChannelId);
+   if (prevProps.match.params.channelId !== this.props.match.params.channelId){
+      fetchMessages(serverId, newChannelId);
+
+   }
 
   }
 

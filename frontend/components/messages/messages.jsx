@@ -19,36 +19,26 @@ class Messages extends React.Component {
 
    componentDidMount() {
       this.currentChannelId = this.props.newChannelId;
-
+     console.log(this.currentChannelId)
       this.createNewSubscription(this.currentChannelId);
+
+      this.props.getMessagesIndex(this.props.match.params.channelId)
+
     }
 
     createNewSubscription(channelId) {
       this.subscription = App.cable.subscriptions.create(
         { channel: "ChatChannel", id: channelId },
         {
+           received: data => {
+              this.props.receiveMessage(data);
+           },
           speak: function (data) {
             return this.perform("speak", data);
           }
         }
       );
     }
-
-   componentDidMount() {
-      this.subscription = App.cable.subscriptions.create(
-         { channel: "ChatChannel" },
-         {
-            received: data => {
-               this.props.receiveMessage(data);
-            },
-            speak: function (data) {
-               return this.perform("speak", data);
-            }
-         }
-      );
-      this.props.getMessagesIndex(this.props.match.params.channelId)
-   }
-
    componentDidUpdate(prevProps) {
       var element = document.getElementById("offset");
       element.scrollTop = element.scrollHeight;
@@ -68,7 +58,6 @@ class Messages extends React.Component {
 
    handleSubmit(e) {
       e.preventDefault();
-      // this.serverId = parseInt(this.props.match.params.id.substring(0, 10));
       App.cable.subscriptions.subscriptions[1].speak(this.state);
       this.setState({
          body: '',
@@ -107,8 +96,8 @@ class Messages extends React.Component {
                         <div className='message-avatar'><i className="fab fa-discord"></i></div>
 
                         <div className='message-content'>
-                          {/* <p className='message-user'>{messages[id].user} <span className='message-time'>{messages[id].created_at}</span> */}
-                          {/* </p> */}
+                          {/* <p className='message-user'>{messages[id].user} <span className='message-time'>{messages[id].created_at}</span>
+                          </p> */}
                           <p className='message-body'>{messages[id].body}</p>
 
                         </div>

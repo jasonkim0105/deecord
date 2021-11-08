@@ -1,116 +1,74 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+// import { fetchMessages } from '../../actions/message_actions';
+import MessageList from './message_list';
+import { openModal } from '../../actions/modal_actions';
+import { fetchServerUsers } from '../../actions/session_actions';
+import { fetchChannelMessages } from '../../actions/message_actions';
 
+class Message extends React.Component {
+  constructor(props){
+    super(props);
 
-class Messages extends React.Component {
-   constructor(props) {
-      super(props)
-      this.serverId = parseInt(this.props.match.params.id.substring(0, 10));
+  }
 
-      this.state = {
-         server_id: this.serverId,
-         channel_id: null,
-         user_id: this.props.currentUser.id,
-         body: '',
+  componentDidMount() {
+    // this.props.fetchMessages(this.props.serverId, this.props.channelId)
+  }
+
+  componentDidUpdate(prevProps) {
+      // const { fetchMessages, serverId, channelId } = this.props;
+
+      // fetchMessages(serverId, channelId);
+
+    }
+
+  render() {
+    const { messages, channelId } = this.props;
+
+    const messageList = Object.keys(messages).map((message, idx) => {
+      if (channelId === message.channel_id) {
+        return (
+          <MessageList key={idx} message={message} />
+        );
       }
-      this.channel_id = null;
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleInput = this.handleInput.bind(this);
-   }
+    });
 
-   componentDidMount() {
-      App.cable.subscriptions.create(
-         { channel: "ChatChannel" },
-         {
-            received: data => {
-               this.props.receiveMessage(data);
-            },
-            speak: function (data) {
-               return this.perform("speak", data);
-            }
-         }
-      );
-   }
-
-   componentDidUpdate() {
-      var element = document.getElementById("offset");
-      element.scrollTop = element.scrollHeight;
-      if (this.state.user_id !== this.props.currentUser.id) this.setState({user_id: this.props.currentUser.id});
-   }
-
-   handleSubmit(e) {
-      e.preventDefault();
-      this.serverId = parseInt(this.props.match.params.id.substring(0, 10));
-      App.cable.subscriptions.subscriptions[1].speak(this.state);
-      this.setState({
-         server_id: this.serverId,
-         channel_id: null,
-         body: '',
-      })
-   }
-
-   handleInput(input) {
-      return (e) => {
-         this.setState({
-            [input]: e.currentTarget.value,
-            channel_id: this.channel_id
-         })
-      }
-   }
-
-   render() {
-      let messages;
-      if (this.props.messages.byId) {
-         messages = this.props.messages.byId;
-      } else {
-         // Just an empty object, the view will render nothing with this.
-         messages = this.props.messages;
-      }
-      this.channel_id = this.props.messages.currentChannelId;
-
-      return (
-         <div id='messages-component'>
-            <div id='offset'>
-               <ul className='messages-container'>{
-                  Object.keys(messages).map(id =>
-
-                     <li className='post' key={id}>
-                        <div className='post-avatar'><i className="fab fa-discord"></i></div>
-
-                        <div className='post-content'>
-
-                           <div className='post-reply'>{(messages[id].parent_id) ?
-                              <p className='username'>
-                                 <i className="fas fa-reply"></i>
-                                 {messages[messages[id].parent_id].username}
-                                 <span>{messages[messages[id].parent_id].body}</span>
-                              </p>
-                              : ''}</div>
-
-                           <p className='username'>{messages[id].username} <span className='time'>{messages[id].created_at}</span></p>
-
-                           <p className='post-body'>{messages[id].body}</p>
-
-                        </div>
-
-                     </li>
-
-                  )
-
-               }</ul>
-            </div>
-
-            <form onSubmit={this.handleSubmit}>
-               <input
-                  id='post-input'
-                  type='text'
-                  value={this.state.body}
-                  autoComplete="off"
-                  onChange={this.handleInput('body')}
-               />
-            </form>
-         </div>
-      )
-   }
+    // console.log(this.props);
+            // <div id='offset'>
+            //    <ul className='messages-container'>{
+            //       Object.keys(messages).map(id =>
+            //          <li className='message' key={id}>
+            //             <div className='message-avatar'><i className="fab fa-discord"></i></div>
+            //             <div className='message-content'>
+            //               {/* <p className='message-user'>{messages[id].user} <span className='message-time'>{messages[id].created_at}</span>
+            //               </p> */}
+            //                <p className='message-body'>
+            //                   {messages[id].body}
+            //                </p>
+            //             </div>
+            //          </li>
+            //       )
+            //    }</ul>
+            // </div>
+    return (
+      <div>
+        individual message
+        {messageList}
+      </div>
+    )
+  }
 }
 
-export default Messages
+const mapStateToProps = (state, ownProps) => ({
+  serverId: parseInt(ownProps.match.params.serverId),
+  channelId: parseInt(ownProps.match.params.channelId),
+  messages: Object.values(state.entities.messages)
+})
+
+const mapDispatchToProps = dispatch => ({
+  // fetchMessages: (serverId, channelId) => dispatch(fetchMessages(serverId, channelId)),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Message));

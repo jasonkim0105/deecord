@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router';
+import Message from './message';
 
 
 class Messages extends React.Component {
@@ -50,7 +51,8 @@ class Messages extends React.Component {
       if (this.subscription &&
          this.currentChannelId !== this.props.newChannelId) {
        this.currentChannelId = this.props.newChannelId;
-
+            // console.log(this.currentChannelId)
+       this.setState({channel_id: this.props.newChannelId})
        this.subscription.unsubscribe();
        this.createNewSubscription(this.currentChannelId);
      }
@@ -84,40 +86,64 @@ class Messages extends React.Component {
          messages = this.props.messages;
       }
       this.channel_id = this.props.messages.currentChannelId;
-      console.log(this.props)
+      // console.log(this.props)
+      const { currChannel } = this.props;
+      let username, avatarLetter, time, channelName;
+
+      if (currChannel) channelName = currChannel.name;
+
 
       return (
          <div id='messages-component'>
+            <div id='channel-title-container'>
+               <div className='channel-name-chatbox'>
+                  {channelName}
+               </div>
+            </div>
             <div id='offset'>
-               <ul className='messages-container'>{
-                  Object.keys(messages).map(id =>
+               <ul className='messages-container'>
+
+                  {Object.keys(messages).map(id =>
 
                      <li className='message' key={id}>
                         <div className='message-avatar'><i className="fab fa-discord"></i></div>
 
                         <div className='message-content'>
-                          {/* <p className='message-user'>{messages[id].user} <span className='message-time'>{messages[id].created_at}</span>
-                          </p> */}
-                          <p className='message-body'>{messages[id].body}</p>
+
+                          <p className='message-user'>
+                             {messages[id].username}
+                          </p>
+                           <div className='message-time'>
+                             {messages[id].created_at}
+                          </div>
+
+                           <p className='message-body'>
+                              {messages[id].body}
+                           </p>
 
                         </div>
 
                      </li>
-
                   )
-
-               }</ul>
+               }
+               </ul>
             </div>
 
-            <form onSubmit={this.handleSubmit}>
-               <input
-                  id='message-input'
-                  type='text'
-                  value={this.state.body}
-                  autoComplete="off"
-                  onChange={this.handleInput('body')}
-               />
-            </form>
+            <div className='message-form-container'>
+               <div className='message-form-inner-container'>
+                  <form onSubmit={this.handleSubmit}>
+                     <input
+                        id='message-input'
+                        type='text'
+                        value={this.state.body}
+                        autoComplete="off"
+                        onChange={this.handleInput('body')}
+                        placeholder={`Message #${channelName}`}
+                     />
+                  </form>
+               </div>
+            </div>
+
          </div>
       )
    }

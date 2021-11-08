@@ -13,6 +13,8 @@ class ChatChannel < ApplicationCable::Channel
         user_id: message.user_id,
         body: message.body,
         created_at: message.created_at,
+        username: message.user.username,
+        user: message.user
      }
     @channel = Channel.find_by(id: params[:id])
      ChatChannel.broadcast_to(@channel, socket)

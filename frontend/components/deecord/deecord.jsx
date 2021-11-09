@@ -81,7 +81,9 @@ class Deecord extends React.Component {
                 <div className='servers-content-container'>
                 <Route
                   path='/channels/:serverId/channels/:channelId'
-                  component={MessagesContainer}/>
+                  component={MessagesContainer}
+                  // component={UserListContainer}
+                  />
                 </div>
 
               </div>

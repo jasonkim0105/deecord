@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router';
 import Message from './message';
+import UserList from '../user_list/user_list'
 
 
 class Messages extends React.Component {
@@ -42,7 +43,7 @@ class Messages extends React.Component {
     }
    componentDidUpdate(prevProps) {
       var element = document.getElementById("offset");
-      element.scrollTop = element.scrollHeight;
+      // element.scrollTop = element.scrollHeight;
       if (this.state.user_id !== this.props.currentUser.id) this.setState({user_id: this.props.currentUser.id});
 
       if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
@@ -86,11 +87,12 @@ class Messages extends React.Component {
          messages = this.props.messages;
       }
       this.channel_id = this.props.messages.currentChannelId;
-      // console.log(this.props)
+      console.log(this.props)
       const { currChannel } = this.props;
       let username, avatarLetter, time, channelName;
 
       if (currChannel) channelName = currChannel.name;
+      if (!this.props.server) return null
 
 
       return (
@@ -143,6 +145,19 @@ class Messages extends React.Component {
                   </form>
                </div>
             </div>
+
+
+            <div className="server-member-container">
+                <div className="member-list">
+                    <p className="member-list-p"> MEMBERS — {this.props.server.users.length} </p>
+                    <ul className="users-list">
+                        {this.props.server.users.map( user => {
+                            return < UserList user={user} key={user.id} />
+                        })}
+                    </ul>
+                </div>
+            </div>
+
 
          </div>
       )

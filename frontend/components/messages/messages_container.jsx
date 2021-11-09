@@ -4,13 +4,14 @@ import { receiveMessage, getMessagesIndex, getMessageCreate, getMessageDestroy }
 // import {withRouter} from ''
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(ownProps)
+  console.log(ownProps)
 
   return ({
    messages: state.entities.messages,
    currentUser: state.entities.users[state.session.id],
    newChannelId: parseInt(ownProps.match.params.channelId),
-   currChannel: state.entities.channels[ownProps.match.params.channelId]
+   currChannel: state.entities.channels[ownProps.match.params.channelId],
+   server: state.entities.servers[ownProps.match.params.serverId],
 })
 }
 

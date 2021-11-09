@@ -9,6 +9,10 @@ import { Route } from 'react-router-dom';
 // import { AiOutlineLogout } from 'react-icons/ai';
 
 class Deecord extends React.Component {
+  componentDidUpdate(prevProps){
+    // if (prevProps != )
+    // this.props.fetchServers()
+  }
 
   render(){
     let { currentUser, logout, currentServer, serverId } = this.props;

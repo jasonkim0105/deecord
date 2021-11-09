@@ -22,8 +22,9 @@ class CreateServer extends React.Component {
     this.props.createServer(this.state)
     .then( ({server}) => {this.props.closeModal()
       this.props.history.push(`/channels/${server.id}`)
-    // console.log(this.props)
+      // console.log(this.props)
     })
+    this.props.fetchServers()
 
   }
 

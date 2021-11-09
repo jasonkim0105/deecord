@@ -49,10 +49,10 @@ class Messages extends React.Component {
       if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
         this.props.getMessagesIndex(this.props.match.params.channelId)
       }
+
       if (this.subscription &&
          this.currentChannelId !== this.props.newChannelId) {
        this.currentChannelId = this.props.newChannelId;
-            // console.log(this.currentChannelId)
        this.setState({channel_id: this.props.newChannelId})
        this.subscription.unsubscribe();
        this.createNewSubscription(this.currentChannelId);
@@ -103,32 +103,23 @@ class Messages extends React.Component {
                </div>
             </div>
             <div id='offset'>
-               <ul className='messages-container'>
+               {this.props.messages.map( message => {
+                           return (
+                              <li key={message.id} className="message-list-item">
+                                 <p className="message-sender">
+                                       {message.user.username}
+                                       <span className="timestamp">
+                                          {message.created_at.slice(11,19)}
+                                          {message.created_at.slice(5,7)}/
+                                          {message.created_at.slice(8,10)}/
+                                          {message.created_at.slice(0,4)}
+                                       </span>
+                                 </p>
+                                 <p className="message-body">{message.body}</p>
+                              </li>
+                           )
+               })}
 
-                  {Object.keys(messages).map(id =>
-
-                     <li className='message' key={id}>
-                        <div className='message-avatar'><i className="fab fa-discord"></i></div>
-
-                        <div className='message-content'>
-
-                          <p className='message-user'>
-                             {messages[id].username}
-                          </p>
-                           <div className='message-time'>
-                             {messages[id].created_at}
-                          </div>
-
-                           <p className='message-body'>
-                              {messages[id].body}
-                           </p>
-
-                        </div>
-
-                     </li>
-                  )
-               }
-               </ul>
             </div>
 
             <div className='message-form-container'>

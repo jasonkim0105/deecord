@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   console.log(ownProps)
 
   return ({
-   messages: state.entities.messages,
+   messages: Object.values(state.entities.messages),
    currentUser: state.entities.users[state.session.id],
    newChannelId: parseInt(ownProps.match.params.channelId),
    currChannel: state.entities.channels[ownProps.match.params.channelId],

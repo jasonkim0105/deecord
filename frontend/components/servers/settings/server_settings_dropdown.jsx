@@ -38,7 +38,7 @@ class ServerSettingsDropdown extends React.Component {
     const { currentUser, currentServer } = this.state;
     const { deleteServer, leaveServer, openModal } = this.props;
     // console.log(currentServer)
-    // console.log(this.props)
+    console.log(this.props)
 
     const dropdownOptions = currentUser.id === currentServer.owner_id ?
       <>
@@ -48,7 +48,7 @@ class ServerSettingsDropdown extends React.Component {
         </li>
         <li
           className='server-setting-delete-dropdown'
-          onClick={() => this.removeServer(deleteServer)}>
+          onClick={() => openModal('deleteServer')}>
           Delete
         </li>
       </> :
@@ -59,7 +59,7 @@ class ServerSettingsDropdown extends React.Component {
         </li>
         <li
           className='server-setting-delete-dropdown'
-          onClick={() => this.removeServer(leaveServer)}>
+          onClick={() => openModal('leaveServer')}>
           Leave
         </li>
       </>

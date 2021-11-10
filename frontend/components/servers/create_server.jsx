@@ -53,28 +53,7 @@ class CreateServer extends React.Component {
   render() {
     console.log(this.props)
     const { errors } = this.props;
-    // if (!errors) {
-    //   return (
-    //     <div className="create-server-form-container">
-    //       CREATE A SERVER
-    //       <form className="create-server-form" onSubmit={this.handleSubmit}>
-    //         <input type="text" value={this.state.name} onChange={this.update('name')} />
-    //         <button className="create-server-button">Create</button>
-    //       </form>
-    //     </div>
-    //   )
-    // } else {
-    //   return (
-    //     <div className="create-server-form-container">
-    //       CREATE A SERVER
-    //       <p>{this.renderErrors()}</p>
-    //       <form className="create-server-form" onSubmit={this.handleSubmit}>
-    //         <input type="text" value={this.state.name} onChange={this.update('name')} />
-    //         <button className="create-server-button">Create</button>
-    //       </form>
-    //     </div>
-    //   )
-    // }
+
     return (
       <div className="create-server-form-container">
         <div className="create-server-form-header">

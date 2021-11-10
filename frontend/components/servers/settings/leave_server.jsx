@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class DeleteServer extends React.Component {
+class LeaveServer extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: `${props.user.username}'s server`, owner_id: props.user.id}
@@ -21,13 +21,13 @@ class DeleteServer extends React.Component {
   render() {
     return (
       <div>
-        Are you sure you want to delete this server?
+        Are you sure you want to leave this server?
         <form className="create-server-form" onSubmit={this.handleSubmit}>
-          <button className="create-server-button">Delete</button>
+          <button className="create-server-button">Leave</button>
         </form>
       </div>
     )
   }
 }
 
-export default DeleteServer;
+export default LeaveServer;

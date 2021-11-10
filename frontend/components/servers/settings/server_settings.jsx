@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ServerSettingsDropdown from './server_settings_dropdown'
+import { openModal, closeModal } from '../../../actions/modal_actions.js';
 // import downarrow from '../../../../app/assets/images/downarrow.png';
 
 class ServerSettings extends React.Component {
@@ -12,15 +13,23 @@ class ServerSettings extends React.Component {
     };
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.turnOffDropdown = this.turnOffDropdown.bind(this);
   }
 
   toggleDropdown() {
     this.setState(prevState => ({ droppedDown: !prevState.droppedDown }));
+
+  }
+
+  turnOffDropdown() {
+    this.setState(prevState => ({ droppedDown: false }))
   }
 
   render() {
-    const { server } = this.props;
+    const { server, openModal } = this.props;
     let serverName;
+
+
 
     if (server) {
       if (server.name.length > 20) {
@@ -38,10 +47,9 @@ class ServerSettings extends React.Component {
 
     return (
       <div
-        onClick={() => this.toggleDropdown()}
-        onBlur={() => this.setState({ droppedDown: false })}
+        onClick={() => openModal('editServer')}
         className='server-setting-top'>
-        {menuDropdown}
+        {/* {menuDropdown} */}
         <div className='server-setting-title'>
           {serverName}
         </div>
@@ -59,7 +67,9 @@ const mapStateToProps = (state, ownProps) => ({
   server: state.entities.servers[ownProps.match.params.serverId]
 });
 
-const mapDispatchToProps = () => {
-};
+const mapDispatchToProps = (dispatch) => ({
+  openModal: modal => dispatch(openModal(modal)),
+  closeModal: modal => dispatch(closeModal())
+});
 
-export default withRouter(connect(mapStateToProps, null)(ServerSettings));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ServerSettings));

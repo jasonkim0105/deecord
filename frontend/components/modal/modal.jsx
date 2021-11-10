@@ -3,6 +3,7 @@ import {Route} from 'react-router';
 import CreateServerContainer from '../servers/create_server_container';
 import AddServerContainer from '../servers/add_server_container';
 import JoinServerContainer from '../servers/join_server_container';
+import ServerSettingsDropdown from '../servers/settings/server_settings_dropdown';
 import InviteServerContainer from '../servers/settings/invite_server_container';
 import DeleteServerContainer from '../servers/settings/delete_server_container';
 import LeaveServerContainer from '../servers/settings/leave_server_container';
@@ -28,6 +29,9 @@ class Modal extends React.Component {
         break;
       case 'joinServer':
         component = <Route path="/channels" component = {JoinServerContainer} />
+        break;
+      case 'editServer':
+        component = <Route path='/channels/:serverId' component= {ServerSettingsDropdown} />
         break;
       case 'inviteServer':
         component = <Route path="/channels/:serverId" component = {InviteServerContainer} />

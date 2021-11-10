@@ -20,24 +20,15 @@ class ServerSettingsDropdown extends React.Component {
     const { history } = this.props;
 
     removeType(this.state.currentServer.id)
-      // .then(history.push("/channels/@me"),
-      // this.props.fetchServers())
     this.props.updateUser(this.props.currentUser);
     this.props.fetchServers();
     this.props.history.push("/channels/@me");
-    // window.location.reload();
-    // <DeecordContainer/>
-    // removeType(this.state.currentServer.id)
-    // .then( () => {
-    //   history.push('@me')
-    // })
 
   }
 
   render() {
     const { currentUser, currentServer } = this.state;
     const { deleteServer, leaveServer, openModal } = this.props;
-    // console.log(currentServer)
     console.log(this.props)
 
     const dropdownOptions = currentUser.id === currentServer.owner_id ?

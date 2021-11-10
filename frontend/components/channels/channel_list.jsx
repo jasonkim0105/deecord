@@ -40,8 +40,9 @@ class ChannelList extends React.Component {
       <NavLink
         to={`/channels/${channel.server_id}/channels/${channel.id}`}
         className='channels-nav-link'>
-         <div className="channel-list-individual-name">
-        {channel.name}
+        <div className="channel-list-individual-name">
+          <i className="fas fa-hashtag" ></i>
+          {channel.name}
         </div>
 
         <div className='channels-nav-settings'>

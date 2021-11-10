@@ -43,7 +43,7 @@ class Messages extends React.Component {
     }
    componentDidUpdate(prevProps) {
       var element = document.getElementById("offset");
-      // element.scrollTop = element.scrollHeight;
+      element.scrollTop = element.scrollHeight;
       if (this.state.user_id !== this.props.currentUser.id) this.setState({user_id: this.props.currentUser.id});
 
       if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
@@ -104,38 +104,50 @@ class Messages extends React.Component {
                      {channelName}
                   </div>
                </div>
-               <div id='offset'>
-                  {this.props.messages.map( message => {
-                              return (
-                                 <li key={message.id} className="message-list-item">
-                                    <p className="message-sender">
-                                          {message.user.username}
-                                          <span className="timestamp">
-                                             {message.created_at.slice(11,19)}
-                                             {message.created_at.slice(5,7)}/
-                                             {message.created_at.slice(8,10)}/
-                                             {message.created_at.slice(0,4)}
-                                          </span>
-                                    </p>
-                                    <p className="message-body">{message.body}</p>
-                                 </li>
-                              )
-                  })}
 
-               </div>
+               <div className="messages-container">
 
-               <div className='message-form-container'>
-                  <div className='message-form-inner-container'>
-                     <form onSubmit={this.handleSubmit}>
-                        <input
-                           id='message-input'
-                           type='text'
-                           value={this.state.body}
-                           autoComplete="off"
-                           onChange={this.handleInput('body')}
-                           placeholder={`Message #${channelName}`}
-                        />
-                     </form>
+                  <div id='offset'>
+                     {this.props.messages.map( message => {
+                        return (
+                           <li key={message.id} className="message-list-item">
+                                       <div className='message-icon'>
+                                          <i className="fab fa-discord"></i>
+                                       </div>
+
+                                       <div className='message-content'>
+                                          <p className="message-sender">
+                                             <div className='message-sender-username'>
+                                                {message.user.username}
+                                             </div>
+                                                <span className="timestamp">
+                                                   {message.created_at.slice(11,19)} {message.created_at.slice(5,7)}/
+                                                   {message.created_at.slice(8,10)}/
+                                                   {message.created_at.slice(0,4)}
+                                                </span>
+                                          </p>
+                                          <p className="message-body">{message.body}</p>
+
+                                       </div>
+                                    </li>
+                                 )
+                              })}
+
+                  </div>
+
+                  <div className='message-form-container'>
+                     <div className='message-form-inner-container'>
+                        <form className="message-form-container" onSubmit={this.handleSubmit}>
+                           <input
+                              className='message-input'
+                              type='text'
+                              value={this.state.body}
+                              autoComplete="off"
+                              onChange={this.handleInput('body')}
+                              placeholder={`Message #${channelName}`}
+                              />
+                        </form>
+                     </div>
                   </div>
                </div>
             </div>

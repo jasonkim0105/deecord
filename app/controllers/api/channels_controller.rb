@@ -3,6 +3,7 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
     # @channel.owner_id === current_user.id
     if @channel.save
+
       render :show
     else
       render json: @channel.errors.full_messages, status: 422

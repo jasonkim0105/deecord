@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .servers-content-container {
-  width: 100%;
+  width: calc(100% - 240px);
 }
 
 .messages-component {
@@ -131,7 +131,7 @@
 
 .member-list {
   background: #2f3136;
-  height: 100%;
+  height: calc(100% - 100px);
 }
 
 .member-list-header {

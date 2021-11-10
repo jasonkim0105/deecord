@@ -59,7 +59,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_cable.url = "ws://localhost:t000/cable"
+  config.action_cable.url = "ws://localhost:5000/cable"
 
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
 end

@@ -13,6 +13,7 @@ class JoinServer extends React.Component {
     .then(({server})=> {this.props.closeModal(),
     this.props.history.push(`/channels/${server.id}`)
     })
+    this.props.fetchServers()
   }
   componentDidMount(){
     this.props.clearServerErrors();

@@ -1,10 +1,25 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
-    #stream_for channelname
+    @channel = Channel.find_by(id: params[:id])
+     stream_for @channel
   end
 
+  def speak(data)
+    message = Message.create(user_id: data["user_id"], channel_id: data["channel_id"], body: data["body"])
+     socket = {
+        id: message.id,
+        channel_id: message.channel_id,
+        user_id: message.user_id,
+        body: message.body,
+        created_at: message.created_at,
+        username: message.user.username,
+        user: message.user
+     }
+    @channel = Channel.find_by(id: params[:id])
+     ChatChannel.broadcast_to(@channel, socket)
+   end
+
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+     # Any cleanup needed when channel is unsubscribed
   end
 end

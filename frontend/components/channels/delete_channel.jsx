@@ -7,17 +7,19 @@ class DeleteChannel extends React.Component {
     //   channel: this.props.channel
     // }
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(this.props.fetchChannels(this.props.channel.server_id))
+    // console.log(this.props.fetchChannels(this.props.channel.server_id))
   }
   handleSubmit(e) {
     const {channel, closeModal, history, serverId} = this.props;
     // e.preventDefault();
     this.props.deleteChannel(channel)
-    .then(() => {this.props.closeModal(),
+      .then(() => {this.props.closeModal(),
 
-    this.props.fetchChannels(channel.server_id)
+      this.props.fetchChannels(channel.server_id)
     })
+    this.props.history.push(`/channels/${channel.server_id}`)
   }
+
 
   // componentWillUnmount() {
   //   const {channel} = this.props;

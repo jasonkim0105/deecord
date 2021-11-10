@@ -1,4 +1,4 @@
-import DeleteServer from './delete_server';
+import LeaveServer from './leave_server';
 import { connect } from 'react-redux';
 import { deleteServer, fetchServers } from '../../../actions/server_actions';
 import { openModal, closeModal } from '../../../actions/modal_actions';
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
   fetchServers: () => dispatch(fetchServers()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeleteServer);
+export default connect(mapStateToProps, mapDispatchToProps)(LeaveServer);

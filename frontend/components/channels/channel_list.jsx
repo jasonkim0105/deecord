@@ -31,7 +31,7 @@ class ChannelList extends React.Component {
   // }
   render(){
     const { channel, openModal } = this.props;
-    console.log(this.props)
+    // console.log(this.props)
 
     const channelDropdown = this.state.dropdownOpen ? <ChannelsDropdown/> : '';
 

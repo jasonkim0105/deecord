@@ -8,7 +8,8 @@ import DeecordContainer from './deecord/deecord_container';
 import ErrorPage from './error/error'
 import ModalContainer from './modal/modal_container';
 import CreateServerContainer from './servers/create_server_container'
-import DeecordMe from './deecord/deecord_me'
+import DeecordMe from './deecord/deecord_me';
+import MessagesContainer from './messages/messages_container';
 
 const App = () => (
   <div>
@@ -20,6 +21,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
       <ProtectedRoute path="/channels/:serverId" component={DeecordContainer} />
+      {/* <ProtectedRoute exact path="/channels/:serverId/channels/:channelId" component={MessagesContainer}/> */}
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <Route component={ErrorPage}/>

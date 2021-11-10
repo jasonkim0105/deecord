@@ -35,10 +35,6 @@ class Server < ApplicationRecord
     source: :Channel,
     dependent: :destroy
 
-  has_many :messages,
-    primary_key: :id,
-    foreign_key: :server_id,
-    class_name: :Message
 
   def self.generate_invite_code
     SecureRandom.urlsafe_base64(5)

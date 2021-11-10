@@ -35,23 +35,23 @@ class ServerSettingsDropdown extends React.Component {
       <>
         <li className='server-setting-invite-dropdown'
         onClick={() => openModal('inviteServer')}>
-          Invite
+          Invite Friend
         </li>
         <li
           className='server-setting-delete-dropdown'
           onClick={() => openModal('deleteServer')}>
-          Delete
+          Delete Server
         </li>
       </> :
       <>
         <li className='server-setting-invite-dropdown'
         onClick={() => openModal('inviteServer')}>
-          Invite
+          Invite Friend
         </li>
         <li
           className='server-setting-delete-dropdown'
           onClick={() => openModal('leaveServer')}>
-          Leave
+          Leave Server
         </li>
       </>
 

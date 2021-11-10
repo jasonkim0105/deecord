@@ -1,3 +1,42 @@
 // Place all the styles related to the api/messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.servers-content-container {
+  width: 100%;
+}
+
+.messages-component {
+  display: flex;
+}
+
+.messages-with-title-container {
+  width: 75%;
+}
+
+.channel-title-container {
+  height: 50px;
+  background: #36393f;
+  text-align: center;
+  display: flex;
+  border-bottom: 1px solid #202225;
+}
+.channel-title-container > i {
+  padding-top: 16px;
+  color: #818181;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.channel-name-chatbox {
+  padding-top: 16px;
+  color: white;
+}
+
+.empty-member-header {
+  height: 50px;
+  background: #36393f;
+  text-align: center;
+  display: flex;
+  border-bottom: 1px solid #202225;
+}

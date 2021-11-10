@@ -96,9 +96,10 @@ class Messages extends React.Component {
 
 
       return (
-         <div id='messages-component'>
+         <div className='messages-component'>
             <div className="messages-with-title-container">
-               <div id='channel-title-container'>
+               <div className='channel-title-container'>
+                  <i className="fas fa-hashtag" ></i>
                   <div className='channel-name-chatbox'>
                      {channelName}
                   </div>
@@ -144,8 +145,9 @@ class Messages extends React.Component {
 
 
          <div className="server-member-container">
+            <div className="empty-member-header"></div>
             <div className="member-list">
-               <p className="member-list-p"> MEMBERS — {this.props.server.users.length} </p>
+               <p className="member-list-header"> MEMBERS — {this.props.server.users.length} </p>
                <ul className="users-list">
                  {this.props.server.users.map( user => {
                   return < UserListContainer user={user} key={user.id} />

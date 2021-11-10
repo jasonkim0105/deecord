@@ -41,15 +41,11 @@ class ServerSettings extends React.Component {
       return null;
     }
 
-    const serverInviteCode = server.invite_code
-
-    const menuDropdown = this.state.droppedDown ? <ServerSettingsDropdown currentUser={server}/> : '';
 
     return (
       <div
         onClick={() => openModal('editServer')}
         className='server-setting-top'>
-        {/* {menuDropdown} */}
         <div className='server-setting-title'>
           {serverName}
         </div>

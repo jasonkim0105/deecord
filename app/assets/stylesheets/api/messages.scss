@@ -98,22 +98,34 @@
   width: 100%;
   align-content: center;
   align-items: center;
-  padding-left: 10px;
-  padding-top: 10px;
+  box-sizing: border-box;
+  padding-top: 20px;
+  // display: block;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .message-input {
+  display: inline-block;
   border-radius: 8px;
   box-sizing: border-box;
-  position: absolute;
+  // position: absolute;
   background: #40444B;
   box-shadow: none;
   border:none;
   height: 44px;
-  width: 60%;
+  // width: 60%;
   padding-left: 15px;
+  padding-right: 15px;
   font-size: 15px;
   color: rgba(255,255,255,0.7);
+  width: 90%;
+  // margin: 5px;
+  align-content: center;
+}
+
+input.message-input:focus {
+  outline-width: 0;
 }
 
 .empty-member-header {
@@ -131,7 +143,8 @@
 
 .member-list {
   background: #2f3136;
-  height: calc(100% - 100px);
+  // height: calc(100% - 100px);
+  height: 50px;
 }
 
 .member-list-header {

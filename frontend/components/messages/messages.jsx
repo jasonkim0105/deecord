@@ -135,8 +135,8 @@ class Messages extends React.Component {
 
                   </div>
 
-                  <div className='message-form-container'>
-                     <div className='message-form-inner-container'>
+                  <div className='message-form-input-container'>
+                     {/* <div className='message-form-inner-container'> */}
                         <form className="message-form-container" onSubmit={this.handleSubmit}>
                            <input
                               className='message-input'
@@ -147,7 +147,7 @@ class Messages extends React.Component {
                               placeholder={`Message #${channelName}`}
                               />
                         </form>
-                     </div>
+                     {/* </div> */}
                   </div>
                </div>
             </div>

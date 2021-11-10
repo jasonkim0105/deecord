@@ -9,6 +9,5 @@ class Message < ApplicationRecord
   belongs_to :channel,
     primary_key: :id,
     foreign_key: :channel_id,
-    class_name: :Channel,
-    dependent: :destroy
+    class_name: :Channel
 end

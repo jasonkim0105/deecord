@@ -36,17 +36,21 @@ class Api::ChannelsController < ApplicationController
 
   end
 
+  # def destroy
+  #   puts "___"
+  #   puts params
+  #   puts @channel
+  #   @channel = Channel.find_by(id: params[:id])
+  #       if @channel
+  #           @channel.destroy
+  #           render :show
+  #       else
+  #           render json: ["This channel does not exist"], status: 404
+  #       end
+  # end
   def destroy
-    puts "___"
-    puts params
-    puts @channel
     @channel = Channel.find_by(id: params[:id])
-        if @channel
-            @channel.destroy
-            render :show
-        else
-            render json: ["This channel does not exist"], status: 404
-        end
+    @channel.destroy
   end
 
   private

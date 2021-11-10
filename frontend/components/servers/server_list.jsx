@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { fetchServers } from '../../actions/server_actions';
 
 // const ServerList = ( { server }) => {
 //   let serverName;
@@ -62,8 +63,10 @@ import { NavLink } from 'react-router-dom';
 
 })
 
-const mapDispatchToProps = dispatch => ({ fetchChannels: channels => dispatch(fetchChannels(channels)),
-  openModal: modal => dispatch(openModal(modal)), // fetchServerMembers: serverId => dispatch(fetchServerMembers(serverId))
+const mapDispatchToProps = dispatch => ({
+  fetchChannels: channels => dispatch(fetchChannels(channels)),
+  openModal: modal => dispatch(openModal(modal)),
+  fetchServers: () => dispatch(fetchServers()),
 });
 
 export default connect(null, mapDispatchToProps)(ServerList);

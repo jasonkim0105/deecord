@@ -37,8 +37,8 @@ class ServerSettingsDropdown extends React.Component {
   render() {
     const { currentUser, currentServer } = this.state;
     const { deleteServer, leaveServer, openModal } = this.props;
-    console.log(currentServer)
-    console.log(this.props)
+    // console.log(currentServer)
+    // console.log(this.props)
 
     const dropdownOptions = currentUser.id === currentServer.owner_id ?
       <>

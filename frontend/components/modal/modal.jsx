@@ -4,6 +4,7 @@ import CreateServerContainer from '../servers/create_server_container';
 import AddServerContainer from '../servers/add_server_container';
 import JoinServerContainer from '../servers/join_server_container';
 import InviteServerContainer from '../servers/settings/invite_server_container';
+import DeleteServerContainer from '../servers/settings/delete_server_container';
 import CreateChannelContainer from '../channels/create_channel_container';
 import EditChannelContainer from '../channels/edit_channel_container';
 import DeleteChannelContainer from '../channels/delete_channel_container';
@@ -30,6 +31,9 @@ class Modal extends React.Component {
       case 'inviteServer':
         component = <Route path="/channels/:serverId" component = {InviteServerContainer} />
         break;
+        case 'deleteServer':
+          component = <Route path="/channels/:serverId" component = {DeleteServerContainer} />
+          break;
       case 'createChannel':
         component = <Route path="/channels/:serverId" component = {CreateChannelContainer} />
         break;

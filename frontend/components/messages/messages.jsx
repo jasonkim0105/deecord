@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router';
 import Message from './message';
-import UserList from '../user_list/user_list'
+import UserListContainer from '../user_list/user_list_container'
 
 
 class Messages extends React.Component {
@@ -97,59 +97,62 @@ class Messages extends React.Component {
 
       return (
          <div id='messages-component'>
-            <div id='channel-title-container'>
-               <div className='channel-name-chatbox'>
-                  {channelName}
+            <div className="messages-with-title-container">
+               <div id='channel-title-container'>
+                  <div className='channel-name-chatbox'>
+                     {channelName}
+                  </div>
+               </div>
+               <div id='offset'>
+                  {this.props.messages.map( message => {
+                              return (
+                                 <li key={message.id} className="message-list-item">
+                                    <p className="message-sender">
+                                          {message.user.username}
+                                          <span className="timestamp">
+                                             {message.created_at.slice(11,19)}
+                                             {message.created_at.slice(5,7)}/
+                                             {message.created_at.slice(8,10)}/
+                                             {message.created_at.slice(0,4)}
+                                          </span>
+                                    </p>
+                                    <p className="message-body">{message.body}</p>
+                                 </li>
+                              )
+                  })}
+
+               </div>
+
+               <div className='message-form-container'>
+                  <div className='message-form-inner-container'>
+                     <form onSubmit={this.handleSubmit}>
+                        <input
+                           id='message-input'
+                           type='text'
+                           value={this.state.body}
+                           autoComplete="off"
+                           onChange={this.handleInput('body')}
+                           placeholder={`Message #${channelName}`}
+                        />
+                     </form>
+                  </div>
                </div>
             </div>
-            <div id='offset'>
-               {this.props.messages.map( message => {
-                           return (
-                              <li key={message.id} className="message-list-item">
-                                 <p className="message-sender">
-                                       {message.user.username}
-                                       <span className="timestamp">
-                                          {message.created_at.slice(11,19)}
-                                          {message.created_at.slice(5,7)}/
-                                          {message.created_at.slice(8,10)}/
-                                          {message.created_at.slice(0,4)}
-                                       </span>
-                                 </p>
-                                 <p className="message-body">{message.body}</p>
-                              </li>
-                           )
-               })}
 
+
+
+
+
+         <div className="server-member-container">
+            <div className="member-list">
+               <p className="member-list-p"> MEMBERS — {this.props.server.users.length} </p>
+               <ul className="users-list">
+                 {this.props.server.users.map( user => {
+                  return < UserListContainer user={user} key={user.id} />
+                 })}
+               </ul>
             </div>
-
-            <div className='message-form-container'>
-               <div className='message-form-inner-container'>
-                  <form onSubmit={this.handleSubmit}>
-                     <input
-                        id='message-input'
-                        type='text'
-                        value={this.state.body}
-                        autoComplete="off"
-                        onChange={this.handleInput('body')}
-                        placeholder={`Message #${channelName}`}
-                     />
-                  </form>
-               </div>
-            </div>
-
-
-            <div className="server-member-container">
-                <div className="member-list">
-                    <p className="member-list-p"> MEMBERS — {this.props.server.users.length} </p>
-                    <ul className="users-list">
-                        {this.props.server.users.map( user => {
-                            return < UserList user={user} key={user.id} />
-                        })}
-                    </ul>
-                </div>
-            </div>
-
-
+         </div>
          </div>
       )
    }

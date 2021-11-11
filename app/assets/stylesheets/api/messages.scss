@@ -4,11 +4,13 @@
 
 .servers-content-container {
   width: calc(100% - 240px);
+  height: 100vh;
 }
 
 .messages-component {
   display: flex;
   width: 100%;
+  height: 100vh;
 }
 
 .messages-with-title-container {
@@ -17,6 +19,9 @@
 }
 
 .channel-title-container {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
   height: 50px;
   background: #36393f;
   text-align: center;
@@ -36,7 +41,7 @@
 }
 
 .messages-container {
-  height: 100vh;
+  height: calc(100% - 50px);
 }
 
 #offset {
@@ -99,7 +104,7 @@
   align-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding-top: 20px;
+  margin-top: 20px;
   // display: block;
   text-align: center;
   vertical-align: middle;
@@ -143,8 +148,8 @@ input.message-input:focus {
 
 .member-list {
   background: #2f3136;
-  // height: calc(100% - 100px);
-  height: 50px;
+  height: calc(100% - 50px);
+  // height: 50px;
 }
 
 .member-list-header {

@@ -5,6 +5,7 @@ import ServerSettingsContainer from '../servers/settings/server_settings_contain
 import ServerMenu from '../servers/settings/server_menu';
 import ChannelsContainer from '../channels/channels_container';
 import MessagesContainer from '../messages/messages_container';
+import DMListContainer from '../DMs/dm_list_container';
 import { Route } from 'react-router-dom';
 // import { AiOutlineLogout } from 'react-icons/ai';
 
@@ -49,6 +50,7 @@ class Deecord extends React.Component {
                 Direct Messages
                 </div>
                 <div className="channels-container">
+                  <DMListContainer/>
                 </div>
                 <div className="auth-setting">
                   {auth}

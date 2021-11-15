@@ -10,6 +10,7 @@ import LeaveServerContainer from '../servers/settings/leave_server_container';
 import CreateChannelContainer from '../channels/create_channel_container';
 import EditChannelContainer from '../channels/edit_channel_container';
 import DeleteChannelContainer from '../channels/delete_channel_container';
+import CreateDM from '../Dms/create_dm';
 // import ChannelSettingsContainer from '../channels/channel_settings_container';
 
 class Modal extends React.Component {
@@ -23,6 +24,9 @@ class Modal extends React.Component {
     switch(modal) {
       case 'addServer':
         component = <AddServerContainer />
+        break;
+      case 'createDM':
+        component = <CreateDM />
         break;
       case 'createServer':
         component = <Route path="/channels" component = {CreateServerContainer} />

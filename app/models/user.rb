@@ -39,6 +39,21 @@ has_many :messages,
   foreign_key: :user_id,
   class_name: :Message
 
+has_many :direct_messages,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: :DirectMessage
+
+has_many :dmchannels1,
+  primary_key: :id,
+  foreign_key: :user1_id,
+  class_name: :DmChannel
+
+has_many :dmchannels2,
+  primary_key: :id,
+  foreign_key: :user2_id,
+  class_name: :DmChannel
+
   def self.find_by_credential(username,password)
     user = User.find_by(username:username)
 

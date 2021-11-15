@@ -23,7 +23,8 @@ Rails.application.routes.draw do
       end
       resources :user_servers, only: [:create, :destroy]
       resources :messages, only: [:create, :show, :destroy]
-
+      resources :direct_messages, only: [:index, :create, :destroy]
+      resources :dm_channels, only: [:index, :create]
 
     end
 end

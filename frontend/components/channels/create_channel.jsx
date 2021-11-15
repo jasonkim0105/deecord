@@ -15,20 +15,6 @@ class CreateChannel extends React.Component {
     })
   }
 
-  // update(field){
-  //   return e => this.setState({ [field]: Object.assign({}, this.state, {name: e.currentTarget.value })
-  //   })
-  // }
-
-  // update(field){
-  //   return e => {
-  //     this.setState(
-  //       {
-  //         [field]: Object.assign({}, this.state.channel, { name: e.currentTarget.value })
-  //       }
-  //     )
-  //    }
-  // }
   update() {
     return (e) => {
       this.setState(
@@ -41,8 +27,6 @@ class CreateChannel extends React.Component {
 
 
   render(){
-    console.log(this.props)
-    // console.log(this.state);
     return(
       <div className="create-channel-form-container">
 

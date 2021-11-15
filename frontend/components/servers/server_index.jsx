@@ -8,14 +8,14 @@ class ServerIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchServers();
+    // this.props.fetchServers();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.servers !== this.props.servers) {
       // this.props.fetchServers();
-      console.log(this.props)
-      console.log(prevProps)
+      // console.log(this.props)
+      // console.log(prevProps)
     }
   }
 

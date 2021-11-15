@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { logout } from '../../actions/session_actions';
+import { logout, fetchAllUsers } from '../../actions/session_actions';
 import Deecord from "./deecord"
 import { fetchServers } from '../../actions/server_actions';
 
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
-  fetchServers: () => dispatch(fetchServers())
+  fetchServers: () => dispatch(fetchServers()),
+  fetchAllUsers: () => dispatch(fetchAllUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Deecord)

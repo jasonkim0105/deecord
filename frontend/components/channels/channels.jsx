@@ -12,7 +12,7 @@ class Channels extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels(this.state.currentServerId);
-    this.props.fetchServerUsers(this.state.currentServerId);
+    // this.props.fetchServerUsers(this.state.currentServerId);
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -21,7 +21,7 @@ class Channels extends React.Component {
 
     if (prevServerId !== currServerId) {
       this.props.fetchChannels(currServerId);
-      this.props.fetchServerUsers(currServerId);
+      // this.props.fetchServerUsers(currServerId);
     }
   }
 

@@ -36,3 +36,10 @@ export const fetchServerUsers = serverId => (
     data: { serverId }
   })
 );
+
+export const fetchAllUsers = () => {
+  return $.ajax({
+      method: "get",
+      url: "/api/users"
+  })
+}

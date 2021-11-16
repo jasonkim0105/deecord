@@ -2,17 +2,34 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
-
+import { createDM, fetchChannelDMs } from "../../actions/dm_actions";
+import { createDmChannel, fetchDmChannels } from "../../actions/dm_channel_actions";
 
 class CreateDM extends React.Component {
   constructor(props){
     super(props);
 
-    // this.state = {
-    //   username: '',
-    //   server_id:
-    // }
+    this.state = {
+      value: ""
+    }
+    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleChange(e){
+    this.setState({
+        value: e.currentTarget.value
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let dmChannel = {
+      user1_id: this.props.currentUserId,
+      user2_id: this.state.value
+    }
+    this.props.createDmChannel(dmChannel)
+
   }
 
   render() {
@@ -23,10 +40,31 @@ class CreateDM extends React.Component {
           Create DM
         </div>
 
-        {/* <form className='create-dm-form' action='' onSubmit={this.handleSubmit}>
-          <input type='text' value={this.state.username} onChange={this.update('username')} />
-          <button className='create-dm-button'>Create Message</button>
-        </form> */}
+
+        <form className="dm-modal-main" onSubmit={this.handleSubmit}>
+          <div className="server-header">
+            <h1 className="dm-label">Chat with a Friend</h1>
+
+
+
+          </div>
+
+          <div className="dm-content">
+            Chat with a friend privately!!
+          </div>
+
+          <select className="dm-dropdown" value={this.state.value} onChange={this.handleChange}>
+            <option value="" >Choose a Friend!</option>
+            {this.props.users.map(user => {
+              if(user.username != this.props.username) {
+                return <option key={user.id} value={user.id}>{user.username}</option>
+              }
+            })}
+          </select>
+
+          <button className="dm-button">Chat</button>
+
+        </form>
 
         {/* <select className="dm-dropdown" value={this.state.value} onChange={this.handleChange}>
           <option value="" >Choose a Friend!</option>
@@ -43,11 +81,17 @@ class CreateDM extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  users: state.entities.users
+  users: Object.values(state.entities.users),
+  currentUserId: state.session.id
 })
 
 const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(closeModal()),
+  fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId)),
+  fetchChannelDMs: dmChannelId => dispatch(fetchChannelDMs(dmChannelId)),
+  createDM: message => dispatch(createDM(message)),
+  fetchDmChannels: userId => dispatch(fetchDmChannels(userId)),
+  createDmChannel: channel => dispatch(createDmChannel(channel))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateDM));

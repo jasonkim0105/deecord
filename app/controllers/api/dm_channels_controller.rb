@@ -9,7 +9,7 @@ class Api::DmChannelsController < ApplicationController
   def create
     @dmChannel = DmChannel.new(dm_channel_params)
     if @dmChannel.save
-      render :show
+      render 'api/dm_channels/show'
     end
   end
 

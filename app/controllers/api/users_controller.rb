@@ -1,7 +1,9 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = Server.find(params[:serverId]).users
+    # @users = Server.find(params[:serverId]).users
+    @users = User.all
+    render :index
   end
 
   def show

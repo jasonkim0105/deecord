@@ -12,10 +12,11 @@ const UsersReducer = (state = {}, action) => {
         case LOGOUT_CURRENT_USER:
             return {};
         case RECEIVE_USERS:
-            Object.keys(action.users).forEach(userId => {
-            newState[userId] = action.users[userId];
-            });
-            return newState;
+            // Object.keys(action.users).forEach(userId => {
+            // newState[userId] = action.users[userId];
+            // });
+            // return newState;
+            return action.users
         default:
             return state;
     }

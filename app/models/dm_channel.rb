@@ -9,7 +9,7 @@ class DmChannel < ApplicationRecord
     foreign_key: :user2_id,
     class_name: :User
 
-  belongs_to :messages,
+  has_many :messages,
     primary_key: :id,
     foreign_key: :dm_channel_id,
     class_name: :DirectMessage

@@ -29,13 +29,13 @@ export const updateUser = user => {
   })
 }
 
-export const fetchServerUsers = serverId => (
-  $.ajax({
-    method: 'get',
-    url: '/api/users',
-    data: { serverId }
-  })
-);
+// export const fetchServerUsers = serverId => (
+//   $.ajax({
+//     method: 'get',
+//     url: '/api/users',
+//     data: { serverId }
+//   })
+// );
 
 export const fetchAllUsers = () => {
   return $.ajax({

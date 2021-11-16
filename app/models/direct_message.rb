@@ -1,5 +1,5 @@
 class DirectMessage < ApplicationRecord
-  validates :body presence: true
+  validates :body, presence: true
 
   belongs_to :dmchannel,
     primary_key: :id,

@@ -13,10 +13,10 @@ class Deecord extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllUsers()
+    // this.props.fetchServers()
   }
   componentDidUpdate(prevProps){
     // if (prevProps != )
-    // this.props.fetchServers()
   }
 
   render(){

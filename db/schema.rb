@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_191616) do
+ActiveRecord::Schema.define(version: 2021_11_17_055421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2021_11_11_191616) do
     t.text "body", null: false
     t.integer "author_id"
     t.integer "dm_channel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["dm_channel_id"], name: "index_direct_messages_on_dm_channel_id"
   end
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import DirectMessages from './direct_messages';
 import { connect } from 'react-redux';
-import { fetchDmChannels } from '../../actions/dm_channel_actions';
-import { fetchChannelDMs } from '../../actions/dm_actions';
+import { fetchDmChannels, createDmChannel, fetchChannelMessages } from '../../actions/dm_channel_actions';
+import { fetchChannelDMs, createDM } from '../../actions/dm_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,7 +18,11 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchChannelDMs: dmChannelId => dispatch(fetchChannelDMs(dmChannelId))
+  fetchChannelDMs: dmChannelId => dispatch(fetchChannelDMs(dmChannelId)),
+  createDM: message => dispatch(createDM(message)),
+  fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId)),
+  fetchDmChannels: userId => dispatch(fetchDmChannels(userId)),
+  createDmChannel: channel => dispatch(createDmChannel(channel))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DirectMessages)

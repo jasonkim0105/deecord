@@ -20,7 +20,7 @@ class ServerIndex extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     const { openModal, fetchServers } = this.props
     const {servers} = this.props;
     const ServerLists = servers.map((server, idx) => {

@@ -20,7 +20,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchChannelDMs: dmChannelId => dispatch(fetchChannelDMs(dmChannelId)),
   createDM: message => dispatch(createDM(message)),
-  fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId)),
   fetchDmChannels: userId => dispatch(fetchDmChannels(userId)),
   createDmChannel: channel => dispatch(createDmChannel(channel))
 });

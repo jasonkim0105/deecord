@@ -44,11 +44,11 @@
   height: calc(100% - 50px);
 }
 
-#offset {
+#real-messages {
   height: 80%;
   max-height: 80%;
-  overflow: auto;
-  overflow-wrap: anywhere;
+  overflow: hidden;
+  overflow-anchor: none;
   // position: relative;
   overflow-y: scroll;
   -ms-overflow-style: none;

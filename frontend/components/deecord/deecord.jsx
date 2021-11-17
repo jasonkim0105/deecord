@@ -46,9 +46,11 @@ class Deecord extends React.Component {
               <div className="servers-index">
                   <ServerIndexContainer/>
                 </div>
-              <div className='dm-container'>
-                <div className='dm-header'>
-                Direct Messages
+              <div className='servers-settings-channels-list'>
+                <div className='server-settings-menu'>
+                  <div className='dm-setting-title'>
+                    Direct Messages
+                  </div>
                 </div>
                 <div className="channels-container">
                   <DMIndexContainer/>

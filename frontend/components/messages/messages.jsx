@@ -42,8 +42,8 @@ class Messages extends React.Component {
       );
     }
    componentDidUpdate(prevProps) {
-      var element = document.getElementById("offset");
-      // element.scrollTop = element.scrollHeight;
+      var element = document.getElementById("real-messages");
+      element.scrollTop = element.scrollHeight;
       if (this.state.user_id !== this.props.currentUser.id) this.setState({user_id: this.props.currentUser.id});
 
       if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
@@ -107,7 +107,7 @@ class Messages extends React.Component {
 
                <div className="messages-container">
 
-                  <div id='offset'>
+                  <div id='real-messages'>
                      {this.props.messages.map( message => {
                         return (
                            <li key={message.id} className="message-list-item">

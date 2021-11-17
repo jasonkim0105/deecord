@@ -9,17 +9,18 @@ class DMList extends React.Component {
   render() {
     if (this.props.currentUser.id === this.props.dmChannel.user1.id) {
       return (
-        <li className='dm-channels-list-name'>
+        <li className='channel-list-individual'>
 
           <NavLink
-            to={`/channels/@me/${this.props.dmChannel.id}`}>
+            to={`/channels/@me/${this.props.dmChannel.id}`}
+            className='channels-nav-link'>
               {this.props.dmChannel.user2.username}
           </NavLink>
         </li>
       )
     } else {
       return (
-        <li className='dm-channels-list-name'>
+        <li className='channel-list-individual'>
 
           <NavLink
             to={`/channels/@me/${this.props.dmChannel.id}`}>

@@ -16,6 +16,8 @@ class DirectMessages extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        var element = document.getElementById("real-messages");
+        element.scrollTop = element.scrollHeight;
         if (prevProps.dmChannelId !== this.props.dmChannelId) {
             this.setState({ input: "" })
             this.subscription.unsubscribe()
@@ -71,15 +73,16 @@ class DirectMessages extends React.Component {
         }
 
         return(
-            <div className='messages-component'>
-                <div className='messages-with-title-container'>
+            <div className='direct-messages-component'>
+                <div className='direct-messages-with-title-container'>
                     <div className='channel-title-container'>
+                        <i class="far fa-at"></i>
                         <div className='channel-name-chatbox'>
                             {dm}
                         </div>
                     </div>
                 <div className='messages-container'>
-                    <div id='offset'>
+                    <div id='real-messages'>
                         {this.props.dmMessages.map( message => {
                             return (
                                 <li key={message.id} className="message-list-item">
@@ -105,17 +108,16 @@ class DirectMessages extends React.Component {
                         })}
                     </div>
 
-                    <div className="direct-message-input">
-                        <form onSubmit={this.handleSubmit}>
+                    <div className="message-form-input-container">
+                        <form onSubmit={this.handleSubmit} className='message-form-container'>
                             <input
                                 type="text"
-                                className="message-input-box"
+                                className="message-input"
                                 placeholder={`Message #${this.props.dmChannel.user1_id === this.props.currentUser.id ?
                                             this.props.dmChannel.user2.username : this.props.dmChannel.user1.username}`}
                                 value={this.state.input}
                                 onChange={this.handleInputChange}
                             ></input>
-                            <input type="submit" className="hidden-message-submit"></input>
                         </form>
                     </div>
                 </div>

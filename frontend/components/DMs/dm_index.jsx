@@ -25,10 +25,15 @@ class DMIndex extends React.Component {
 
   return (
     <div>
-      <div className="create-new-dm">
-        <button className="create-new-dm-button" onClick={openModal}>+</button>
+      <div className="channel-component">
+        <div className='create-channel' onClick={openModal}>
+          <div className='create-channel-text'>
+            New Direct Message
+          </div>
+        <div className="channel-button" >+</div>
+        </div>
       </div>
-      <div className="dm-name-list">
+      <div className="channel-list">
         {DMLists}
       </div>
 

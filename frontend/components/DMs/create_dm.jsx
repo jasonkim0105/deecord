@@ -46,8 +46,6 @@ class CreateDM extends React.Component {
           <div className="server-header">
             <h1 className="dm-label">Chat with a Friend</h1>
 
-
-
           </div>
 
           <div className="dm-content">
@@ -56,7 +54,7 @@ class CreateDM extends React.Component {
 
           <select className="dm-dropdown" value={this.state.value} onChange={this.handleChange}>
             <option value="" >Choose a Friend!</option>
-            {this.props.users.map(user => {
+            {this.props.allOtherUsers.map(user => {
               if(user.username != this.props.username) {
                 return <option key={user.id} value={user.id}>{user.username}</option>
               }
@@ -83,6 +81,7 @@ class CreateDM extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
   users: Object.values(state.entities.users),
+  allOtherUsers: Object.values(state.entities.users).filter(ele => ele.id !== state.session.id),
   currentUserId: state.session.id
 })
 

@@ -5,7 +5,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { createDM, fetchChannelDMs } from "../../actions/dm_actions";
 import { createDmChannel, fetchDmChannels } from "../../actions/dm_channel_actions";
 
-class CreateDM extends React.Component {
+class CreateDMessage extends React.Component {
   constructor(props){
     super(props);
 
@@ -64,16 +64,6 @@ class CreateDM extends React.Component {
           <button className="dm-button">Chat</button>
 
         </form>
-
-        {/* <select className="dm-dropdown" value={this.state.value} onChange={this.handleChange}>
-          <option value="" >Choose a Friend!</option>
-              {this.props.users.map(user => {
-                if(user.username != this.props.username) {
-                  return <option key={user.id} value={user.id}>{user.username}</option>
-                }
-                })}
-        </select> */}
-
       </div>
     )
   }
@@ -94,4 +84,4 @@ const mapDispatchToProps = dispatch => ({
   createDmChannel: channel => dispatch(createDmChannel(channel))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateDM));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateDMessage));

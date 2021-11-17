@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import CreateDM from './create_dm';
+// import CreateDMessage from './create_dm';
 import DMList from './dm_list';
 
 class DMIndex extends React.Component {

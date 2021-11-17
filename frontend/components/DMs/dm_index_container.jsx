@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentUserId: state.session.id,
     dmChannels: Object.values(state.entities.DMChannels)
-    // serverId: ownProps.match.params.serverId
   })
 }
 

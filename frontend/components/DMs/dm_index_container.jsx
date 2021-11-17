@@ -1,13 +1,14 @@
 import React from 'react';
-import DMList from './dm_list';
+import DMIndex from './dm_index';
 import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { fetchDmChannels } from '../../actions/dm_channel_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    // currentUser: state.entities.users[state.session.id],
-    // currentServer: state.entities.servers[ownProps.match.params.serverId],
+    currentUserId: state.session.id,
+    dmChannels: Object.values(state.entities.DMChannels)
     // serverId: ownProps.match.params.serverId
   })
 }
@@ -15,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(openModal('createDM')),
   closeModal: () => dispatch(closeModal()),
+  fetchDmChannels: userId => dispatch(fetchDmChannels(userId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DMList)
+export default connect(mapStateToProps, mapDispatchToProps)(DMIndex)

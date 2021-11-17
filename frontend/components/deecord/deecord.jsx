@@ -5,7 +5,8 @@ import ServerSettingsContainer from '../servers/settings/server_settings_contain
 import ServerMenu from '../servers/settings/server_menu';
 import ChannelsContainer from '../channels/channels_container';
 import MessagesContainer from '../messages/messages_container';
-import DMListContainer from '../DMs/dm_list_container';
+import DMIndexContainer from '../DMs/dm_index_container';
+import DirectMessagesContainer from '../DMs/direct_messages_container';
 import { Route } from 'react-router-dom';
 // import { AiOutlineLogout } from 'react-icons/ai';
 
@@ -16,13 +17,10 @@ class Deecord extends React.Component {
     // this.props.fetchServers()
   }
   componentDidUpdate(prevProps){
-    // if (prevProps != )
   }
 
   render(){
     let { currentUser, logout, currentServer, serverId } = this.props;
-    // console.log(this.props)
-    // console.log(currentServer)
     let auth = (currentUser) ?
       <div className='channel-footer'>
         <div className='channel-user'>
@@ -38,7 +36,6 @@ class Deecord extends React.Component {
 
         <button className='logout-button' onClick={logout}>
           Logout
-          {/* <AiOutlineLogout/> */}
         </button>
       </div>
       :
@@ -54,16 +51,20 @@ class Deecord extends React.Component {
                 Direct Messages
                 </div>
                 <div className="channels-container">
-                  <DMListContainer/>
+                  <DMIndexContainer/>
                 </div>
                 <div className="auth-setting">
                   {auth}
                 </div>
-              </div>
 
-              <div className='message-container'>
-                MESSAGES HERE
+
               </div>
+              <div className='servers-content-container'>
+                <Route
+                  path='/channels/@me/:dmChannelId'
+                  component={DirectMessagesContainer}
+                  />
+                </div>
 
             </div>
           );
@@ -85,14 +86,10 @@ class Deecord extends React.Component {
 
                 </div>
 
-                {/* <div className='message-container'>
-                   <MessagesContainer/>
-                </div> */}
                 <div className='servers-content-container'>
                 <Route
                   path='/channels/:serverId/channels/:channelId'
                   component={MessagesContainer}
-                  // component={UserListContainer}
                   />
                 </div>
 

@@ -29,7 +29,8 @@ class CreateDM extends React.Component {
       user2_id: this.state.value
     }
     this.props.createDmChannel(dmChannel)
-
+    this.props.closeModal();
+    this.props.fetchDmChannels(this.props.currentUserId);
   }
 
   render() {

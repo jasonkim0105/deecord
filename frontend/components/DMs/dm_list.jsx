@@ -1,20 +1,42 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import CreateDM from './create_dm';
 
 class DMList extends React.Component {
-
-
-  render() {
-    let { openModal } = this.props
-
-  return (
-    <div className="create-new-dm">
-      <button className="create-new-dm-button" onClick={openModal}>+</button>
-    </div>
-  )
+  constructor(props) {
+    super(props);
   }
+  render() {
+    if (this.props.currentUser.id === this.props.dmChannel.user1.id) {
+      return (
+        <li className='dm-channels-list-name'>
 
+          <NavLink
+            to={`/channels/@me/${this.props.dmChannel.id}`}>
+              {this.props.dmChannel.user2.username}
+          </NavLink>
+        </li>
+      )
+    } else {
+      return (
+        <li className='dm-channels-list-name'>
+
+          <NavLink
+            to={`/channels/@me/${this.props.dmChannel.id}`}>
+              {this.props.dmChannel.user1.username}
+          </NavLink>
+        </li>
+      )
+    }
+  }
 }
 
-export default DMList;
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.entities.users[state.session.id]
+})
+
+const mapDispatchToProps = dispatch => ({
+
+})
+
+export default connect(mapStateToProps, null)(DMList);

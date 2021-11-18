@@ -51,11 +51,6 @@ export const updateUser = user => dispatch => (
   .then(user => dispatch(receiveCurrentUser(user)))
 )
 
-// export const fetchServerUsers = serverId => dispatch => (
-//   SessionAPIUtil.fetchServerUsers(serverId)
-//     .then(users => dispatch(receiveUsers(users)))
-// );
-
 export const fetchAllUsers = () => dispatch => {
   return SessionAPIUtil.fetchAllUsers()
   .then( users => dispatch(receiveUsers(users)))

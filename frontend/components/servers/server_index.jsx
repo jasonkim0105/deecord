@@ -13,14 +13,10 @@ class ServerIndex extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.servers !== this.props.servers) {
-      // this.props.fetchServers();
-      // console.log(this.props)
-      // console.log(prevProps)
     }
   }
 
   render() {
-    // console.log(this.props)
     const { openModal, fetchServers } = this.props
     const {servers} = this.props;
     const ServerLists = servers.map((server, idx) => {

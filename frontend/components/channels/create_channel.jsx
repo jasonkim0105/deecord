@@ -51,7 +51,6 @@ class CreateChannel extends React.Component {
 
 
   render(){
-    console.log(this.props)
     return(
       <div className="create-channel-form-container">
 

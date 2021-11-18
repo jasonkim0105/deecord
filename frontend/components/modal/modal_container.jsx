@@ -4,7 +4,6 @@ import Modal from "./modal";
 
 const mapStateToProps = state => ({
   modal: state.ui.modal,
-  // currentServer: state.entities.servers[ownProps.match.params.serverId]
 })
 
 const mapDispatchToProps = dispatch => ({

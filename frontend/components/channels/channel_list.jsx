@@ -18,20 +18,9 @@ class ChannelList extends React.Component {
     this.setState(prevState => ({ dropdownOpen: !prevState.dropdownOpen }));
   }
 
-  // let serverName;
-
-  // if (server) {
-  //   if (server.name.length > 20) {
-  //     serverName = server.name.slice(0, 21) + '...';
-  //   } else {
-  //     serverName = server.name;
-  //   }
-  // } else {
-  //   return null;
-  // }
   render(){
     const { channel, openModal } = this.props;
-    // console.log(this.props)
+
 
     const channelDropdown = this.state.dropdownOpen ? <ChannelsDropdown/> : '';
 

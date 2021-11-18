@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import CreateDMessage from './create_dm';
 import DMList from './dm_list';
 
 class DMIndex extends React.Component {
@@ -14,13 +13,11 @@ class DMIndex extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.dmChannels !== this.props.dmChannels) {
-      // this.props.fetchDmChannels(this.props.currentUserId);
     }
   }
 
   render() {
     let { openModal, dmChannels } = this.props;
-    console.log(this.props)
     const DMLists = dmChannels.map((dmChannel, idx) => {
       return (
         <DMList

@@ -16,13 +16,11 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        console.log(user)
 
         this.props.processForm(user);
     }
 
     demoSubmit(e){
-      // console.log(this.props);
       e.preventDefault();
       const demoUser = {
         username: "DemoUser",
@@ -59,7 +57,6 @@ class SessionForm extends React.Component {
     }
 
     render(){
-      // console.log(this.props)
       if (this.props.formType === 'Login') {
         return (
           <div className="session-form-background">

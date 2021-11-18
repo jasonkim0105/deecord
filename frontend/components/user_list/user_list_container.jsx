@@ -1,7 +1,6 @@
 import UserList from './user_list'
 import {connect} from 'react-redux'
 import { getUserServers } from '../../actions/server_actions'
-// import { fetchServerUsers } from '../../actions/session_actions'
 
 const mapState = (state) => ({
    users: state.entities.users,
@@ -10,7 +9,6 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-    // fetchServerUsers: serverId => dispatch(fetchServerUsers(serverId)),
     getUsersIndex: serverId => dispatch(getUsersIndex(serverId)),
 })
 

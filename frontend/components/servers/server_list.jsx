@@ -8,13 +8,9 @@ import { fetchServers } from '../../actions/server_actions';
    }
 
    componentDidUpdate(prevProps){
-     console.log(this.props)
-     console.log(prevProps)
-    // this.props.fetchServers();
    }
 
    render() {
-    //  console.log(this.props)
      const {server} = this.props;
      return (
       <li className='servers-list-short-name'>

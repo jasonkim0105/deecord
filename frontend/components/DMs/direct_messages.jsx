@@ -63,7 +63,6 @@ class DirectMessages extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         if (this.props.server) return null
         if (!this.props.dmChannels) return null
         if (!this.props.dmChannel) return null

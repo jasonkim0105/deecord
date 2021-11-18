@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ServerSettingsDropdown from './server_settings_dropdown'
 import { openModal, closeModal } from '../../../actions/modal_actions.js';
-// import downarrow from '../../../../app/assets/images/downarrow.png';
 
 class ServerSettings extends React.Component {
   constructor(props) {

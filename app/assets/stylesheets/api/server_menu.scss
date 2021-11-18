@@ -1,6 +1,5 @@
 .servers-settings-channels-list {
   display: flex;
-  // height: 100%;
   flex-direction: column;
   width: 250px;
   background: #2f3136;
@@ -9,7 +8,6 @@
 
 .dm-container {
   display: flex;
-  // height: 100%;
   flex-direction: column;
   width: 250px;
   background: #2f3136;
@@ -53,13 +51,11 @@
 }
 
 .server-setting-icon {
-  // background-image: image-url("downarrow.png");
   width: 10px;
   height: 10px;
   margin-top: 16px;
   margin-right: 15px;
   color: white;
-  // border: none;
 }
 
 .fal.fa-angle-down {
@@ -71,8 +67,6 @@
 }
 
 .server-setting-dropdown {
-  // margin-right: 210px;
-  // margin-bottom: 500px;
   padding: 10px;
   background: #3a3b41;
   min-width: 100px;
@@ -81,7 +75,6 @@
 
   li {
     padding: 6px 0px;
-    // padding-left: 6px;
     font-size: 13px;
     display: flex;
     justify-content: center;
@@ -161,8 +154,3 @@
   box-shadow: 0 8px 15px rgba(192, 191, 191, 0.2);
   transition: 0.3s;
 }
-
-// logout-button:focus {
-//   border: none;
-//   outline: none;
-// }

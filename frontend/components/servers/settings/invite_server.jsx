@@ -5,18 +5,12 @@ class InviteServer extends React.Component {
     super(props);
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.deleteServer(this.state);
-  // }
-
   update(field){
     return e => this.setState({ [field]: e.currentTarget.value })
   }
 
   render() {
     const { server } = this.props;
-    console.log(this.props)
     const serverInviteCode = server.invite_code
     return (
       <div className="invite-container">
@@ -36,7 +30,6 @@ class InviteServer extends React.Component {
         </div>
 
       </div>
-      // <div>test</div>
     )
   }
 }

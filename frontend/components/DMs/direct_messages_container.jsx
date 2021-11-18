@@ -6,7 +6,6 @@ import { fetchChannelDMs, createDM } from '../../actions/dm_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(ownProps)
   return ({
     currentUserId: state.session.id,
     dmChannels: Object.values(state.entities.DMChannels),

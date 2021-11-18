@@ -31,7 +31,6 @@ class CreateDMessage extends React.Component {
 
     this.props.createDmChannel(dmChannel)
     this.props.closeModal();
-    // this.props.fetchDmChannels(this.props.currentUserId);
   }
 
 

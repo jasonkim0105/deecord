@@ -43,7 +43,6 @@ class JoinServer extends React.Component {
 
   render() {
     let { errors } = this.props
-    console.log(this.props)
     return (
       <div className="join-server-form-container">
 

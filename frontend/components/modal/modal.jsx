@@ -11,7 +11,6 @@ import CreateChannelContainer from '../channels/create_channel_container';
 import EditChannelContainer from '../channels/edit_channel_container';
 import DeleteChannelContainer from '../channels/delete_channel_container';
 import CreateDMessage from '../DMs/create_dm';
-// import ChannelSettingsContainer from '../channels/channel_settings_container';
 
 class Modal extends React.Component {
   constructor(props) {

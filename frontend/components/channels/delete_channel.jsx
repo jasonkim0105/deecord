@@ -17,7 +17,6 @@ class DeleteChannel extends React.Component {
 
 
   render(){
-    console.log(this.props)
     return(
       <div className="create-channel-form-container">
         <header className="delete-question">

@@ -19,9 +19,6 @@
 }
 
 .channel-title-container {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
   height: 50px;
   background: #36393f;
   text-align: center;
@@ -49,8 +46,7 @@
   max-height: 80%;
   overflow: hidden;
   overflow-anchor: none;
-  // position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
   -ms-overflow-style: none;
 
 }
@@ -106,7 +102,6 @@
   align-items: center;
   box-sizing: border-box;
   margin-top: 20px;
-  // display: block;
   text-align: center;
   vertical-align: middle;
 }
@@ -115,18 +110,15 @@
   display: inline-block;
   border-radius: 8px;
   box-sizing: border-box;
-  // position: absolute;
   background: #40444B;
   box-shadow: none;
   border:none;
   height: 44px;
-  // width: 60%;
   padding-left: 15px;
   padding-right: 15px;
   font-size: 15px;
   color: rgba(255,255,255,0.7);
   width: 90%;
-  // margin: 5px;
   align-content: center;
   margin-top: 20px;
 }
@@ -151,7 +143,6 @@ input.message-input:focus {
 .member-list {
   background: #2f3136;
   height: calc(100% - 53px);
-  // height: 50px;
 }
 
 .member-list-header {

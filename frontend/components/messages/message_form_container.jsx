@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.id],
   currentServer: state.entities.servers[ownProps.match.params.serverId],
-  // currentChannel:
 })
 
 const mapDispatchToProps = (dispatch) => ({

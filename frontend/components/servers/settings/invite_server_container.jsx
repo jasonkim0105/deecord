@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   const serverId = ownProps.match.params.serverId;
-  // console.log(ownProps)
   return {
     server: state.entities.servers[serverId]
   };

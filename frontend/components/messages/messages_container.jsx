@@ -1,10 +1,8 @@
 import Messages from './messages'
 import {connect} from 'react-redux'
 import { receiveMessage, getMessagesIndex, getMessageCreate, getMessageDestroy } from '../../actions/message_actions'
-// import {withRouter} from ''
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps)
 
   return ({
    messages: Object.values(state.entities.messages),

@@ -7,8 +7,6 @@ import UserListContainer from '../user_list/user_list_container'
 class Messages extends React.Component {
    constructor(props) {
       super(props)
-      // this.serverId = parseInt(this.props.match.params.id.substring(0, 10));
-      console.log("currentChannel", this.props)
       this.state = {
          channel_id: this.props.match.params.channelId,
          user_id: this.props.currentUser.id,
@@ -21,7 +19,6 @@ class Messages extends React.Component {
 
    componentDidMount() {
       this.currentChannelId = this.props.newChannelId;
-     console.log(this.currentChannelId)
       this.createNewSubscription(this.currentChannelId);
 
       this.props.getMessagesIndex(this.props.match.params.channelId)
@@ -89,7 +86,6 @@ class Messages extends React.Component {
          messages = this.props.messages;
       }
       this.channel_id = this.props.messages.currentChannelId;
-      console.log(this.props)
       const { currChannel } = this.props;
       let username, avatarLetter, time, channelName;
 

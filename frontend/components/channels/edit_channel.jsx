@@ -45,7 +45,6 @@ class EditChannel extends React.Component {
 
 
   render(){
-    console.log(this.props)
     return(
       <div className="create-channel-form-container">
         <div className='edit-channel-header'>

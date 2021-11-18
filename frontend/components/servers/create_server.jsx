@@ -50,7 +50,6 @@ class CreateServer extends React.Component {
 
 
   render() {
-    console.log(this.props)
     const { errors } = this.props;
 
     return (

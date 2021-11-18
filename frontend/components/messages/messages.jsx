@@ -43,7 +43,9 @@ class Messages extends React.Component {
     }
    componentDidUpdate(prevProps) {
       var element = document.getElementById("real-messages");
-      element.scrollTop = element.scrollHeight;
+      if (element) {
+         element.scrollTop = element.scrollHeight;
+      }
       if (this.state.user_id !== this.props.currentUser.id) this.setState({user_id: this.props.currentUser.id});
 
       if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
@@ -116,7 +118,7 @@ class Messages extends React.Component {
                                        </div>
 
                                        <div className='message-content'>
-                                          <p className="message-sender">
+                                          <div className="message-sender">
                                              <div className='message-sender-username'>
                                                 {message.user.username}
                                              </div>
@@ -125,7 +127,7 @@ class Messages extends React.Component {
                                                    {message.created_at.slice(8,10)}/
                                                    {message.created_at.slice(0,4)}
                                                 </span>
-                                          </p>
+                                          </div>
                                           <p className="message-body">{message.body}</p>
 
                                        </div>

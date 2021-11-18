@@ -17,7 +17,9 @@ class DirectMessages extends React.Component {
 
     componentDidUpdate(prevProps) {
         var element = document.getElementById("real-messages");
-        element.scrollTop = element.scrollHeight;
+        if (element) {
+            element.scrollTop = element.scrollHeight;
+        }
         if (prevProps.dmChannelId !== this.props.dmChannelId) {
             this.setState({ input: "" })
             this.subscription.unsubscribe()
@@ -76,7 +78,7 @@ class DirectMessages extends React.Component {
             <div className='direct-messages-component'>
                 <div className='direct-messages-with-title-container'>
                     <div className='channel-title-container'>
-                        <i class="far fa-at"></i>
+                        <i className="far fa-at"></i>
                         <div className='channel-name-chatbox'>
                             {dm}
                         </div>
@@ -91,7 +93,7 @@ class DirectMessages extends React.Component {
                                     </div>
 
                                    <div className='message-content'>
-                                        <p className="message-sender">
+                                        <div className="message-sender">
                                             <div className='message-sender-username'>
                                                 {message.author.username}
                                             </div>
@@ -100,7 +102,7 @@ class DirectMessages extends React.Component {
                                                {message.created_at.slice(8,10)}/
                                                {message.created_at.slice(0,4)}
                                             </span>
-                                        </p>
+                                        </div>
                                         <p className="message-body">{message.body}</p>
                                     </div>
                                 </li>

@@ -28,13 +28,29 @@ class CreateDMessage extends React.Component {
       user1_id: this.props.currentUserId,
       user2_id: this.state.value
     }
+
     this.props.createDmChannel(dmChannel)
     this.props.closeModal();
-    this.props.fetchDmChannels(this.props.currentUserId);
+    // this.props.fetchDmChannels(this.props.currentUserId);
   }
 
+
   render() {
-    console.log(this.props)
+    let { allOtherUsers, DMChannels} = this.props
+    let userArray = []
+    Object.values(DMChannels).forEach(channel => {
+      userArray.push(channel.user1_id);
+      userArray.push(channel.user2_id);
+    })
+    let realAllOtherUsers = [];
+    allOtherUsers.forEach((user) => {
+      if (!userArray.includes(user.id)) {
+        realAllOtherUsers.push(user)
+      }
+    })
+
+
+
     return (
       <div className='create-server-container'>
         <div className='create-channel-header'>
@@ -54,7 +70,7 @@ class CreateDMessage extends React.Component {
 
           <select className="dm-dropdown" value={this.state.value} onChange={this.handleChange}>
             <option value="" >Choose a Friend!</option>
-            {this.props.allOtherUsers.map(user => {
+            {realAllOtherUsers.map(user => {
               if(user.username != this.props.username) {
                 return <option key={user.id} value={user.id}>{user.username}</option>
               }
@@ -72,7 +88,8 @@ class CreateDMessage extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   users: Object.values(state.entities.users),
   allOtherUsers: Object.values(state.entities.users).filter(ele => ele.id !== state.session.id),
-  currentUserId: state.session.id
+  currentUserId: state.session.id,
+  DMChannels: state.entities.DMChannels
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -12,9 +12,15 @@ class DMIndex extends React.Component {
     this.props.fetchDmChannels(this.props.currentUserId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.dmChannels !== this.props.dmChannels) {
+      // this.props.fetchDmChannels(this.props.currentUserId);
+    }
+  }
+
   render() {
     let { openModal, dmChannels } = this.props;
-
+    console.log(this.props)
     const DMLists = dmChannels.map((dmChannel, idx) => {
       return (
         <DMList

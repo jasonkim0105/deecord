@@ -23,7 +23,8 @@ class DMList extends React.Component {
         <li className='channel-list-individual'>
 
           <NavLink
-            to={`/channels/@me/${this.props.dmChannel.id}`}>
+            to={`/channels/@me/${this.props.dmChannel.id}`}
+            className='channels-nav-link'>
               {this.props.dmChannel.user1.username}
           </NavLink>
         </li>

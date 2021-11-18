@@ -10,6 +10,8 @@ class Api::DmChannelsController < ApplicationController
     @dmChannel = DmChannel.new(dm_channel_params)
     if @dmChannel.save
       render 'api/dm_channels/show'
+    else
+      render json: @dmChannel.errors.full_messages, status: 422
     end
   end
 

@@ -14,7 +14,7 @@ import { fetchServers } from '../../actions/server_actions';
    }
 
    render() {
-     console.log(this.props)
+    //  console.log(this.props)
      const {server} = this.props;
      return (
       <li className='servers-list-short-name'>

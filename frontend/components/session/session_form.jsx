@@ -103,7 +103,10 @@ class SessionForm extends React.Component {
                         <h1 className="create">Create an account</h1>
                         <div className='error-message'>{this.renderErrors()}</div>
                         <div className="signup-form">
-                          <label className="email-signup">EMAIL
+                          <label className="email-signup">
+                          <div className='username-signup-text'>
+                            EMAIL
+                          </div>
                             <br/>
                               <input type="email"
                               value={this.state.email}
@@ -111,14 +114,20 @@ class SessionForm extends React.Component {
                               required={true}></input>
                           </label>
                           <br/>
-                          <label className="username-signup">USERNAME
+                          <label className="username-signup">
+                            <div className='username-signup-text'>
+                              USERNAME
+                            </div>
                             <br/>
                               <input type="text"
                               value={this.state.username}
                               onChange={this.update("username")}></input>
                           </label>
                           <br/>
-                          <label className="password-signup">PASSWORD
+                          <label className="password-signup">
+                          <div className='username-signup-text'>
+                            PASSWORD
+                          </div>
                             <br/>
                               <input type="password"
                               value={this.state.password}

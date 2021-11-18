@@ -10,7 +10,7 @@ const ServersReducer = (state = {}, action) => {
     case RECEIVE_SERVERS:
       return action.servers;
     case REMOVE_SERVER:
-      const deletedState = Object.assign({}, state)
+      let deletedState = Object.assign({}, state)
       delete deletedState[action.server.id]
       return deletedState
     case LOGOUT_CURRENT_USER:

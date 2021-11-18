@@ -11,9 +11,13 @@ class LeaveServer extends React.Component {
   handleSubmit(e) {
     let { serverId } = this.props
     e.preventDefault();
-    this.props.deleteServer(serverId)
+    this.props.leaveServer(serverId)
       .then(this.props.history.push(`/channels/@me`))
     this.props.closeModal();
+    this.props.fetchServers();
+  }
+
+  componentWillUnmount(){
     this.props.fetchServers();
   }
 

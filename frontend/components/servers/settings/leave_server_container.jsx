@@ -1,6 +1,6 @@
 import LeaveServer from './leave_server';
 import { connect } from 'react-redux';
-import { deleteServer, fetchServers } from '../../../actions/server_actions';
+import { leaveServer, fetchServers } from '../../../actions/server_actions';
 import { openModal, closeModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(openModal('addServer')),
   closeModal: () => dispatch(closeModal()),
-  deleteServer: serverId => dispatch(deleteServer(serverId)),
+  leaveServer: serverId => dispatch(leaveServer(serverId)),
   fetchServers: () => dispatch(fetchServers()),
 })
 

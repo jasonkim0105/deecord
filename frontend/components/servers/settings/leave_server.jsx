@@ -24,10 +24,12 @@ class LeaveServer extends React.Component {
 
   render() {
     return (
-      <div>
-        Are you sure you want to leave this server?
+      <div className='delete-server-modal-container'>
+        <div className='delete-server-header'>
+          Are you sure you want to leave this server?
+        </div>
         <form className="create-server-form" onSubmit={this.handleSubmit}>
-          <button className="create-server-button">Leave</button>
+          <button className="delete-server-button">Leave</button>
         </form>
       </div>
     )

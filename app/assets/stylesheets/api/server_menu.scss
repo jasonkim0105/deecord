@@ -90,6 +90,7 @@
 }
 .server-setting-invite-dropdown:hover {
   background: rgb(49, 49, 49);
+  cursor: pointer;
 }
 
 .server-setting-delete-dropdown {
@@ -98,6 +99,7 @@
 }
 .server-setting-delete-dropdown:hover {
   background: rgb(49, 49, 49);
+  cursor: pointer;
 }
 
 // channels portion
@@ -153,4 +155,5 @@
   color: rgb(156, 156, 161);
   box-shadow: 0 8px 15px rgba(192, 191, 191, 0.2);
   transition: 0.3s;
+  cursor: pointer;
 }

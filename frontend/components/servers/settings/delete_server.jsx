@@ -17,13 +17,19 @@ class DeleteServer extends React.Component {
     this.props.fetchServers();
   }
 
+  componentWillUnmount(){
+    this.props.fetchServers();
+  }
+
 
   render() {
     return (
-      <div>
-        Are you sure you want to delete this server?
+      <div className='delete-server-modal-container'>
+        <div className='delete-server-header'>
+          Are you sure you want to delete this server?
+        </div>
         <form className="create-server-form" onSubmit={this.handleSubmit}>
-          <button className="create-server-button">Delete</button>
+          <button className="delete-server-button">Delete</button>
         </form>
       </div>
     )

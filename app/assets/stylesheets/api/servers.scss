@@ -4,7 +4,11 @@
 .servers-index {
   background: #202225;
   min-width: 70px;
+  overflow: auto;
+}
 
+::-webkit-scrollbar {
+  display: none;
 }
 
 .add-server-container {

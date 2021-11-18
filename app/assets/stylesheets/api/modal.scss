@@ -313,6 +313,45 @@
   margin-top: 9px;
 }
 
+.delete-server-modal-container {
+  background:#2f3136;
+  height: 150px;
+  width: 250px;
+  border-radius: 5px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.delete-server-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: rgb(248, 44, 44);
+  padding: 15px;
+}
+
+.delete-server-button {
+  background: white;
+  border-width: thin;
+  border-radius: 5px;
+  border-color: rgb(221, 220, 220);
+  line-height: 50px;
+  border-style: solid;
+  display: inline;
+  text-align: center;
+  margin-left: 9px;
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+  color: rgb(61, 60, 60);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.delete-server-button:hover {
+  background: rgb(202, 198, 198);
+
+}
+
 .create-channel-button {
   background: #5865F2;
   height: 35px;
@@ -440,3 +479,4 @@
 .dm-button:hover {
   background-color: rgb(40, 122, 228);
 }
+

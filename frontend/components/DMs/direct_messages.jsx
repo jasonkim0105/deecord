@@ -4,10 +4,11 @@ class DirectMessages extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { input: "" }
+        this.state = { input: "", currentUserId: this.props.currentUserId }
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.subscription = null
+        // this.newDMs = [];
     }
 
     componentDidMount(){
@@ -49,11 +50,13 @@ class DirectMessages extends React.Component {
             }
         })
         this.setState({ input: "" })
+        // this.props.fetchChannelDMs(this.props.dmChannelId)
+
     }
 
     subscribe() {
         this.subscription = App.cable.subscriptions.create(
-            { channel: "DirectMessageChannel", id: this.props.dmChannelId },
+            { channel: "DirectMessageChannel", id: this.props.dmChannelId, },
             {
                 received: data => {
                     this.props.createDM(data.message)
@@ -72,6 +75,14 @@ class DirectMessages extends React.Component {
         } else {
             dm =this.props.dmChannel.user1.username
         }
+        let newDMs = [];
+        this.props.dmMessages.forEach(dm => {
+            if (dm.id % 2 !== 0 ) {
+                newDMs.push(dm)
+            }
+        })
+        // console.log(newDMs)
+
 
         return(
             <div className='direct-messages-component'>

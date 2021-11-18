@@ -8,6 +8,13 @@ class CreateChannel extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidMount(){
+    this.props.clearChannelErrors();
+  }
+  componentWillUnmount(){
+    this.props.clearChannelErrors();
+  }
   handleSubmit(e) {
     e.preventDefault();
     this.props.createChannel(this.state.channel)
@@ -25,14 +32,33 @@ class CreateChannel extends React.Component {
     };
   }
 
+  renderErrors() {
+    if (this.props.errors.length){
+        return (
+            <div className='join-errors'>
+                {this.props.errors.map((error, i) => (
+                    <p key={`error-${i}`}>
+                        {error}
+                    </p>
+                ))}
+            </div>
+        )
+    } else {
+        return null;
+    }
+
+}
+
 
   render(){
+    console.log(this.props)
     return(
       <div className="create-channel-form-container">
 
         <div className='create-channel-header'>
         CREATE A CHANNEL
         </div>
+        <div className='error-message'>{this.renderErrors()}</div>
 
         <form className="create-channel-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.channel.name} onChange={this.update()}/>

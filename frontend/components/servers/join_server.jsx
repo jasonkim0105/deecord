@@ -28,7 +28,7 @@ class JoinServer extends React.Component {
   renderErrors() {
     if (this.props.errors.length){
         return (
-            <div>
+            <div className='join-errors'>
                 {this.props.errors.map((error, i) => (
                     <p key={`error-${i}`}>
                         {error}

@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
     name: '',
     server_id: ownProps.match.params.serverId
   },
-  errors: state.errors.channel
+  errors: state.errors.channels
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -62,9 +62,3 @@ export const deleteChannel = (channel) => dispatch => (
   .then((channel) => dispatch(removeChannel(channel)),
   (error) => dispatch(receiveChannelErrors(error)))
 )
-
-// export const leaveChannel = (channel) => dispatch => {
-//   ChannelAPIUtil.leaveChannel(channel)
-//   .then((channel) => dispatch(receiveChannel(channel)),
-//   (error) => dispatch(receiveChannelErrors(error)))
-// }

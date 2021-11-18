@@ -128,6 +128,7 @@
   width: 90%;
   // margin: 5px;
   align-content: center;
+  margin-top: 20px;
 }
 
 input.message-input:focus {
@@ -169,3 +170,6 @@ input.message-input:focus {
   padding: 10px;
 }
 
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}

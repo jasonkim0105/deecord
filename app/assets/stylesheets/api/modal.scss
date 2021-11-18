@@ -101,7 +101,7 @@
 .create-server-form-container {
   box-sizing: border-box;
   width: 300px;
-  height: 150px;
+  height: 175px;
   border: 1px solid #E5E5E5;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
@@ -127,6 +127,7 @@
   width: 258px;
   height: 25px;
   margin-bottom: 15px;
+  margin-top: 5px;
 }
 
 .create-server-button-modal {
@@ -184,7 +185,7 @@
 .join-server-form-container {
   box-sizing: border-box;
   width: 300px;
-  height: 150px;
+  height: 200px;
   border: 1px solid #E5E5E5;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.08);
@@ -202,7 +203,7 @@
 .join-server-invite-code {
   font-size: 13px;
   text-align: center;
-  margin-bottom: 3px;
+  margin-bottom: 8px;
 }
 
 .join-server-form {
@@ -210,6 +211,7 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
+  padding-top: 8px;
 }
 
 .join-server-form > input {
@@ -226,6 +228,19 @@
   border: none;
   color: white;
   font-size: 15px;
+}
+
+.join-server-button-modal:hover {
+  background: #525ee4;
+  cursor: pointer;
+}
+
+.join-errors {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
 }
 
 .create-server-button-modal:hover {
@@ -273,14 +288,18 @@
   margin-right: 10px;
 }
 
+.close-invite:hover {
+  cursor: pointer;
+}
+
 .create-channel-form-container {
   box-sizing: border-box;
   width: 300px;
   height: 150px;
-  border: 1px solid #E5E5E5;
+  // border: 1px solid #E5E5E5;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-  background: white
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  background: #2f3136;
 }
 
 .create-channel-header {
@@ -289,6 +308,7 @@
   font-weight: 600;
   margin-top: 15px;
   margin-bottom: 5px;
+  color: white;
 }
 
 .create-channel-form {
@@ -319,4 +339,116 @@
 
 .create-channel-button:hover {
   background: #525ee4;
+  cursor: pointer;
+}
+
+.edit-channel-header {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+.delete-question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin-top: 5px;
+}
+
+.delete-question-explanation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #818181;
+}
+
+.delete-channel-buttons {
+  justify-content: space-evenly;
+  display: flex;
+  padding: 10px;
+}
+
+.delete-channel-no {
+  height: 50px;
+  width: 100px;
+  background-color: rgb(228, 101, 101);
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.delete-channel-yes {
+  height: 50px;
+  width: 100px;
+  background-color: rgb(101, 126, 211);
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.delete-channel-no:hover {
+  background-color: rgb(223, 55, 55);
+}
+
+.delete-channel-yes:hover {
+  background-color: rgb(40, 122, 228);
+}
+
+//dm
+
+.create-dm-container {
+  background:#2f3136;
+  height: 150px;
+  width: 250px;
+  border-radius: 5px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.dm-description {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: #8E9297;
+}
+
+.dm-dropdown-and-button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dm-dropdown {
+  height: 35px;
+  text-indent: 4px;
+  border: 1px solid #8E9297;
+  background-color: #2f3136;
+  color: white;
+  width: 130px;
+}
+
+.dm-dropdown:hover {
+  cursor: pointer;
+}
+
+.dm-button {
+  height: 35px;
+  width: 60px;
+  background-color: rgb(101, 126, 211);
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.dm-button:hover {
+  background-color: rgb(40, 122, 228);
 }

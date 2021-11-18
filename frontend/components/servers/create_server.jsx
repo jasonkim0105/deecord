@@ -22,7 +22,6 @@ class CreateServer extends React.Component {
     this.props.createServer(this.state)
     .then( ({server}) => {this.props.closeModal()
       this.props.history.push(`/channels/${server.id}`)
-      // console.log(this.props)
     })
     this.props.fetchServers()
 
@@ -35,7 +34,7 @@ class CreateServer extends React.Component {
   renderErrors() {
     if (this.props.errors.length){
         return (
-            <div>
+            <div className='join-errors'>
                 {this.props.errors.map((error, i) => (
                     <p key={`error-${i}`}>
                         {error}

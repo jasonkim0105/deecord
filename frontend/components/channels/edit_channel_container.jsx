@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
   channel: state.entities.channels[ownProps.match.params.channelId],
-  errors: state.errors.channel
+  errors: state.errors.channels
 })
 
 const mapDispatchToProps = dispatch => ({

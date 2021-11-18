@@ -52,32 +52,31 @@ class CreateDMessage extends React.Component {
 
 
     return (
-      <div className='create-server-container'>
+      <div className='create-dm-container'>
         <div className='create-channel-header'>
           Create DM
         </div>
 
 
         <form className="dm-modal-main" onSubmit={this.handleSubmit}>
-          <div className="server-header">
-            <h1 className="dm-label">Chat with a Friend</h1>
 
-          </div>
-
-          <div className="dm-content">
+          <div className="dm-description">
             Chat with a friend privately!!
           </div>
 
-          <select className="dm-dropdown" value={this.state.value} onChange={this.handleChange}>
-            <option value="" >Choose a Friend!</option>
-            {realAllOtherUsers.map(user => {
-              if(user.username != this.props.username) {
-                return <option key={user.id} value={user.id}>{user.username}</option>
-              }
-            })}
-          </select>
+          <div className='dm-dropdown-and-button'>
+            <select className="dm-dropdown" value={this.state.value} onChange={this.handleChange}>
+              <option value="" >Choose a Friend!</option>
+              {realAllOtherUsers.map(user => {
+                if(user.username != this.props.username) {
+                  return <option key={user.id} value={user.id}>{user.username}</option>
+                }
+              })}
+            </select>
 
-          <button className="dm-button">Chat</button>
+            <button className="dm-button">Chat</button>
+
+          </div>
 
         </form>
       </div>

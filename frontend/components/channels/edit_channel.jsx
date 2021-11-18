@@ -15,20 +15,7 @@ class EditChannel extends React.Component {
     })
   }
 
-  // update(field){
-  //   return e => this.setState({ [field]: Object.assign({}, this.state, {name: e.currentTarget.value })
-  //   })
-  // }
 
-  // update(field){
-  //   return e => {
-  //     this.setState(
-  //       {
-  //         [field]: Object.assign({}, this.state.channel, { name: e.currentTarget.value })
-  //       }
-  //     )
-  //    }
-  // }
   update() {
     return (e) => {
       this.setState(
@@ -40,12 +27,34 @@ class EditChannel extends React.Component {
   }
 
 
+  renderErrors() {
+    if (this.props.errors.length){
+        return (
+            <div className='join-errors'>
+                {this.props.errors.map((error, i) => (
+                    <p key={`error-${i}`}>
+                        {error}
+                    </p>
+                ))}
+            </div>
+        )
+    } else {
+      return null;
+    }
+}
+
+
   render(){
     console.log(this.props)
-    // console.log(this.state);
     return(
       <div className="create-channel-form-container">
-        CREATE A CHANNEL
+        <div className='edit-channel-header'>
+          EDIT CHANNEL
+
+        </div>
+
+        <div className='error-message'>{this.renderErrors()}</div>
+
         <form className="create-channel-form" onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.channel.name} onChange={this.update()}/>
           <button className="create-channel-button">Edit Channel</button>

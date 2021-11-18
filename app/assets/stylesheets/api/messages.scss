@@ -56,6 +56,11 @@
   padding-left: 15px;
   padding-top: 15px;
   display: flex;
+  padding-bottom: 15px;
+}
+
+.message-list-item:hover {
+  background: #46484e;
 }
 
 .message-icon {

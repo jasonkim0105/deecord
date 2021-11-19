@@ -45,8 +45,7 @@
 }
 
 #real-messages {
-  height:90%;
-  // max-height: 80vh;
+  height: 80vh;
   overflow: hidden;
   overflow-anchor: none;
   overflow-y: auto;
@@ -127,7 +126,7 @@
   background: #40444B;
   box-shadow: none;
   border:none;
-  height: 44px;
+  height: 60px;
   padding-left: 15px;
   padding-right: 15px;
   font-size: 15px;

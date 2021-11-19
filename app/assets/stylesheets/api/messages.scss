@@ -45,7 +45,9 @@
 }
 
 #real-messages {
-  height: 80vh;
+  height: calc(100% - 100px);
+  // height: calc(100vh-150px);
+  // max-height: 80vh;
   overflow: hidden;
   overflow-anchor: none;
   overflow-y: auto;

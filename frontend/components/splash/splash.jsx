@@ -25,6 +25,7 @@ const Splash = ({currentUser, logout}) => {
             </div>
           </div>
         </div>
+        <img className='splash1back' src={window.splashwavesbackground}/>
       </div>
 
     </div>

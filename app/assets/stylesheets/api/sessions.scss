@@ -32,13 +32,14 @@
   color:rgb(219, 217, 217);
   font-size: 25px;
   padding-bottom: 20px;
-  padding-right: 250px;
+  padding-right: 240px;
   padding-top: -2500px;
 }
 
 .excited {
   font-size: 15px;
-  padding-right: 200px;
+  padding-right: 180px;
+  // color: red;
 }
 
 .login-form-box {
@@ -93,6 +94,20 @@
   font-size: 15px;
   padding-right: 250px;
   padding-top: 20px;
+}
+
+.error-message-login {
+  color: red;
+  padding-top: 3px;
+  font-size: 12px;
+  padding-right: 245px;
+}
+
+.error-message-signup {
+  color: red;
+  // padding-top: 3px;
+  font-size: 12px;
+  // padding-right: 245px;
 }
 
 .register {

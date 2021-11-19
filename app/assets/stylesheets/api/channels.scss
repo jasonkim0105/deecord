@@ -62,6 +62,7 @@
 
 .channel-list-individual-name {
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .channel-list-individual-name > i {

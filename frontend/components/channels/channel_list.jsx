@@ -20,6 +20,12 @@ class ChannelList extends React.Component {
 
   render(){
     const { channel, openModal } = this.props;
+    let displayChannelName
+    if (channel.name.length <= 20) {
+      displayChannelName = channel.name
+    } else {
+      displayChannelName = channel.name.slice(0,19) + '...'
+    }
 
 
     const channelDropdown = this.state.dropdownOpen ? <ChannelsDropdown/> : '';
@@ -31,7 +37,7 @@ class ChannelList extends React.Component {
         className='channels-nav-link'>
         <div className="channel-list-individual-name">
           <i className="fas fa-hashtag" ></i>
-          {channel.name}
+          {displayChannelName}
         </div>
 
         <div className='channels-nav-settings'>

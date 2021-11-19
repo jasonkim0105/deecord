@@ -35,6 +35,10 @@ class SessionForm extends React.Component {
             [field]: e.currentTarget.value
         })
     }
+
+    componentDidUpdate() {
+      // this.props.clearErrors();
+    }
     componentWillUnmount() {
       this.props.clearErrors();
     }
@@ -64,7 +68,7 @@ class SessionForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                   <h1 className="welcome">Welcome back!</h1>
                   <p className="excited">We're so excited to see you again!</p>
-                    <div className='error-message'>{this.renderErrors()}</div>
+                    <div className='error-message-login'>{this.renderErrors()}</div>
                     <div className="login-form">
                         <label>USERNAME
                           <br />
@@ -101,7 +105,7 @@ class SessionForm extends React.Component {
                 <div className="signup-container">
                     <form onSubmit={this.handleSubmit}>
                         <h1 className="create">Create an account</h1>
-                        <div className='error-message'>{this.renderErrors()}</div>
+                        <div className='error-message-signup'>{this.renderErrors()}</div>
                         <div className="signup-form">
                           <label className="email-signup">
                           <div className='username-signup-text'>

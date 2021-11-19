@@ -89,7 +89,21 @@ class Messages extends React.Component {
       const { currChannel } = this.props;
       let username, avatarLetter, time, channelName;
 
+      let displayChannelName
+      console.log(currChannel)
+      // if (currChannel.name.length <= 20) {
+      //    displayChannelName = currChannel.name
+      // } else {
+      //    displayChannelName = currChannel.name.slice(0,19) + '...'
+      // }
       if (currChannel) channelName = currChannel.name;
+      if (channelName){
+         if (channelName.length <= 100) {
+            displayChannelName = channelName
+         } else {
+            displayChannelName = channelName.slice(0,90)+ '...'
+         }
+      }
       if (!this.props.server) return null
 
 
@@ -99,7 +113,9 @@ class Messages extends React.Component {
                <div className='channel-title-container'>
                   <i className="fas fa-hashtag" ></i>
                   <div className='channel-name-chatbox'>
-                     {channelName}
+                     <div className='channel-name-actual'>
+                        {displayChannelName}
+                     </div>
                   </div>
                </div>
 

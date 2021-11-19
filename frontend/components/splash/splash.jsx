@@ -8,7 +8,7 @@ const Splash = ({currentUser, logout}) => {
       <div className="splash-div-1">
         <nav>
           <div className="deecord-title">
-            <Link to='/'>Deecord</Link>
+            <Link to='/' className='deecord-title-button'>Deecord</Link>
           </div>
             <Link to="/login">Login</Link>
         </nav>
@@ -26,6 +26,8 @@ const Splash = ({currentUser, logout}) => {
           </div>
         </div>
         <img className='splash1back' src={window.splashwavesbackground}/>
+        <img className='splash1left' src={window.discordleft}/>
+        <img className='splash1right' src={window.discordright}/>
       </div>
 
     </div>

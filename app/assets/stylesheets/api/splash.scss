@@ -31,12 +31,14 @@
 //   src: font-url('whitney-2-cufonfonts-webfont/whitneybold.woff') format('woff');
 // }
 
+
 .splash {
-  height: 2000px;
+  // height: 2000px;
+  height: 100vh;
 }
 .splash-div-1 {
   width: 100%;
-  height: 630px;
+  height: 100vh;
   background-image: linear-gradient(to bottom, #303fdd, #3f5bb6, #4d6de2);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -119,8 +121,34 @@
   line-height: 50px;
   font-weight: 300;
 }
+.deecord-title-button {
+  // border: white;
+  text-decoration: none;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .splash1back {
   max-width: 100%;
+  bottom: 0px;
+  position: absolute;
+}
+
+.splash1left {
+  width: 45%;
+  height: auto;
+  bottom: 0px;
+  left: 0px;
+  z-index: 2;
+  position: fixed;
+}
+
+.splash1right {
+  width: 45%;
+  height: auto;
+  bottom: 0px;
+  right: 0px;
+  z-index: 2;
+  position: fixed;
 }
 

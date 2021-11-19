@@ -105,21 +105,22 @@
 }
 
 .message-form-container {
-  width: 100%;
-  align-content: center;
+  // width: 100%;
+  // align-content: center;
   align-items: center;
-  box-sizing: border-box;
-  // margin-top: 40px;
+  // box-sizing: border-box;
+  // // margin-top: 40px;
   text-align: center;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 
 .message-form-input-container {
   // margin-top: -70px;
-  // height: 10%
+  // height: 13%
 }
 
 .message-input {
+  vertical-align: middle;
   display: inline-block;
   border-radius: 8px;
   box-sizing: border-box;
@@ -133,7 +134,7 @@
   color: rgba(255,255,255,0.7);
   width: 90%;
   align-content: center;
-  // margin-top: 20px;
+  margin-top: 20px;
 }
 
 input.message-input:focus {

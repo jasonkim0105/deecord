@@ -45,8 +45,8 @@
 }
 
 #real-messages {
-  height: 80%;
-  max-height: 80%;
+  height:80vh;
+  max-height: 80vh;
   overflow: hidden;
   overflow-anchor: none;
   overflow-y: auto;
@@ -110,9 +110,14 @@
   align-content: center;
   align-items: center;
   box-sizing: border-box;
-  margin-top: 40px;
+  // margin-top: 40px;
   text-align: center;
   vertical-align: middle;
+}
+
+.message-form-input-container {
+  // margin-top: -70px;
+  // height: 10%
 }
 
 .message-input {
@@ -129,7 +134,7 @@
   color: rgba(255,255,255,0.7);
   width: 90%;
   align-content: center;
-  margin-top: 20px;
+  // margin-top: 20px;
 }
 
 input.message-input:focus {

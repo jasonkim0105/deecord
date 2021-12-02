@@ -13,15 +13,11 @@ import MessagesContainer from './messages/messages_container';
 
 const App = () => (
   <div>
-    {/* <Switch>
-      <Route path='/channels/:serverId' component={ModalContainer} />
-    </Switch> */}
     <ModalContainer/>
 
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
       <ProtectedRoute path="/channels/:serverId" component={DeecordContainer} />
-      {/* <ProtectedRoute exact path="/channels/:serverId/channels/:channelId" component={MessagesContainer}/> */}
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <Route component={ErrorPage}/>

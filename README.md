@@ -5,7 +5,7 @@
 
 Deecord is a clone of discord, a platform where users can communicate with one another in the safety of server communities. Servers can have multiple channels, each being unique chat rooms that users can chat in.
 
-## [Deecord Live](deecord.herokuapp.com)
+## [Deecord Live](https://deecord.herokuapp.com/#/)
 <img width="1280" alt="Screen Shot 2021-11-19 at 4 31 33 PM" src="https://user-images.githubusercontent.com/76461881/142707278-53090f8c-8ac9-461c-8aa0-aefac548d16c.png">
 
 
